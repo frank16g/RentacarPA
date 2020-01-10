@@ -1,6 +1,6 @@
 ﻿namespace Rentacar
 {
-    partial class Login
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.
