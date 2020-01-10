@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RentacarEntidades
 {
-    public class Class1
+    class ClienteEntidad
     {
     }
 }
