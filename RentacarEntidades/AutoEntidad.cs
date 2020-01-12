@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RentacarEntidades
 {
-    class AutoEntidad
+    public class AutoEntidad
     {
         public string Id { get; set; }
         public int Id_Marca { get; set; }

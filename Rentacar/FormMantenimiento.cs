@@ -14,7 +14,7 @@ namespace Rentacar
 {
     public partial class FormMantenimiento : Form
     {
-        //AutoEntidad auto = new AutoEntidad();
+        AutoEntidad auto = new AutoEntidad();
         public FormMantenimiento()
         {
             InitializeComponent();
