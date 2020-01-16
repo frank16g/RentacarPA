@@ -12,7 +12,7 @@ namespace RentacarDatos
     {
         public void probarConxion()
         {
-            SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaArchivo);
+            SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
             conexion.Open();
         }
         
