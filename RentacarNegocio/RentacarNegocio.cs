@@ -52,9 +52,9 @@ namespace RentacarNegocio
         {
             return   RentacarDatos.RentacarDatos.ObtenerIdCliente();
         }
-        public static void insertarAuto(AutoEntidad auto)
+        public static bool insertarAuto(AutoEntidad auto)
         {
-            RentacarDatos.RentacarDatos.insertarAuto(auto);
+            return RentacarDatos.RentacarDatos.insertarAuto(auto);
             
         }
         public static List<MantenimientoEntidad> BuscarCarroNegocio(AutoEntidad auto)
@@ -66,6 +66,11 @@ namespace RentacarNegocio
         public static void insertarMantenimiento(MantenimientoEntidad mantenimiento)
         {
             RentacarDatos.RentacarDatos.insertarMantenimiento(mantenimiento);
+        }
+
+        public static AutoEntidad asignarAuto(string placa)
+        {
+            return RentacarDatos.RentacarDatos.asignarAuto(placa);
         }
     }
 }

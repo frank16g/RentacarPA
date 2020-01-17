@@ -506,7 +506,7 @@ namespace RentacarDatos
             return idCliente;
         }
 
-        public static void insertarAuto(AutoEntidad auto)
+        public static bool insertarAuto(AutoEntidad auto)
         {
             try
             {
@@ -536,14 +536,57 @@ namespace RentacarDatos
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteScalar();
                 conexion.Close();
+                return true;
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                return false;
             }
             catch (Exception)
             {
                 throw;
             }
+
+
         }
+        public static AutoEntidad asignarAuto(string placa)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" SELECT [id]
+                                             ,[nombre]
+                                            
+                                         FROM [Autos]
+                                     WHERE id=@placa;";
+                cmd.Parameters.AddWithValue("@placa", placa);
+                cmd.CommandType = CommandType.Text;
+                AutoEntidad auto = new AutoEntidad();
+                using (var dr = cmd.ExecuteReader())
+                {
+                    dr.Read();
+                    auto.Id= dr["id"].ToString();
+                    auto.Nombre = dr["nombre"].ToString();
+                   
+                }
+
+                conexion.Close();
+                return auto;
+            }
+            catch (System.InvalidOperationException)
+            {
+
+                return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
 
-
+        }
     }
 }
