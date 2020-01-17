@@ -29,5 +29,10 @@ namespace Rentacar
         {
             throw new NotImplementedException();
         }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
