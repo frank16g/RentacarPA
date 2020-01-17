@@ -9,7 +9,7 @@ namespace RentacarEntidades
     public class MantenimientoEntidad
     {
         public int Id { get; set; }
-        public int Id_Auto { get; set; }
+        public string Id_Auto { get; set; }
         public DateTime Fecha { get; set; }
         public float Costo { get; set; }
         public string Descripcion { get; set; }

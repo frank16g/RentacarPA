@@ -15,6 +15,7 @@ namespace Rentacar
     public partial class FormMantenimiento : Form
     {
         AutoEntidad auto = new AutoEntidad();
+        List<MantenimientoEntidad> m = new List<MantenimientoEntidad>();
         public FormMantenimiento()
         {
             InitializeComponent();
@@ -27,10 +28,72 @@ namespace Rentacar
 
         private void BuscarCarro()
         {
-            RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(tbid.Text);
+            auto.Id = tbid.Text;
+            bool flag = ComprobarExistenciaAuto(auto);
+            if (flag)
+            {
+                m = RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(auto);
+                ListarMantenimientos();
+            }
+            else
+            {
+                MessageBox.Show("Carro no existe");
+            }
+            
+        }
+
+        private void ListarMantenimientos()
+        {
+            mantenimientos.DataSource = null;
+            mantenimientos.DataSource = m;
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
+        {
+            auto.Id = tbid.Text;
+            bool flag = ComprobarExistenciaAuto(auto);
+            if (flag && tbid.Text != null && dtfecha.Value != null && tbcosto.Text != null && tbdescripcion.Text != null)
+            {
+                GuardarMantenimiento();
+            }
+            else
+            {
+                MessageBox.Show("Datos incorrectos");
+            }
+            
+        }
+
+        private bool ComprobarExistenciaAuto(AutoEntidad auto)
+        {
+            List<MarcaEntidad> marcas = new List<MarcaEntidad>();
+            marcas = RentacarNegocio.RentacarNegocio.DevolverListadoMarcas();
+            bool flag = false;
+            for (int i = 0; i < marcas.Count; i++)
+            {
+                for (int j = 0; j < marcas[i].ListaAutos.Count; j++)
+                {
+                    if (marcas[i].ListaAutos[j].Id == auto.Id)
+                    {
+                        flag = true;
+                    }
+                    
+                }
+            }
+            return flag;
+        }
+
+        private void GuardarMantenimiento()
+        {
+            MantenimientoEntidad mantenimiento = new MantenimientoEntidad();
+            mantenimiento.Id_Auto = tbid.Text;
+            mantenimiento.Costo = float.Parse(tbcosto.Text);
+            mantenimiento.Descripcion = tbdescripcion.Text;
+            mantenimiento.Fecha = DateTime.Parse(dtfecha.Text);
+            RentacarNegocio.RentacarNegocio.insertarMantenimiento(mantenimiento);
+        }
+
+
+        private void mantenimientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

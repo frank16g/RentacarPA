@@ -117,6 +117,36 @@ namespace RentacarDatos
 
         }
 
+        public static void insertarMantenimiento(MantenimientoEntidad mantenimiento)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" INSERT INTO [dbo].[Mantenimiento]
+                                                           ([id_auto]
+                                                           ,[fecha]
+                                                           ,[costo]
+                                                           ,[descripcion])
+                                                     VALUES
+                               (@id_auto,@fecha,@costo,@descripcion);
+                               SELECT SCOPE_IDENTITY();";
+                cmd.Parameters.AddWithValue("@id_auto", mantenimiento.Id_Auto);
+                cmd.Parameters.AddWithValue("@fecha", mantenimiento.Fecha);
+                cmd.Parameters.AddWithValue("@costo", mantenimiento.Costo);
+                cmd.Parameters.AddWithValue("@descripcion", mantenimiento.Descripcion);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteScalar();
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static List<ServicioEntidad> CargarServiciosSqlServer()
         {
             try
@@ -335,6 +365,57 @@ namespace RentacarDatos
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public static List<MantenimientoEntidad> CargarMantenimientosId(AutoEntidad auto)
+        {
+            try
+            {
+
+                List<MantenimientoEntidad> m = new List<MantenimientoEntidad>();
+
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+
+                connection.Open();
+
+                cmd
+                    .CommandText = @"SELECT [id_auto]
+                                  ,[fecha]
+                                  ,[costo]
+                                  ,[descripcion]
+                              FROM [dbo].[Mantenimiento]
+                              WHERE id_auto=@id";
+                cmd.Parameters.AddWithValue("@id", auto.Id);
+
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        MantenimientoEntidad man = new MantenimientoEntidad();
+
+                        man.Id_Auto = (dataReader["id_auto"].ToString());
+                        man.Costo = float.Parse(dataReader["costo"].ToString());
+                        man.Fecha = Convert.ToDateTime(dataReader["fecha"].ToString());
+                        man.Descripcion = (dataReader["descripcion"].ToString());
+
+                        m.Add(man);
+
+                    }
+
+                }
+
+                connection.Close();
+                return m;
+
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }
