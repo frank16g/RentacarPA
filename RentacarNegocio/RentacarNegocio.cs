@@ -59,6 +59,10 @@ namespace RentacarNegocio
         public static List<MantenimientoEntidad> BuscarCarroNegocio(AutoEntidad auto)
                 //as un pull en todos porque note esta cogiendo las libreriras da hacciendo como es
                 // eso es en el github mismo 
+                //entra de nuevo a donde estabas solo estas jalando una carpeta pero no los packages
+                //estas viendo lo que escribo ? si 
+                //jala esto no reconoce por  esto jala esta carpeta no se como sea el github aqui 
+                //has un push tu primero de ahi que ja;e;n el ressto 
         {
             return RentacarDatos.RentacarDatos.CargarMantenimientosId(auto);
         }
