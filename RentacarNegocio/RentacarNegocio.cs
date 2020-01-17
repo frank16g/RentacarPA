@@ -57,7 +57,8 @@ namespace RentacarNegocio
             RentacarDatos.RentacarDatos.insertarAuto(auto);
         }
         public static List<MantenimientoEntidad> BuscarCarroNegocio(AutoEntidad auto)
-
+                //as un pull en todos porque note esta cogiendo las libreriras da hacciendo como es
+                // eso es en el github mismo 
         {
             return RentacarDatos.RentacarDatos.CargarMantenimientosId(auto);
         }

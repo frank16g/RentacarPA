@@ -27,7 +27,7 @@ namespace Rentacar
             ReportDataSource FuenteDeDatos = new ReportDataSource();
             reportViewer1.LocalReport.DataSources.Clear();
 
-            reportViewer1.LocalReport.ReportEmbeddedResource = "Ejemplo.Report1.rdlc";
+            reportViewer1.LocalReport.ReportEmbeddedResource = "RentacarDatos.Report1.rdlc";
             FuenteDeDatos.Name = "DataSet1";
             this.reservaTableAdapter.Fill(this.DataSet1.Reserva);
             FuenteDeDatos.Value = TablaBindingSource;
