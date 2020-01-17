@@ -16,7 +16,7 @@ namespace Rentacar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormInformes());
+            Application.Run(new FormAdmin());
         }
     }
 }

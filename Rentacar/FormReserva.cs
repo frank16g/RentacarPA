@@ -22,6 +22,7 @@ namespace Rentacar
 
         AlquilerEntidad alquiler = new AlquilerEntidad();
         ClienteEntidad clienteAlquiler = new ClienteEntidad();
+        int dias;
 
         public FormReserva()
         {
@@ -62,7 +63,7 @@ namespace Rentacar
 
             TimeSpan timeSpan = alquiler.fechaDevolucion.AddMilliseconds(5000) - alquiler.fechaRecogida;
  
-            int dias = timeSpan.Days;
+            dias = timeSpan.Days;
 
             if (dias>0)
             {
@@ -247,7 +248,14 @@ namespace Rentacar
             //e.Graphics.DrawImage(codigoBarras, 200, 90, 550, 110);
             e.Graphics.DrawImage(logoRentaCar, 600, 70, 200, 200);
             e.Graphics.DrawImage(codigoQr, 599, 280, 175, 175);
-            
+            int y = 150;
+            e.Graphics.DrawString("Cliente"+ clienteAlquiler.Nombre, fuenteCabecera, Brushes.Black, 20, y += 20);
+            e.Graphics.DrawString("Carro"+ textBoxModelo.Text, fuenteCabecera, Brushes.Black, 120, y);
+            e.Graphics.DrawString("Dias" + dias, fuenteCabecera, Brushes.Black, 200, y);
+            e.Graphics.DrawString("Subtotal" + alquiler.subtotal, fuenteCabecera, Brushes.Black, 300, y);
+            e.Graphics.DrawString("IVA" + alquiler.iva, fuenteCabecera, Brushes.Black, 300, y);
+            e.Graphics.DrawString("Total" + alquiler.total, fuenteCabecera, Brushes.Black, 300, y);
+            y += 10;
 
         }
 
@@ -266,15 +274,15 @@ namespace Rentacar
             Image codigoQrRecortado = codigoQr.Image;
 
 
-            codigoBarras = BarcodeWriter.CreateBarcode(texto, BarcodeWriterEncoding.PDF417);
+            //codigoBarras = BarcodeWriter.CreateBarcode(texto, BarcodeWriterEncoding.PDF417);
             // Style the Barcode in a fluent LINQ style fashion
-            codigoBarras.ResizeTo(550, 110).SetMargins(5);
+            //codigoBarras.ResizeTo(550, 110).SetMargins(5);
 
 
             //   Rectangle rectanguloOrigen = new Rectangle(0, 0, 800, 200);
-            Image CodigoDeBarrasRecortado = codigoBarras.Image;
+            //Image CodigoDeBarrasRecortado = codigoBarras.Image;
 
-            listaCodigos.Add(CodigoDeBarrasRecortado);
+            //listaCodigos.Add(CodigoDeBarrasRecortado);
             listaCodigos.Add(codigoQrRecortado);
 
             return listaCodigos;
@@ -292,6 +300,9 @@ namespace Rentacar
 
             clienteAlquiler = formCliente.clienteSeleccionados;
 
+            textBoxApellido.Text = clienteAlquiler.Apellido;
+            textBoxRuc.Text = clienteAlquiler.Cedula;
+            textBoxNombre.Text = clienteAlquiler.Nombre;
 
             
             //alquiler.idCliente =  formCliente.clienteSeleccionados

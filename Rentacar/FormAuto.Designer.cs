@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAuto));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox_Categoria = new System.Windows.Forms.ComboBox();
+            this.comboBox_Marca = new System.Windows.Forms.ComboBox();
+            this.textBox_Disponibilidad = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox_Color = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxAgregar = new System.Windows.Forms.PictureBox();
             this.textBox_Placa = new System.Windows.Forms.TextBox();
@@ -44,13 +49,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox_Color = new System.Windows.Forms.TextBox();
             this.button_Continuar = new System.Windows.Forms.Button();
             this.Guardar = new System.Windows.Forms.Button();
-            this.textBox_Disponibilidad = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox_Marca = new System.Windows.Forms.ComboBox();
-            this.comboBox_Categoria = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAgregar)).BeginInit();
@@ -90,6 +90,57 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "`";
             // 
+            // comboBox_Categoria
+            // 
+            this.comboBox_Categoria.FormattingEnabled = true;
+            this.comboBox_Categoria.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.comboBox_Categoria.Location = new System.Drawing.Point(316, 85);
+            this.comboBox_Categoria.Name = "comboBox_Categoria";
+            this.comboBox_Categoria.Size = new System.Drawing.Size(339, 32);
+            this.comboBox_Categoria.TabIndex = 22;
+            this.comboBox_Categoria.SelectedIndexChanged += new System.EventHandler(this.comboBox_Categoria_SelectedIndexChanged);
+            // 
+            // comboBox_Marca
+            // 
+            this.comboBox_Marca.FormattingEnabled = true;
+            this.comboBox_Marca.Location = new System.Drawing.Point(316, 138);
+            this.comboBox_Marca.Name = "comboBox_Marca";
+            this.comboBox_Marca.Size = new System.Drawing.Size(339, 32);
+            this.comboBox_Marca.TabIndex = 21;
+            // 
+            // textBox_Disponibilidad
+            // 
+            this.textBox_Disponibilidad.Location = new System.Drawing.Point(316, 421);
+            this.textBox_Disponibilidad.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Disponibilidad.Name = "textBox_Disponibilidad";
+            this.textBox_Disponibilidad.ReadOnly = true;
+            this.textBox_Disponibilidad.Size = new System.Drawing.Size(339, 29);
+            this.textBox_Disponibilidad.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(73, 426);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 24);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Disponibilidad";
+            // 
+            // textBox_Color
+            // 
+            this.textBox_Color.Location = new System.Drawing.Point(316, 373);
+            this.textBox_Color.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_Color.Name = "textBox_Color";
+            this.textBox_Color.ReadOnly = true;
+            this.textBox_Color.Size = new System.Drawing.Size(339, 29);
+            this.textBox_Color.TabIndex = 18;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -99,14 +150,15 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 17;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBoxAgregar
             // 
             this.pictureBoxAgregar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAgregar.Image")));
             this.pictureBoxAgregar.Location = new System.Drawing.Point(762, 146);
             this.pictureBoxAgregar.Name = "pictureBoxAgregar";
-            this.pictureBoxAgregar.Size = new System.Drawing.Size(115, 108);
-            this.pictureBoxAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxAgregar.Size = new System.Drawing.Size(124, 108);
+            this.pictureBoxAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxAgregar.TabIndex = 16;
             this.pictureBoxAgregar.TabStop = false;
             this.pictureBoxAgregar.Click += new System.EventHandler(this.pictureBoxAgregar_Click);
@@ -160,6 +212,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // textBox_Km
             // 
@@ -234,15 +287,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Placa";
             // 
-            // textBox_Color
-            // 
-            this.textBox_Color.Location = new System.Drawing.Point(316, 373);
-            this.textBox_Color.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_Color.Name = "textBox_Color";
-            this.textBox_Color.ReadOnly = true;
-            this.textBox_Color.Size = new System.Drawing.Size(339, 29);
-            this.textBox_Color.TabIndex = 18;
-            // 
             // button_Continuar
             // 
             this.button_Continuar.Location = new System.Drawing.Point(732, 498);
@@ -264,43 +308,6 @@
             this.Guardar.UseVisualStyleBackColor = true;
             this.Guardar.Visible = false;
             this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
-            // 
-            // textBox_Disponibilidad
-            // 
-            this.textBox_Disponibilidad.Location = new System.Drawing.Point(316, 421);
-            this.textBox_Disponibilidad.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_Disponibilidad.Name = "textBox_Disponibilidad";
-            this.textBox_Disponibilidad.ReadOnly = true;
-            this.textBox_Disponibilidad.Size = new System.Drawing.Size(339, 29);
-            this.textBox_Disponibilidad.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(73, 426);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 24);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Disponibilidad";
-            // 
-            // comboBox_Marca
-            // 
-            this.comboBox_Marca.FormattingEnabled = true;
-            this.comboBox_Marca.Location = new System.Drawing.Point(316, 138);
-            this.comboBox_Marca.Name = "comboBox_Marca";
-            this.comboBox_Marca.Size = new System.Drawing.Size(339, 32);
-            this.comboBox_Marca.TabIndex = 21;
-            // 
-            // comboBox_Categoria
-            // 
-            this.comboBox_Categoria.FormattingEnabled = true;
-            this.comboBox_Categoria.Location = new System.Drawing.Point(316, 85);
-            this.comboBox_Categoria.Name = "comboBox_Categoria";
-            this.comboBox_Categoria.Size = new System.Drawing.Size(339, 32);
-            this.comboBox_Categoria.TabIndex = 22;
-            this.comboBox_Categoria.SelectedIndexChanged += new System.EventHandler(this.comboBox_Categoria_SelectedIndexChanged);
             // 
             // FormAuto
             // 

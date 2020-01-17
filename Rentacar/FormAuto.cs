@@ -46,25 +46,12 @@ namespace Rentacar
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            comboBox_Categoria.Text = "";
-            comboBox_Marca.Text = "";
-            textBox_Km.Text = "";
-            textBox_Nombre.Text = "";
-            textBox_Año.Text = "";
-            textBox_Color.Text = "";
-            textBox_Disponibilidad.Text = "";
-            Guardar.Visible = false;
-            button_Continuar.Visible = false;
-        }
-
         private void Guardar_Click(object sender, EventArgs e)
         {
-            GuardarCliente();
+            GuardarAuto();
         }
 
-        private void GuardarCliente()
+        private void GuardarAuto()
         {
             if (textBox_Placa.Text == "" || comboBox_Marca.Text == "" || comboBox_Categoria.Text == "" || textBox_Km.Text == "" ||
                 textBox_Nombre.Text == "" || textBox_Año.Text == "" || textBox_Color.Text == "")
@@ -73,6 +60,36 @@ namespace Rentacar
             }
             else
             {
+                AutoEntidad auto = new AutoEntidad();
+                auto.Id = textBox_Placa.Text;
+                foreach (var item in listaMarcas)
+                {
+                    if (item.Nombre == comboBox_Marca.Text)
+                        auto.Id_Marca = item.id;
+                }
+                if (comboBox_Categoria.SelectedIndex == 0)
+                    auto.Id_Categoria = 1;
+                else
+                      if (comboBox_Categoria.SelectedIndex == 1)
+                    auto.Id_Categoria = 2;
+                else
+                      if (comboBox_Categoria.SelectedIndex == 2)
+                    auto.Id_Categoria = 3;
+                else
+                      if (comboBox_Categoria.SelectedIndex == 3)
+                    auto.Id_Categoria = 4;
+
+                auto.Nombre = textBox_Nombre.Text;
+                auto.Km = Convert.ToInt32(textBox_Km.Text);
+                auto.Anio = Convert.ToInt32(textBox_Año.Text);
+                auto.Color = textBox_Color.Text;
+                auto.Disponibilidad = Convert.ToInt32(textBox_Disponibilidad.Text);
+                bool cop = RentacarNegocio.RentacarNegocio.insertarAuto(auto);
+                if (cop == true)
+                    this.Close();
+
+                else
+                    MessageBox.Show("El vehiculo ya existe");
 
 
             }
@@ -94,6 +111,37 @@ namespace Rentacar
 
             }
 
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            AutoEntidad auto = new AutoEntidad();
+            auto = RentacarNegocio.RentacarNegocio.asignarAuto(textBox_Placa.Text);
+            if (auto != null)
+            {
+                MessageBox.Show("El Auto ya existe");
+            }
+            else
+            {
+                MessageBox.Show("El Auto aun no existe");
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            comboBox_Categoria.Text = "";
+            comboBox_Marca.Text = "";
+            textBox_Km.Text = "";
+            textBox_Nombre.Text = "";
+            textBox_Año.Text = "";
+            textBox_Color.Text = "";
+            textBox_Disponibilidad.Text = "";
+            Guardar.Visible = false;
+            button_Continuar.Visible = false;
+            textBox_Km.ReadOnly = true;
+            textBox_Nombre.ReadOnly = true;
+            textBox_Año.ReadOnly = true;
+            textBox_Color.ReadOnly = true;
         }
     }
 
