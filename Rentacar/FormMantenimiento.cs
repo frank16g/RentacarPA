@@ -42,8 +42,8 @@ namespace Rentacar
                     MessageBox.Show("Carro no existe");
                 }
             }
-
-
+            
+            
         }
 
         private void ListarMantenimientos()
@@ -55,16 +55,18 @@ namespace Rentacar
         private void btnagregar_Click(object sender, EventArgs e)
         {
             auto.Id = tbid.Text;
-            bool flag = ComprobarExistenciaAuto(auto);
-            if (flag && tbid.Text != null && dtfecha.Value != null && tbcosto.Text != null && tbdescripcion.Text != null)
+            if (tbid.Text != "")
             {
-                GuardarMantenimiento();
+                bool flag = ComprobarExistenciaAuto(auto);
+                if (flag && tbid.Text != "" && dtfecha.Value != null && tbcosto.Text != "" && tbdescripcion.Text != "")
+                {
+                    GuardarMantenimiento();
+                }
+                else
+                {
+                    MessageBox.Show("Datos incorrectos");
+                }
             }
-            else
-            {
-                MessageBox.Show("Datos incorrectos");
-            }
-            
         }
 
         private bool ComprobarExistenciaAuto(AutoEntidad auto)
@@ -74,14 +76,23 @@ namespace Rentacar
             bool flag = false;
             for (int i = 0; i < marcas.Count; i++)
             {
-                for (int j = 0; j < marcas[i].ListaAutos.Count; j++)
+                try
                 {
-                    if (marcas[i].ListaAutos[j].Id == auto.Id)
+                    for (int j = 0; j < marcas[i].ListaAutos.Count; j++)
                     {
-                        flag = true;
+                        if (marcas[i].ListaAutos[j].Id == auto.Id)
+                        {
+                            flag = true;
+                        }
+
                     }
-                    
                 }
+                catch (System.NullReferenceException e)
+                {
+
+                    throw;
+                }
+                
             }
             return flag;
         }
