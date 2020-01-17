@@ -31,6 +31,8 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.ObtenerNumeroReservas();
         }
 
+        //
+
         public static void insertarCliente(ClienteEntidad cliente)
         {
            RentacarDatos.RentacarDatos.insertarCliente(cliente);
@@ -40,9 +42,10 @@ namespace RentacarNegocio
         {
             return RentacarDatos.RentacarDatos.asignarCliente(cedula);
         }
-        public static int ObtenerIdCliente()
+
+        public static void BuscarCarroNegocio(string cedula)
         {
-            return RentacarDatos.RentacarDatos.ObtenerIdCliente();
+
         }
     }
 }

@@ -288,5 +288,12 @@ namespace Rentacar
 
         }
 
+        private void buttonSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            FormCliente formCliente = new FormCliente();
+            formCliente.ShowDialog();
+
+
+        }
     }
 }
