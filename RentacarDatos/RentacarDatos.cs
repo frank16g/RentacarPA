@@ -196,6 +196,67 @@ namespace RentacarDatos
             }
         }
 
+        public static List<UsuarioEntidad> CargaUsuariosSqlServer()
+        {
+            try
+            {
+
+                List<UsuarioEntidad> listaUsuarios = new List<UsuarioEntidad>();
+
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+
+                connection.Open();
+
+                cmd
+                    .CommandText = @"SELECT [id]
+                                          ,[nombre]
+                                          ,[apellido]
+                                          ,[fecha_nac]
+                                          ,[direccion]
+                                          ,[telefono]
+                                          ,[cedula]
+                                          ,[username]
+                                          ,[password]
+                                      FROM [dbo].[Usuario]";
+
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        UsuarioEntidad usuario = new UsuarioEntidad();
+
+                        usuario.Id = Convert.ToInt32(dataReader["id"].ToString());
+                        usuario.Nombre = (dataReader["nombre"].ToString());
+                        usuario.Apellido = (dataReader["apellido"].ToString());
+                     //   usuario.Nacimiento = Convert.ToDateTime((dataReader["fecha_nac"].ToString()));
+
+                        usuario.Direcccion = (dataReader["direccion"].ToString());
+                        usuario.Telefono = (dataReader["telefono"].ToString());
+                        usuario.Cedula = (dataReader["cedula"].ToString());
+                        usuario.Usuario = (dataReader["username"].ToString());
+                        usuario.Contraseña = (dataReader["password"].ToString());
+
+
+                        listaUsuarios.Add(usuario);
+
+                    }
+
+                }
+
+                connection.Close();
+                return listaUsuarios;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static AlquilerEntidad GuardarAlquilerSqlServer(AlquilerEntidad alquiler)
         {
 
@@ -295,7 +356,8 @@ namespace RentacarDatos
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexion;
-                cmd.CommandText = @" SELECT [nombre]
+                cmd.CommandText = @" SELECT [id]
+                                             ,[nombre]
                                              ,[apellido]
                                              ,[direccion]
                                              ,[telefono]
@@ -310,13 +372,14 @@ namespace RentacarDatos
                 using (var dr = cmd.ExecuteReader())
                 {
                     dr.Read();
+                    cliente.id = Convert.ToInt32(dr["id"]);
                     cliente.Nombre = dr["nombre"].ToString();
                     cliente.Cedula = dr["cedula"].ToString();
                     cliente.Apellido = dr["apellido"].ToString();
                     cliente.Telefono = dr["telefono"].ToString();
                     cliente.Direcccion = dr["direccion"].ToString();
                     cliente.Gmail = dr["email"].ToString();
-                    cliente.Nacimiento = Convert.ToDateTime(dr["fecha_nac"].ToString());
+                    cliente.Nacimiento = Convert.ToDateTime(dr["fecha_nac"]);
                 }
 
                 conexion.Close();
@@ -419,6 +482,68 @@ namespace RentacarDatos
                 throw;
             }
         }
+
+        public static int ObtenerIdCliente()
+        {
+            int idCliente = 0;
+            SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = @"SELECT top (1)[id]
+                                FROM [dbo].[Cliente]
+                                order by id desc";
+            cmd.CommandType = CommandType.Text;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    idCliente = Convert.ToInt32(dr["id"].ToString());
+                }
+            }
+
+            return idCliente;
+        }
+
+        public static void insertarAuto(AutoEntidad auto)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" INSERT INTO [dbo].[Autos] ([id]
+                                                             ,[id_marca]
+                                                             ,[id_categoria]
+                                                             ,[nombre]
+                                                             ,[km]
+                                                             ,[anio]
+                                                             ,[color]
+                                                             ,[disponibilidad])
+                                                     VALUES
+                               (@id,@marca,@categoria,@nombre,@km,@año,@color,@disponibilidad);
+                               SELECT SCOPE_IDENTITY();";
+                cmd.Parameters.AddWithValue("@id", auto.Id);
+                cmd.Parameters.AddWithValue("@marca", auto.Id_Marca);
+                cmd.Parameters.AddWithValue("@categoria", auto.Id_Categoria);
+                cmd.Parameters.AddWithValue("@nombre", auto.Nombre);
+                cmd.Parameters.AddWithValue("@km", auto.Km);
+                cmd.Parameters.AddWithValue("@año", auto.Anio);
+                cmd.Parameters.AddWithValue("@color", auto.Color);
+                cmd.Parameters.AddWithValue("@disponibilidad", auto.Disponibilidad);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteScalar();
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
 
     }
 }

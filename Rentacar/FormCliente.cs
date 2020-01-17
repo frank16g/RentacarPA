@@ -32,18 +32,12 @@ namespace Rentacar
                 textBox_Direccion.Text = cliente.Direcccion;
                 textBox_Gmail.Text = cliente.Gmail;
                 dateTimePicker.Value = cliente.Nacimiento;
-                clienteSeleccionados = new ClienteEntidad();
+                clienteSeleccionados = cliente;
+                button_Continuar.Visible = true;
             }
             else
             {
-                textBox_Nom.ReadOnly = false;
-                textBox_Apellido.ReadOnly = false;
-                textBox_Telefono.ReadOnly = false;
-                textBox_Direccion.ReadOnly = false;
-                textBox_Gmail.ReadOnly = false;
-                dateTimePicker.Enabled = false;
-                Guardar.Visible = true;
-                pictureBox1.Visible = false;
+                MessageBox.Show("El cliente no se encuentra registrado");
             }
         }
 
@@ -55,28 +49,70 @@ namespace Rentacar
 
             private void GuardarCliente()
             {
-                ClienteEntidad cliente = new ClienteEntidad();
-                cliente.Nombre = textBox_Nom.Text.Trim();
-                cliente.Apellido = textBox_Apellido.Text.Trim();
-                cliente.Cedula = textBox_Cedula.Text.Trim();
-                cliente.Direcccion = textBox_Direccion.Text.Trim();
-            cliente.Telefono = textBox_Telefono.Text.Trim();
-                cliente.Gmail = textBox_Gmail.Text.Trim();
-            cliente.Nacimiento = dateTimePicker.Value;
-            clienteSeleccionados = cliente;
-            RentacarNegocio.RentacarNegocio.insertarCliente (cliente);
+            if (textBox_Apellido.Text == "" || textBox_Cedula.Text == "" || textBox_Nom.Text == "" || textBox_Direccion.Text == "" || textBox_Gmail.Text == "" || textBox_Telefono.Text == "")
+            {
+                MessageBox.Show("Algun dato se encuentra vacio");
             }
+            else
+            {
+
+                DateTime fecha = DateTime.Now;
+                TimeSpan timeSpan = fecha - dateTimePicker.Value;
+
+                int dias = timeSpan.Days;
+                if (dias < 6570)
+                {
+                    MessageBox.Show("El cliente es menor de edad");
+                }
+                else
+                {
+                    ClienteEntidad cliente = new ClienteEntidad();
+                    cliente.Nombre = textBox_Nom.Text.Trim();
+                    cliente.Apellido = textBox_Apellido.Text.Trim();
+                    cliente.Cedula = textBox_Cedula.Text.Trim();
+                    cliente.Direcccion = textBox_Direccion.Text.Trim();
+                    cliente.Telefono = textBox_Telefono.Text.Trim();
+                    cliente.Gmail = textBox_Gmail.Text.Trim();
+                    cliente.Nacimiento = dateTimePicker.Value;
+                    RentacarNegocio.RentacarNegocio.insertarCliente(cliente);
+                    cliente.id = RentacarNegocio.RentacarNegocio.ObtenerIdCliente();
+                    clienteSeleccionados = cliente;
+                    button_Continuar.Visible = true;
+                }
+            }
+        }
 
         private void pictureBoxAgregar_Click(object sender, EventArgs e)
+        {
+            Editar();
+        }
+
+                public void Editar()
         {
             textBox_Nom.ReadOnly = false;
             textBox_Apellido.ReadOnly = false;
             textBox_Telefono.ReadOnly = false;
             textBox_Direccion.ReadOnly = false;
             textBox_Gmail.ReadOnly = false;
-            dateTimePicker.Enabled = false;
+            dateTimePicker.Enabled = true;
             Guardar.Visible = true;
-            pictureBox1.Visible = false;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            textBox_Nom.Text = "";
+            textBox_Apellido.Text = "";
+            textBox_Telefono.Text = "";
+            textBox_Direccion.Text = "";
+            textBox_Gmail.Text = "";
+            textBox_Cedula.Text = "";
+            Guardar.Visible = false;
+            button_Continuar.Visible = false;
+        }
+
+        private void button_Continuar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

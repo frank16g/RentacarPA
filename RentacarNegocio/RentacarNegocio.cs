@@ -31,6 +31,13 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.ObtenerNumeroReservas();
         }
 
+        public static List<UsuarioEntidad> DevolverListadoUsuarios()
+        {
+            return RentacarDatos.RentacarDatos.CargaUsuariosSqlServer();
+        }
+
+        //
+
         public static void insertarCliente(ClienteEntidad cliente)
         {
            RentacarDatos.RentacarDatos.insertarCliente(cliente);
@@ -41,14 +48,17 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.asignarCliente(cedula);
         }
 
-        public static List<MantenimientoEntidad> BuscarCarroNegocio(AutoEntidad auto)
+        public static int ObtenerIdCliente()
         {
-            return RentacarDatos.RentacarDatos.CargarMantenimientosId(auto);
+            return   RentacarDatos.RentacarDatos.ObtenerIdCliente();
         }
-
-        public static void insertarMantenimiento(MantenimientoEntidad mantenimiento)
+        public static void insertarAuto(AutoEntidad auto)
         {
-            RentacarDatos.RentacarDatos.insertarMantenimiento(mantenimiento);
+            RentacarDatos.RentacarDatos.insertarAuto(auto);
+        }
+        public static void BuscarCarroNegocio(string cedula)
+        {
+
         }
     }
 }
