@@ -56,7 +56,7 @@ namespace RentacarNegocio
         {
             RentacarDatos.RentacarDatos.insertarAuto(auto);
         }
-        public static void BuscarCarroNegocio(string cedula)
+        public static void BuscarCarroNegocio(AutoEntidad auto)
         {
 
         }
