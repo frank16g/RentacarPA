@@ -166,6 +166,67 @@ namespace RentacarDatos
             }
         }
 
+        public static List<UsuarioEntidad> CargaUsuariosSqlServer()
+        {
+            try
+            {
+
+                List<UsuarioEntidad> listaUsuarios = new List<UsuarioEntidad>();
+
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+
+                connection.Open();
+
+                cmd
+                    .CommandText = @"SELECT [id]
+                                          ,[nombre]
+                                          ,[apellido]
+                                          ,[fecha_nac]
+                                          ,[direccion]
+                                          ,[telefono]
+                                          ,[cedula]
+                                          ,[username]
+                                          ,[password]
+                                      FROM [dbo].[Usuario]";
+
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        UsuarioEntidad usuario = new UsuarioEntidad();
+
+                        usuario.Id = Convert.ToInt32(dataReader["id"].ToString());
+                        usuario.Nombre = (dataReader["nombre"].ToString());
+                        usuario.Apellido = (dataReader["apellido"].ToString());
+                     //   usuario.Nacimiento = Convert.ToDateTime((dataReader["fecha_nac"].ToString()));
+
+                        usuario.Direcccion = (dataReader["direccion"].ToString());
+                        usuario.Telefono = (dataReader["telefono"].ToString());
+                        usuario.Cedula = (dataReader["cedula"].ToString());
+                        usuario.Usuario = (dataReader["username"].ToString());
+                        usuario.Contraseña = (dataReader["password"].ToString());
+
+
+                        listaUsuarios.Add(usuario);
+
+                    }
+
+                }
+
+                connection.Close();
+                return listaUsuarios;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static AlquilerEntidad GuardarAlquilerSqlServer(AlquilerEntidad alquiler)
         {
 

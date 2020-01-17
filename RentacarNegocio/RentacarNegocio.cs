@@ -31,6 +31,11 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.ObtenerNumeroReservas();
         }
 
+        public static List<UsuarioEntidad> DevolverListadoUsuarios()
+        {
+            return RentacarDatos.RentacarDatos.CargaUsuariosSqlServer();
+        }
+
         //
 
         public static void insertarCliente(ClienteEntidad cliente)
