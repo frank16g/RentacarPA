@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>f607d8ee-4999-4f1b-8b73-e4f548c97b7f</rd:DataSourceID>
+      <rd:DataSourceID>b5a23a1c-983f-48a2-a3c3-c6b2d6ab3447</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -72,38 +72,38 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Chart Name="Chart2">
+          <Chart Name="Chart1">
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart2_CategoryGroup">
+                  <Group Name="Chart1_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!id_auto.Value</GroupExpression>
+                      <GroupExpression>=Fields!id_cliente.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!id_auto.Value</Value>
+                      <Value>=Fields!id_cliente.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!id_auto.Value</Label>
+                  <Label>=Fields!id_cliente.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>id</Label>
+                  <Label>total</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="id">
+                <ChartSeries Name="total">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Count(Fields!id.Value)</Y>
+                        <Y>=Sum(Fields!total.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -115,7 +115,6 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Type>Shape</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -373,6 +372,7 @@
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>8pt</FontSize>
                 </Style>
+                <Position>TopLeft</Position>
                 <ChartLegendTitle>
                   <Caption />
                   <Style>
@@ -387,7 +387,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption />
+                <Caption>Título del gráfico</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -417,10 +417,10 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.17639cm</Top>
-            <Left>3.38349cm</Left>
-            <Height>5.71438cm</Height>
-            <Width>9.66958cm</Width>
+            <Top>1.61078cm</Top>
+            <Left>4.46828cm</Left>
+            <Height>5cm</Height>
+            <Width>7.5cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -431,82 +431,11 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>2.40475in</Height>
+        <Height>3.10267in</Height>
         <Style />
       </Body>
-      <Width>6.84734in</Width>
+      <Width>6.5in</Width>
       <Page>
-        <PageHeader>
-          <Height>2.54cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="Textbox7">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>RENTACAR</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.3937cm</Top>
-              <Left>6.50558cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.5cm</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox8">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Infrome: Autos mas reservados</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>1.52562cm</Top>
-              <Left>5.02328cm</Left>
-              <Height>0.62646cm</Height>
-              <Width>5.86021cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-          </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageHeader>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
         <LeftMargin>2cm</LeftMargin>
@@ -525,5 +454,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>0a704281-c485-4284-bc8b-50ec1050d21d</rd:ReportID>
+  <rd:ReportID>b0b1eacf-899e-49a9-8947-38aa01d86315</rd:ReportID>
 </Report>

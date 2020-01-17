@@ -7,92 +7,99 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="rentacarConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="rentacarConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Rentacar.Properties.Settings.GlobalReference.Default.rentacarConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReservaTableAdapter" GeneratorDataComponentClassName="ReservaTableAdapter" Name="Reserva" UserDataComponentName="ReservaTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="rentacarConnectionString (Settings)" DbObjectName="rentacar.dbo.Reserva" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="rentacarConnectionString (Settings)" DbObjectName="rentacar.dbo.Reserva" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        *
+FROM            Reserva
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_auto" DataSetColumn="id_auto" />
+              <Mapping SourceColumn="fecha_reserva" DataSetColumn="fecha_reserva" />
+              <Mapping SourceColumn="fecha_recogida" DataSetColumn="fecha_recogida" />
+              <Mapping SourceColumn="fecha_devolucion" DataSetColumn="fecha_devolucion" />
+              <Mapping SourceColumn="id_usuario" DataSetColumn="id_usuario" />
+              <Mapping SourceColumn="id_cliente" DataSetColumn="id_cliente" />
+              <Mapping SourceColumn="subtotal" DataSetColumn="subtotal" />
+              <Mapping SourceColumn="iva" DataSetColumn="iva" />
+              <Mapping SourceColumn="total" DataSetColumn="total" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="rentacarConnectionString (Settings)" DbObjectName="rentacar.dbo.Reserva" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillTableReserva" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataTableReserva" GeneratorSourceName="FillTableReserva" GetMethodModifier="Public" GetMethodName="GetDataTableReserva" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataTableReserva" UserSourceName="FillTableReserva">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT fecha_devolucion, fecha_recogida, fecha_reserva, id, id_auto, id_cliente, id_usuario, iva, subtotal, total FROM Reserva</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MantenimientoTableAdapter" GeneratorDataComponentClassName="MantenimientoTableAdapter" Name="Mantenimiento" UserDataComponentName="MantenimientoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="rentacarConnectionString (Settings)" DbObjectName="rentacar.dbo.Mantenimiento" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [Reserva] WHERE (([id] = @Original_id) AND ((@IsNull_fecha_reserva = 1 AND [fecha_reserva] IS NULL) OR ([fecha_reserva] = @Original_fecha_reserva)) AND ((@IsNull_fecha_recogida = 1 AND [fecha_recogida] IS NULL) OR ([fecha_recogida] = @Original_fecha_recogida)) AND ((@IsNull_fecha_devolucion = 1 AND [fecha_devolucion] IS NULL) OR ([fecha_devolucion] = @Original_fecha_devolucion)) AND ((@IsNull_id_auto = 1 AND [id_auto] IS NULL) OR ([id_auto] = @Original_id_auto)) AND ((@IsNull_id_usuario = 1 AND [id_usuario] IS NULL) OR ([id_usuario] = @Original_id_usuario)) AND ((@IsNull_id_cliente = 1 AND [id_cliente] IS NULL) OR ([id_cliente] = @Original_id_cliente)) AND ((@IsNull_subtotal = 1 AND [subtotal] IS NULL) OR ([subtotal] = @Original_subtotal)) AND ((@IsNull_iva = 1 AND [iva] IS NULL) OR ([iva] = @Original_iva)) AND ((@IsNull_total = 1 AND [total] IS NULL) OR ([total] = @Original_total)))</CommandText>
+                    <CommandText>DELETE FROM [Mantenimiento] WHERE (([id] = @Original_id) AND ((@IsNull_id_auto = 1 AND [id_auto] IS NULL) OR ([id_auto] = @Original_id_auto)) AND ((@IsNull_fecha = 1 AND [fecha] IS NULL) OR ([fecha] = @Original_fecha)) AND ((@IsNull_costo = 1 AND [costo] IS NULL) OR ([costo] = @Original_costo)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fecha_reserva" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fecha_reserva" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fecha_reserva" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_reserva" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fecha_recogida" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fecha_recogida" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fecha_recogida" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_recogida" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fecha_devolucion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fecha_devolucion" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_fecha_devolucion" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fecha_devolucion" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_id_auto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_auto" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_id_auto" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="id_auto" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_id_usuario" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_usuario" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_usuario" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_id_cliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_cliente" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_cliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_cliente" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_subtotal" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="subtotal" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_subtotal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="subtotal" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_iva" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iva" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_iva" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="iva" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_total" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="total" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_total" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="total" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fecha" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fecha" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_fecha" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fecha" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_costo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="costo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_costo" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="costo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [Reserva] ([fecha_reserva], [fecha_recogida], [fecha_devolucion], [id_auto], [id_usuario], [id_cliente], [subtotal], [iva], [total]) VALUES (@fecha_reserva, @fecha_recogida, @fecha_devolucion, @id_auto, @id_usuario, @id_cliente, @subtotal, @iva, @total);
-SELECT id, fecha_reserva, fecha_recogida, fecha_devolucion, id_auto, id_usuario, id_cliente, subtotal, iva, total FROM Reserva WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Mantenimiento] ([id_auto], [fecha], [costo], [descripcion]) VALUES (@id_auto, @fecha, @costo, @descripcion);
+SELECT id, id_auto, fecha, costo, descripcion FROM Mantenimiento WHERE (id = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fecha_reserva" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_reserva" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fecha_recogida" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_recogida" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@fecha_devolucion" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fecha_devolucion" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@id_auto" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="id_auto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_usuario" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_cliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@subtotal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="subtotal" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@iva" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="iva" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@total" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="total" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@fecha" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fecha" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@costo" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="costo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>Select * from Reserva</CommandText>
+                    <CommandText>SELECT        Mantenimiento.*
+FROM            Mantenimiento</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [Reserva] SET [fecha_reserva] = @fecha_reserva, [fecha_recogida] = @fecha_recogida, [fecha_devolucion] = @fecha_devolucion, [id_auto] = @id_auto, [id_usuario] = @id_usuario, [id_cliente] = @id_cliente, [subtotal] = @subtotal, [iva] = @iva, [total] = @total WHERE (([id] = @Original_id) AND ((@IsNull_fecha_reserva = 1 AND [fecha_reserva] IS NULL) OR ([fecha_reserva] = @Original_fecha_reserva)) AND ((@IsNull_fecha_recogida = 1 AND [fecha_recogida] IS NULL) OR ([fecha_recogida] = @Original_fecha_recogida)) AND ((@IsNull_fecha_devolucion = 1 AND [fecha_devolucion] IS NULL) OR ([fecha_devolucion] = @Original_fecha_devolucion)) AND ((@IsNull_id_auto = 1 AND [id_auto] IS NULL) OR ([id_auto] = @Original_id_auto)) AND ((@IsNull_id_usuario = 1 AND [id_usuario] IS NULL) OR ([id_usuario] = @Original_id_usuario)) AND ((@IsNull_id_cliente = 1 AND [id_cliente] IS NULL) OR ([id_cliente] = @Original_id_cliente)) AND ((@IsNull_subtotal = 1 AND [subtotal] IS NULL) OR ([subtotal] = @Original_subtotal)) AND ((@IsNull_iva = 1 AND [iva] IS NULL) OR ([iva] = @Original_iva)) AND ((@IsNull_total = 1 AND [total] IS NULL) OR ([total] = @Original_total)));
-SELECT id, fecha_reserva, fecha_recogida, fecha_devolucion, id_auto, id_usuario, id_cliente, subtotal, iva, total FROM Reserva WHERE (id = @id)</CommandText>
+                    <CommandText>UPDATE [Mantenimiento] SET [id_auto] = @id_auto, [fecha] = @fecha, [costo] = @costo, [descripcion] = @descripcion WHERE (([id] = @Original_id) AND ((@IsNull_id_auto = 1 AND [id_auto] IS NULL) OR ([id_auto] = @Original_id_auto)) AND ((@IsNull_fecha = 1 AND [fecha] IS NULL) OR ([fecha] = @Original_fecha)) AND ((@IsNull_costo = 1 AND [costo] IS NULL) OR ([costo] = @Original_costo)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)));
+SELECT id, id_auto, fecha, costo, descripcion FROM Mantenimiento WHERE (id = @id)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fecha_reserva" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_reserva" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@fecha_recogida" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_recogida" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@fecha_devolucion" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fecha_devolucion" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@id_auto" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="id_auto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_usuario" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_cliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@subtotal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="subtotal" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@iva" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="iva" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@total" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="total" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@fecha" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fecha" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@costo" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="costo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@descripcion" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fecha_reserva" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fecha_reserva" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fecha_reserva" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_reserva" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fecha_recogida" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fecha_recogida" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_fecha_recogida" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_recogida" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fecha_devolucion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fecha_devolucion" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_fecha_devolucion" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fecha_devolucion" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_id_auto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_auto" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_id_auto" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="id_auto" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_id_usuario" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_usuario" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_usuario" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_id_cliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_cliente" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_cliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_cliente" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_subtotal" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="subtotal" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_subtotal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="subtotal" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_iva" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="iva" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_iva" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="iva" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_total" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="total" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_total" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="total" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="rentacar.dbo.Reserva" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_fecha" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fecha" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_fecha" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="fecha" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_costo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="costo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_costo" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="costo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_descripcion" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_descripcion" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="rentacar.dbo.Mantenimiento" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -100,29 +107,12 @@ SELECT id, fecha_reserva, fecha_recogida, fecha_devolucion, id_auto, id_usuario,
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="id" DataSetColumn="id" />
-              <Mapping SourceColumn="fecha_reserva" DataSetColumn="fecha_reserva" />
-              <Mapping SourceColumn="fecha_recogida" DataSetColumn="fecha_recogida" />
-              <Mapping SourceColumn="fecha_devolucion" DataSetColumn="fecha_devolucion" />
               <Mapping SourceColumn="id_auto" DataSetColumn="id_auto" />
-              <Mapping SourceColumn="id_usuario" DataSetColumn="id_usuario" />
-              <Mapping SourceColumn="id_cliente" DataSetColumn="id_cliente" />
-              <Mapping SourceColumn="subtotal" DataSetColumn="subtotal" />
-              <Mapping SourceColumn="iva" DataSetColumn="iva" />
-              <Mapping SourceColumn="total" DataSetColumn="total" />
+              <Mapping SourceColumn="fecha" DataSetColumn="fecha" />
+              <Mapping SourceColumn="costo" DataSetColumn="costo" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
             </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="rentacarConnectionString (Settings)" DbObjectName="rentacar.dbo.Reserva" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>Select * from Reserva
-WHERE        id_auto= @id_auto</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="id_auto" ColumnName="id_auto" DataSourceName="rentacar.dbo.Reserva" DataTypeServer="nvarchar(7)" DbType="String" Direction="Input" ParameterName="@id_auto" Precision="0" ProviderType="NVarChar" Scale="0" Size="7" SourceColumn="id_auto" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
@@ -132,13 +122,9 @@ WHERE        id_auto= @id_auto</CommandText>
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Reserva" msprop:Generator_TableClassName="ReservaDataTable" msprop:Generator_TableVarName="tableReserva" msprop:Generator_TablePropName="Reserva" msprop:Generator_RowDeletingName="ReservaRowDeleting" msprop:Generator_RowChangingName="ReservaRowChanging" msprop:Generator_RowEvHandlerName="ReservaRowChangeEventHandler" msprop:Generator_RowDeletedName="ReservaRowDeleted" msprop:Generator_UserTableName="Reserva" msprop:Generator_RowChangedName="ReservaRowChanged" msprop:Generator_RowEvArgName="ReservaRowChangeEvent" msprop:Generator_RowClassName="ReservaRow">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="fecha_reserva" msprop:Generator_ColumnVarNameInTable="columnfecha_reserva" msprop:Generator_ColumnPropNameInRow="fecha_reserva" msprop:Generator_ColumnPropNameInTable="fecha_reservaColumn" msprop:Generator_UserColumnName="fecha_reserva" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="fecha_recogida" msprop:Generator_ColumnVarNameInTable="columnfecha_recogida" msprop:Generator_ColumnPropNameInRow="fecha_recogida" msprop:Generator_ColumnPropNameInTable="fecha_recogidaColumn" msprop:Generator_UserColumnName="fecha_recogida" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="fecha_devolucion" msprop:Generator_ColumnVarNameInTable="columnfecha_devolucion" msprop:Generator_ColumnPropNameInRow="fecha_devolucion" msprop:Generator_ColumnPropNameInTable="fecha_devolucionColumn" msprop:Generator_UserColumnName="fecha_devolucion" type="xs:dateTime" minOccurs="0" />
               <xs:element name="id_auto" msprop:Generator_ColumnVarNameInTable="columnid_auto" msprop:Generator_ColumnPropNameInRow="id_auto" msprop:Generator_ColumnPropNameInTable="id_autoColumn" msprop:Generator_UserColumnName="id_auto" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -146,18 +132,49 @@ WHERE        id_auto= @id_auto</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="fecha_reserva" msprop:Generator_ColumnVarNameInTable="columnfecha_reserva" msprop:Generator_ColumnPropNameInRow="fecha_reserva" msprop:Generator_ColumnPropNameInTable="fecha_reservaColumn" msprop:Generator_UserColumnName="fecha_reserva" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_recogida" msprop:Generator_ColumnVarNameInTable="columnfecha_recogida" msprop:Generator_ColumnPropNameInRow="fecha_recogida" msprop:Generator_ColumnPropNameInTable="fecha_recogidaColumn" msprop:Generator_UserColumnName="fecha_recogida" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_devolucion" msprop:Generator_ColumnVarNameInTable="columnfecha_devolucion" msprop:Generator_ColumnPropNameInRow="fecha_devolucion" msprop:Generator_ColumnPropNameInTable="fecha_devolucionColumn" msprop:Generator_UserColumnName="fecha_devolucion" type="xs:dateTime" minOccurs="0" />
               <xs:element name="id_usuario" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" type="xs:int" minOccurs="0" />
               <xs:element name="id_cliente" msprop:Generator_ColumnVarNameInTable="columnid_cliente" msprop:Generator_ColumnPropNameInRow="id_cliente" msprop:Generator_ColumnPropNameInTable="id_clienteColumn" msprop:Generator_UserColumnName="id_cliente" type="xs:int" minOccurs="0" />
               <xs:element name="subtotal" msprop:Generator_ColumnVarNameInTable="columnsubtotal" msprop:Generator_ColumnPropNameInRow="subtotal" msprop:Generator_ColumnPropNameInTable="subtotalColumn" msprop:Generator_UserColumnName="subtotal" type="xs:double" minOccurs="0" />
               <xs:element name="iva" msprop:Generator_ColumnVarNameInTable="columniva" msprop:Generator_ColumnPropNameInRow="iva" msprop:Generator_ColumnPropNameInTable="ivaColumn" msprop:Generator_UserColumnName="iva" type="xs:double" minOccurs="0" />
               <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mantenimiento" msprop:Generator_TableClassName="MantenimientoDataTable" msprop:Generator_TableVarName="tableMantenimiento" msprop:Generator_TablePropName="Mantenimiento" msprop:Generator_RowDeletingName="MantenimientoRowDeleting" msprop:Generator_RowChangingName="MantenimientoRowChanging" msprop:Generator_RowEvHandlerName="MantenimientoRowChangeEventHandler" msprop:Generator_RowDeletedName="MantenimientoRowDeleted" msprop:Generator_UserTableName="Mantenimiento" msprop:Generator_RowChangedName="MantenimientoRowChanged" msprop:Generator_RowEvArgName="MantenimientoRowChangeEvent" msprop:Generator_RowClassName="MantenimientoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="id_auto" msprop:Generator_ColumnVarNameInTable="columnid_auto" msprop:Generator_ColumnPropNameInRow="id_auto" msprop:Generator_ColumnPropNameInTable="id_autoColumn" msprop:Generator_UserColumnName="id_auto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="costo" msprop:Generator_ColumnVarNameInTable="columncosto" msprop:Generator_ColumnPropNameInRow="costo" msprop:Generator_ColumnPropNameInTable="costoColumn" msprop:Generator_UserColumnName="costo" type="xs:double" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Reserva" />
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Mantenimiento_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Mantenimiento" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
   </xs:element>
