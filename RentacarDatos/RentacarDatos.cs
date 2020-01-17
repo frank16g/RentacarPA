@@ -425,6 +425,44 @@ namespace RentacarDatos
             return idCliente;
         }
 
+        public static void insertarAuto(AutoEntidad auto)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" INSERT INTO [dbo].[Autos] ([id]
+                                                             ,[id_marca]
+                                                             ,[id_categoria]
+                                                             ,[nombre]
+                                                             ,[km]
+                                                             ,[anio]
+                                                             ,[color]
+                                                             ,[disponibilidad])
+                                                     VALUES
+                               (@id,@marca,@categoria,@nombre,@km,@año,@color,@disponibilidad);
+                               SELECT SCOPE_IDENTITY();";
+                cmd.Parameters.AddWithValue("@id", auto.Id);
+                cmd.Parameters.AddWithValue("@marca", auto.Id_Marca);
+                cmd.Parameters.AddWithValue("@categoria", auto.Id_Categoria);
+                cmd.Parameters.AddWithValue("@nombre", auto.Nombre);
+                cmd.Parameters.AddWithValue("@km", auto.Km);
+                cmd.Parameters.AddWithValue("@año", auto.Anio);
+                cmd.Parameters.AddWithValue("@color", auto.Color);
+                cmd.Parameters.AddWithValue("@disponibilidad", auto.Disponibilidad);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteScalar();
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
 
     }
 }
