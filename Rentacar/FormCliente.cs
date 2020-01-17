@@ -14,6 +14,7 @@ namespace Rentacar
 {
     public partial class FormCliente : Form
     {
+        public ClienteEntidad  clienteSeleccionados { get; set; }
         public FormCliente()
         {
             InitializeComponent();
@@ -30,7 +31,8 @@ namespace Rentacar
                 textBox_Telefono.Text = cliente.Telefono;
                 textBox_Direccion.Text = cliente.Direcccion;
                 textBox_Gmail.Text = cliente.Gmail;
-                dateTimePicker.Value = cliente.Nacimiento;       
+                dateTimePicker.Value = cliente.Nacimiento;
+                clienteSeleccionados = new ClienteEntidad();
             }
             else
             {
@@ -61,8 +63,20 @@ namespace Rentacar
             cliente.Telefono = textBox_Telefono.Text.Trim();
                 cliente.Gmail = textBox_Gmail.Text.Trim();
             cliente.Nacimiento = dateTimePicker.Value;
+            clienteSeleccionados = cliente;
             RentacarNegocio.RentacarNegocio.insertarCliente (cliente);
             }
-        
+
+        private void pictureBoxAgregar_Click(object sender, EventArgs e)
+        {
+            textBox_Nom.ReadOnly = false;
+            textBox_Apellido.ReadOnly = false;
+            textBox_Telefono.ReadOnly = false;
+            textBox_Direccion.ReadOnly = false;
+            textBox_Gmail.ReadOnly = false;
+            dateTimePicker.Enabled = false;
+            Guardar.Visible = true;
+            pictureBox1.Visible = false;
+        }
     }
 }
