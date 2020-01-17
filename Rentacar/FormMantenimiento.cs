@@ -29,17 +29,21 @@ namespace Rentacar
         private void BuscarCarro()
         {
             auto.Id = tbid.Text;
-            bool flag = ComprobarExistenciaAuto(auto);
-            if (flag)
+            if (tbid.Text != "")
             {
-                m = RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(auto);
-                ListarMantenimientos();
+                bool flag = ComprobarExistenciaAuto(auto);
+                if (flag)
+                {
+                    m = RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(auto);
+                    ListarMantenimientos();
+                }
+                else
+                {
+                    MessageBox.Show("Carro no existe");
+                }
             }
-            else
-            {
-                MessageBox.Show("Carro no existe");
-            }
-            
+
+
         }
 
         private void ListarMantenimientos()
