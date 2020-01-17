@@ -32,7 +32,6 @@ namespace Rentacar
                 textBox_Direccion.Text = cliente.Direcccion;
                 textBox_Gmail.Text = cliente.Gmail;
                 dateTimePicker.Value = cliente.Nacimiento;
-                ClienteEntidad cliente = new ClienteEntidad();
                 button_Continuar.Visible = true;
             }
             else
