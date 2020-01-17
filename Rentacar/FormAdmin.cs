@@ -16,5 +16,29 @@ namespace Rentacar
         {
             InitializeComponent();
         }
+
+        private void buttonMantenimientos_Click(object sender, EventArgs e)
+        {
+            LlamarFromMantenimientos();
+        }
+
+        private void LlamarFromMantenimientos()
+        {
+            FormMantenimiento formMantenimiento = new FormMantenimiento();
+
+            formMantenimiento.ShowDialog();
+        }
+
+        private void buttonReportes_Click(object sender, EventArgs e)
+        {
+            LlamarFromInfromes();
+        }
+
+        private void LlamarFromInfromes()
+        {
+            FormInformes formInformes = new FormInformes();
+
+            formInformes.ShowDialog();
+        }
     }
 }
