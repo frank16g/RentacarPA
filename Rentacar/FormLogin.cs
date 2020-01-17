@@ -52,14 +52,22 @@ namespace Rentacar
                 {
                     FormAdmin formAdmin = new FormAdmin();
                     formAdmin.ShowDialog();
+                    this.Close();
 
                 }
                 else
                 {
                     FormReserva formReserva = new FormReserva();
                     formReserva.ShowDialog();
+                    this.Close();
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas");
+
+                textBoxContraseña.Text = "";
             }
             
         }

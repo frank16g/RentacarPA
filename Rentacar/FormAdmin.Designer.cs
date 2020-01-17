@@ -42,6 +42,7 @@
             this.buttonMantenimientos.TabIndex = 0;
             this.buttonMantenimientos.Text = "Iniciar";
             this.buttonMantenimientos.UseVisualStyleBackColor = true;
+            this.buttonMantenimientos.Click += new System.EventHandler(this.buttonMantenimientos_Click);
             // 
             // label1
             // 
@@ -69,6 +70,7 @@
             this.buttonReportes.TabIndex = 2;
             this.buttonReportes.Text = "Iniciar";
             this.buttonReportes.UseVisualStyleBackColor = true;
+            this.buttonReportes.Click += new System.EventHandler(this.buttonReportes_Click);
             // 
             // FormAdmin
             // 
