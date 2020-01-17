@@ -43,6 +43,14 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.asignarCliente(cedula);
         }
 
+        public static int ObtenerIdCliente()
+        {
+            return   RentacarDatos.RentacarDatos.ObtenerIdCliente();
+        }
+        public static void insertarAuto(AutoEntidad auto)
+        {
+            RentacarDatos.RentacarDatos.insertarAuto(auto);
+        }
         public static void BuscarCarroNegocio(string cedula)
         {
 

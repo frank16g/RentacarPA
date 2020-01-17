@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAutos.Designer.cs">
+      <DependentUpon>FormAutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAutos.resx">
+      <DependentUpon>FormAutos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
