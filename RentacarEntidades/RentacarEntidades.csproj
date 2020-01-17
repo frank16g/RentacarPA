@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AutoEntidad.cs" />
     <Compile Include="ClienteEntidad.cs" />
+    <Compile Include="MantenimientoEntidad.cs" />
     <Compile Include="MarcaEntidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AlquilerEntidad.cs" />

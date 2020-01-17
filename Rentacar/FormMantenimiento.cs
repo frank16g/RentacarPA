@@ -27,7 +27,7 @@ namespace Rentacar
 
         private void BuscarCarro()
         {
-            throw new NotImplementedException();
+            RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(tbid.Text);
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
