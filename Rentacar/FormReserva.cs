@@ -30,5 +30,10 @@ namespace Rentacar
         {
 
         }
+
+        private void FormReserva_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

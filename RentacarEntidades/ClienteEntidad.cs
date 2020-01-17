@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace RentacarEntidades
 {
-    class ClienteEntidad
+    public class ClienteEntidad
     {
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Cedula { get; set; }
+        public string Direcccion { get; set; }
+        public string Telefono { get; set; }
+        public string Gmail { get; set; }
+        public DateTime Nacimiento { get; set; }
+
     }
 }

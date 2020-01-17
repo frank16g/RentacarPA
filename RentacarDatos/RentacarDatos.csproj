@@ -56,5 +56,11 @@
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RentacarEntidades\RentacarEntidades.csproj">
+      <Project>{959c1a08-0e79-4859-a99a-903684b9e9d8}</Project>
+      <Name>RentacarEntidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
