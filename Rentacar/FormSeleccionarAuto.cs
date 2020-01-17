@@ -129,5 +129,10 @@ namespace Rentacar
              
             }
         }
+
+        private void dataGridViewAutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
