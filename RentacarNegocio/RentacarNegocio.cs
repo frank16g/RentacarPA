@@ -31,6 +31,8 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.ObtenerNumeroReservas();
         }
 
+        //
+
         public static void insertarCliente(ClienteEntidad cliente)
         {
            RentacarDatos.RentacarDatos.insertarCliente(cliente);
