@@ -326,7 +326,8 @@ namespace RentacarDatos
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexion;
-                cmd.CommandText = @" SELECT [nombre]
+                cmd.CommandText = @" SELECT [id]
+                                             ,[nombre]
                                              ,[apellido]
                                              ,[direccion]
                                              ,[telefono]
@@ -341,13 +342,14 @@ namespace RentacarDatos
                 using (var dr = cmd.ExecuteReader())
                 {
                     dr.Read();
+                    cliente.id = Convert.ToInt32(dr["id"]);
                     cliente.Nombre = dr["nombre"].ToString();
                     cliente.Cedula = dr["cedula"].ToString();
                     cliente.Apellido = dr["apellido"].ToString();
                     cliente.Telefono = dr["telefono"].ToString();
                     cliente.Direcccion = dr["direccion"].ToString();
                     cliente.Gmail = dr["email"].ToString();
-                    cliente.Nacimiento = Convert.ToDateTime(dr["fecha_nac"].ToString());
+                    cliente.Nacimiento = Convert.ToDateTime(dr["fecha_nac"]);
                 }
 
                 conexion.Close();
@@ -399,6 +401,30 @@ namespace RentacarDatos
                 throw;
             }
         }
+
+        public static int ObtenerIdCliente()
+        {
+            int idCliente = 0;
+            SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = @"SELECT top (1)[id]
+                                FROM [dbo].[Cliente]
+                                order by id desc";
+            cmd.CommandType = CommandType.Text;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    idCliente = Convert.ToInt32(dr["id"].ToString());
+                }
+            }
+
+            return idCliente;
+        }
+
 
     }
 }
