@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Rentacar
 {
-    public partial class FormLogincs : Form
+    public partial class FormAdmin : Form
     {
-        public FormLogincs()
+        public FormAdmin()
         {
             InitializeComponent();
         }

@@ -21,6 +21,7 @@ namespace Rentacar
         bool simulacion;
 
         AlquilerEntidad alquiler = new AlquilerEntidad();
+        ClienteEntidad clienteAlquiler = new ClienteEntidad();
 
         public FormReserva()
         {
@@ -46,10 +47,6 @@ namespace Rentacar
             alquiler.fechaReserva = Convert.ToDateTime("1/1/1777 12:00:00 AM ");
         }
 
-     
-      
-
-     
 
         private void buttonSimularAlquiler_Click(object sender, EventArgs e)
         {
@@ -292,6 +289,12 @@ namespace Rentacar
         {
             FormCliente formCliente = new FormCliente();
             formCliente.ShowDialog();
+
+            clienteAlquiler = formCliente.clienteSeleccionados;
+
+
+            
+            //alquiler.idCliente =  formCliente.clienteSeleccionados
 
 
         }
