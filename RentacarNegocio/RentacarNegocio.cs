@@ -26,17 +26,20 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.GuardarAlquilerSqlServer( alquiler);
         }
 
-        public static void BuscarCarroNegocio(string text)
-        {
-            throw new NotImplementedException();
-        }
-
         public static int DevolverNumeroReservas()
         {
             return RentacarDatos.RentacarDatos.ObtenerNumeroReservas();
         }
 
+        public static void insertarCliente(ClienteEntidad cliente)
+        {
+           RentacarDatos.RentacarDatos.insertarCliente(cliente);
+        }
 
+        public static ClienteEntidad asignarCliente(string cedula)
+        {
+            return RentacarDatos.RentacarDatos.asignarCliente(cedula);
+        }
 
     }
 }

@@ -22,7 +22,7 @@ namespace Rentacar
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             ClienteEntidad cliente = new ClienteEntidad();
-            cliente = Class1.asignarCliente(textBox_Cedula.Text);
+            cliente = RentacarNegocio.RentacarNegocio.asignarCliente(textBox_Cedula.Text);
             if (cliente != null)
             {
                 textBox_Nom.Text = cliente.Nombre;
@@ -61,7 +61,7 @@ namespace Rentacar
             cliente.Telefono = textBox_Telefono.Text.Trim();
                 cliente.Gmail = textBox_Gmail.Text.Trim();
             cliente.Nacimiento = dateTimePicker.Value;
-                Class1.guardarCliente(cliente);
+            RentacarNegocio.RentacarNegocio.insertarCliente (cliente);
             }
         
     }
