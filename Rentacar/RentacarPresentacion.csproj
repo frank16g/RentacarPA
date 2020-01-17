@@ -56,6 +56,12 @@
     <Compile Include="FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogincs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogincs.Designer.cs">
+      <DependentUpon>FormLogincs.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogincs.resx">
+      <DependentUpon>FormLogincs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMantenimiento.resx">
       <DependentUpon>FormMantenimiento.cs</DependentUpon>
