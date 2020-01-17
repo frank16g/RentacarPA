@@ -33,7 +33,7 @@
             this.btnagregar = new System.Windows.Forms.Button();
             this.tbcosto = new System.Windows.Forms.TextBox();
             this.dtfecha = new System.Windows.Forms.DateTimePicker();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.tbdescripcion = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,10 +59,11 @@
             this.mantenimientos.Name = "mantenimientos";
             this.mantenimientos.Size = new System.Drawing.Size(631, 221);
             this.mantenimientos.TabIndex = 4;
+            this.mantenimientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mantenimientos_CellContentClick);
             // 
             // btnagregar
             // 
-            this.btnagregar.Location = new System.Drawing.Point(636, 370);
+            this.btnagregar.Location = new System.Drawing.Point(438, 43);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(75, 23);
             this.btnagregar.TabIndex = 5;
@@ -84,13 +85,13 @@
             this.dtfecha.Size = new System.Drawing.Size(200, 20);
             this.dtfecha.TabIndex = 9;
             // 
-            // richTextBox1
+            // tbdescripcion
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(374, 367);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(237, 61);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.tbdescripcion.Location = new System.Drawing.Point(374, 367);
+            this.tbdescripcion.Name = "tbdescripcion";
+            this.tbdescripcion.Size = new System.Drawing.Size(237, 61);
+            this.tbdescripcion.TabIndex = 10;
+            this.tbdescripcion.Text = "";
             // 
             // label4
             // 
@@ -146,7 +147,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.tbdescripcion);
             this.Controls.Add(this.dtfecha);
             this.Controls.Add(this.tbcosto);
             this.Controls.Add(this.btnagregar);
@@ -166,7 +167,7 @@
         private System.Windows.Forms.Button btnagregar;
         private System.Windows.Forms.TextBox tbcosto;
         private System.Windows.Forms.DateTimePicker dtfecha;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox tbdescripcion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
