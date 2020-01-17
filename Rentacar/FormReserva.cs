@@ -282,5 +282,10 @@ namespace Rentacar
 
             return listaCodigos;
         }
+
+        private void FormReserva_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

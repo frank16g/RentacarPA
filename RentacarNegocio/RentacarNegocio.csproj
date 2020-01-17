@@ -54,5 +54,15 @@
       <Name>RentacarEntidades</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RentacarDatos\RentacarDatos.csproj">
+      <Project>{42c14342-0651-46ae-bc54-87c31d119298}</Project>
+      <Name>RentacarDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RentacarEntidades\RentacarEntidades.csproj">
+      <Project>{959c1a08-0e79-4859-a99a-903684b9e9d8}</Project>
+      <Name>RentacarEntidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
