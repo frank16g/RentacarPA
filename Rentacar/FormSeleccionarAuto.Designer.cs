@@ -60,6 +60,7 @@
             this.dataGridViewAutos.Size = new System.Drawing.Size(641, 220);
             this.dataGridViewAutos.TabIndex = 25;
             this.dataGridViewAutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAutos_CellClick);
+            this.dataGridViewAutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAutos_CellContentClick);
             // 
             // comboBoxClase
             // 

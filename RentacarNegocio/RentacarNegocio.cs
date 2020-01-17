@@ -56,9 +56,15 @@ namespace RentacarNegocio
         {
             RentacarDatos.RentacarDatos.insertarAuto(auto);
         }
-        public static void BuscarCarroNegocio(string cedula)
-        {
+        public static List<MantenimientoEntidad> BuscarCarroNegocio(AutoEntidad auto)
 
+        {
+            return RentacarDatos.RentacarDatos.CargarMantenimientosId(auto);
+        }
+
+        public static void insertarMantenimiento(MantenimientoEntidad mantenimiento)
+        {
+            RentacarDatos.RentacarDatos.insertarMantenimiento(mantenimiento);
         }
     }
 }
