@@ -26,20 +26,10 @@ namespace RentacarDatos {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C8D8LVA;Initial Catalog=rentacar;Integrated Security=True")]
-        public string CadenaArchivo {
-            get {
-                return ((string)(this["CadenaArchivo"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=rentacar;Integrated Security=True")]
-        public string cadena {
+        public string CadenaConexionSqlServer {
             get {
-                return ((string)(this["cadena"]));
+                return ((string)(this["CadenaConexionSqlServer"]));
             }
         }
     }
