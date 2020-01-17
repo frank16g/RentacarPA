@@ -90,7 +90,7 @@ namespace Rentacar
                 catch (System.NullReferenceException e)
                 {
 
-                    throw;
+                    
                 }
                 
             }
