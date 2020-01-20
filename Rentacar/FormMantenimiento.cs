@@ -32,6 +32,7 @@ namespace Rentacar
             if (tbid.Text != "")
             {
                 bool flag = ComprobarExistenciaAuto(auto);
+
                 if (flag)
                 {
                     m = RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(auto);
@@ -73,6 +74,7 @@ namespace Rentacar
         {
             List<MarcaEntidad> marcas = new List<MarcaEntidad>();
             marcas = RentacarNegocio.RentacarNegocio.DevolverListadoMarcas();
+
             bool flag = false;
             for (int i = 0; i < marcas.Count; i++)
             {

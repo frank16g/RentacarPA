@@ -31,10 +31,10 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
-            this.textBoxContraseña = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxContraseña = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,13 +64,6 @@
             this.textBoxUsuario.Size = new System.Drawing.Size(100, 20);
             this.textBoxUsuario.TabIndex = 2;
             // 
-            // textBoxContraseña
-            // 
-            this.textBoxContraseña.Location = new System.Drawing.Point(164, 90);
-            this.textBoxContraseña.Name = "textBoxContraseña";
-            this.textBoxContraseña.Size = new System.Drawing.Size(100, 20);
-            this.textBoxContraseña.TabIndex = 4;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -83,9 +76,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Controls.Add(this.textBoxContraseña);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBoxContraseña);
             this.groupBox1.Controls.Add(this.buttonLogin);
             this.groupBox1.Controls.Add(this.textBoxUsuario);
             this.groupBox1.Location = new System.Drawing.Point(21, 12);
@@ -102,6 +95,13 @@
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Contraseña";
+            // 
+            // textBoxContraseña
+            // 
+            this.textBoxContraseña.Location = new System.Drawing.Point(164, 93);
+            this.textBoxContraseña.Name = "textBoxContraseña";
+            this.textBoxContraseña.Size = new System.Drawing.Size(100, 20);
+            this.textBoxContraseña.TabIndex = 6;
             // 
             // FormLogin
             // 
@@ -125,9 +125,9 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxUsuario;
-        private System.Windows.Forms.TextBox textBoxContraseña;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MaskedTextBox textBoxContraseña;
     }
 }

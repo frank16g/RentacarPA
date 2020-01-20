@@ -226,8 +226,8 @@ namespace Rentacar
 
             List<Object> listaCodigos = GenerarCodigos(texto);
 
-            Image codigoBarras = (Image)listaCodigos.ElementAt(0);
-            Image codigoQr = (Image)listaCodigos.ElementAt(1);
+      
+            Image codigoQr = (Image)listaCodigos.ElementAt(0);
 
             int a = 250, b = 40;
 

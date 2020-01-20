@@ -22,6 +22,7 @@ namespace Rentacar
             InitializeComponent();
 
             usuario = new UsuarioEntidad();
+            textBoxContraseña.UseSystemPasswordChar = true;
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
