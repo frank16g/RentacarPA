@@ -40,7 +40,7 @@ namespace Rentacar
 
             reportViewer1.LocalReport.ReportEmbeddedResource = "Ejemplo.Report1.rdlc";
             FuenteDeDatos.Name = "DataSet1";
-            this.DataTable1TableAdapter.Fill(this.DataSet1.DataTable1);
+            this.DataTable1TableAdapter.Fill(this.DataSet1.DataTable1,);
             FuenteDeDatos.Value = DataTable1BindingSource;
             reportViewer1.LocalReport.DataSources.Add(FuenteDeDatos);
 
