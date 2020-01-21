@@ -15,7 +15,7 @@ namespace Rentacar
     public partial class FormMantenimiento : Form
     {
         public AutoEntidad auto = new AutoEntidad();
-        FormAgregarMantenimiento formagregar = new FormAgregarMantenimiento();
+        
         List<MantenimientoEntidad> m = new List<MantenimientoEntidad>();
         List<MarcaEntidad> listaMarcas = RentacarNegocio.RentacarNegocio.DevolverListadoMarcas();
         public string Marca { get; set; }

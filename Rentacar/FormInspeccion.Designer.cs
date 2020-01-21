@@ -52,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 39);
+            this.label1.Location = new System.Drawing.Point(176, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 17);
@@ -62,7 +62,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 497);
+            this.label4.Location = new System.Drawing.Point(65, 490);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
@@ -72,11 +72,11 @@
             // Inspecciones
             // 
             this.Inspecciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Inspecciones.Location = new System.Drawing.Point(57, 204);
+            this.Inspecciones.Location = new System.Drawing.Point(68, 204);
             this.Inspecciones.Margin = new System.Windows.Forms.Padding(4);
             this.Inspecciones.Name = "Inspecciones";
             this.Inspecciones.RowHeadersWidth = 51;
-            this.Inspecciones.Size = new System.Drawing.Size(841, 272);
+            this.Inspecciones.Size = new System.Drawing.Size(796, 272);
             this.Inspecciones.TabIndex = 20;
             // 
             // groupBox1
@@ -149,7 +149,7 @@
             // comboBox_autos
             // 
             this.comboBox_autos.FormattingEnabled = true;
-            this.comboBox_autos.Location = new System.Drawing.Point(122, 36);
+            this.comboBox_autos.Location = new System.Drawing.Point(162, 42);
             this.comboBox_autos.Name = "comboBox_autos";
             this.comboBox_autos.Size = new System.Drawing.Size(225, 24);
             this.comboBox_autos.TabIndex = 31;
@@ -158,7 +158,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(428, 35);
+            this.label5.Location = new System.Drawing.Point(457, 18);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 17);
@@ -167,7 +167,7 @@
             // 
             // textBox_Nombre
             // 
-            this.textBox_Nombre.Location = new System.Drawing.Point(566, 36);
+            this.textBox_Nombre.Location = new System.Drawing.Point(422, 42);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(166, 22);
             this.textBox_Nombre.TabIndex = 33;
@@ -180,7 +180,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(68, 8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(814, 85);
+            this.groupBox2.Size = new System.Drawing.Size(785, 85);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto";
@@ -214,7 +214,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(1088, 528);
+            this.ClientSize = new System.Drawing.Size(920, 528);
             this.Controls.Add(this.button_Continuar);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.groupBox2);
