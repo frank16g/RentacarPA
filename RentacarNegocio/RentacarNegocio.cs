@@ -103,5 +103,13 @@ namespace RentacarNegocio
         {
            return  RentacarDatos.RentacarDatos.CargarAutos(disp);
         }
+        public static int ObtenerIdInspeccion()
+        {
+            return RentacarDatos.RentacarDatos.ObtenerIdInspeccion();
+        }
+        public static void insertarDetalleInspeccion(DetalleInspeccionEntidad detalle)
+        {
+            RentacarDatos.RentacarDatos.insertarDetalleInspeccion(detalle);
+        }
     }
 }
