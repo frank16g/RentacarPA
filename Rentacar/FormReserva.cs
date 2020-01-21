@@ -351,7 +351,7 @@ namespace Rentacar
         private void GestionarContrato()
         {
 
-            RentacarNegocio.RentacarNegocio.GenerarContrato(alquiler);
+           // RentacarNegocio.RentacarNegocio.GenerarContrato(alquiler);
 
 
             try

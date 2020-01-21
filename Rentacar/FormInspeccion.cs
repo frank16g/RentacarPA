@@ -15,17 +15,20 @@ namespace Rentacar
     {
         List<Chequeos> listaChequeos;
         List<AutoEntidad> listaAutos;
+        List<DetalleInspeccionEntidad> di = new List<DetalleInspeccionEntidad>();
         int k = 2;
+        InspeccionEntidad ie = new InspeccionEntidad();
         public FormInspeccion()
         {
             
             InitializeComponent();
             listaChequeos = RentacarNegocio.RentacarNegocio.CargarChequeos();
             listaAutos = RentacarNegocio.RentacarNegocio.CargarAutos(k);
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_tipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_autos.DropDownStyle = ComboBoxStyle.DropDownList;
             asignarChequeos();
             asignarAutos();
+            ie.Id = RentacarNegocio.RentacarNegocio.ObtenerIdInspeccion();
         }
 
         private void Inspeccion_Load(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace Rentacar
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void asignarChequeos()
@@ -43,7 +46,7 @@ namespace Rentacar
 
                 for (int i = 0; i < listaChequeos.Count; i++)
                 {
-                    comboBox1.Items.Add(listaChequeos[i].Nombre);
+                    comboBox_tipo.Items.Add(listaChequeos[i].Nombre);
                 } 
         }
         private void asignarAutos()
@@ -51,13 +54,54 @@ namespace Rentacar
 
             for (int i = 0; i < listaAutos.Count; i++)
             {
-                comboBox2.Items.Add(listaAutos[i].Id);
+                comboBox_autos.Items.Add(listaAutos[i].Id);
             }
         }
 
         private void buttonConfirmarAlquiler_Click(object sender, EventArgs e)
         {
+            DetalleInspeccionEntidad d = new DetalleInspeccionEntidad();
+            d.examinacion = comboBox_Examinacion.Text;
+            foreach (var item in listaChequeos)
+            {
+                if (item.Nombre == comboBox_tipo.Text)
+                    d.id_chequeo = item.Id;
+            }
+            d.id_inspeccion = ie.Id;
+            bool existe = false ;
+            foreach (var item in di)
+            {
+                if (d.id_chequeo == item.id_chequeo)
+                    existe = true;
+            }
+            if (existe == true)
+                MessageBox.Show("EL cheuqeo ya se realizo");
+            else
+            {
+                di.Add(d);
 
+
+                RentacarNegocio.RentacarNegocio.insertarDetalleInspeccion(d);
+
+                Inspecciones.DataSource = null;
+                Inspecciones.DataSource = di;
+                limpiarProducto();
+            }
+        }
+
+        private void limpiarProducto()
+        {
+            comboBox_Examinacion.Text = "";
+            comboBox_tipo.Text = "";
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (var item in listaAutos)
+            {
+                if (item.Id == comboBox_autos.Text)
+                    textBox_Nombre.Text = item.Nombre;
+            }
         }
     }
 }
