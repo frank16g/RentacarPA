@@ -188,7 +188,9 @@ namespace Rentacar
 
         private void LimpiarCampos()
         {
-            textBoxCodAlquiler.Text = RentacarNegocio.RentacarNegocio.DevolverNumeroReservas()+1.ToString();
+            int numeroReservas = RentacarNegocio.RentacarNegocio.DevolverNumeroReservas();
+            numeroReservas++;
+            textBoxCodAlquiler.Text = numeroReservas.ToString();
             textBoxModelo.Text = "";
 
            dateTimePickerRecogida.Value = DateTime.Today.AddDays(-1);
