@@ -56,5 +56,11 @@ namespace Rentacar
                 MessageBox.Show("La factura no se encuentra registrada ");
             }
         }
+
+        private void button_Continuar_Click(object sender, EventArgs e)
+        {
+            FormInspeccion formInspeccion = new FormInspeccion();
+            formInspeccion.ShowDialog();
+        }
     }
 }

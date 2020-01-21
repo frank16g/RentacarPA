@@ -188,7 +188,8 @@ namespace Rentacar
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
-            formagregar.ShowDialog();
+            FormAgregarMantenimiento formAgregar = new FormAgregarMantenimiento();
+            formAgregar.ShowDialog();
         }
     }
 }

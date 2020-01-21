@@ -146,9 +146,9 @@ namespace Rentacar
             {
                 FormSeleccionarAuto formSeleccionarAuto = new FormSeleccionarAuto();
                 formSeleccionarAuto.ShowDialog();
-                textBoxClase.Text = formSeleccionarAuto.Clase.ToString();
-                textBoxModelo.Text = formSeleccionarAuto.autoSeleccionado.Nombre + " MARCA: " + formSeleccionarAuto.Marca
-                    + " PLACA: ";
+                
+                textBoxModelo.Text = formSeleccionarAuto.autoSeleccionado.Nombre + " Marca: " + formSeleccionarAuto.Marca  + "Modelo"+ formSeleccionarAuto.autoSeleccionado.Nombre+  " Placa: " + formSeleccionarAuto.autoSeleccionado.Id;
+                textBoxClase.Text = formSeleccionarAuto.autoSeleccionado.Id_Categoria.ToString();
 
                 alquiler.idAuto = formSeleccionarAuto.autoSeleccionado.Id;
             }
@@ -188,6 +188,15 @@ namespace Rentacar
         {
             int numeroReservas = RentacarNegocio.RentacarNegocio.DevolverNumeroReservas();
             numeroReservas++;
+            textBoxApellido.Text = "";
+            textBoxNombre.Text = "";
+            textBoxRuc.Text = "";
+            textBoxModelo.Text = "";
+            textBoxClase.Text = "";
+            textBoxSeguro.Text = "";
+            textBoxIva.Text = "";
+            textBoxSubtotal.Text = "";
+            textBoxTotal.Text = "";
             textBoxCodAlquiler.Text = numeroReservas.ToString();
             textBoxModelo.Text = "";
 
@@ -209,11 +218,12 @@ namespace Rentacar
         private void AgregarServicioAlAlquiler()
         {
             
-                FormServicios formServicios = new FormServicios();
-                formServicios.ShowDialog();
+            FormServicios formServicios = new FormServicios();
+            formServicios.ShowDialog();
               
-                alquiler.listaServicios.Add(formServicios.ServicioSelecionado);
-                simulacion = false;
+            alquiler.listaServicios.Add(formServicios.ServicioSelecionado);
+            textBoxSeguro.Text = formServicios.ServicioSelecionado.Nombre;
+            simulacion = false;
 
           
 
@@ -229,6 +239,9 @@ namespace Rentacar
         {
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+            RentacarNegocio.RentacarNegocio.ActualizarEstadoAuto(alquiler.idAuto,0);
+            simulacion = true;
+           
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -259,14 +272,46 @@ namespace Rentacar
             //e.Graphics.DrawImage(codigoBarras, 200, 90, 550, 110);
             e.Graphics.DrawImage(logoRentaCar, 600, 70, 200, 200);
             e.Graphics.DrawImage(codigoQr, 599, 280, 175, 175);
-            int y = 150;
-            e.Graphics.DrawString("Cliente"+ clienteAlquiler.Nombre, fuenteCabecera, Brushes.Black, 20, y += 20);
-            e.Graphics.DrawString("Carro"+ textBoxModelo.Text, fuenteCabecera, Brushes.Black, 120, y);
-            e.Graphics.DrawString("Dias" + dias, fuenteCabecera, Brushes.Black, 200, y);
-            e.Graphics.DrawString("Subtotal" + alquiler.subtotal, fuenteCabecera, Brushes.Black, 300, y);
-            e.Graphics.DrawString("IVA" + alquiler.iva, fuenteCabecera, Brushes.Black, 300, y);
-            e.Graphics.DrawString("Total" + alquiler.total, fuenteCabecera, Brushes.Black, 300, y);
-            y += 10;
+
+            e.Graphics.DrawString("Rentacar", fuenteCabecera, Brushes.Black, 280, 30);          
+            e.Graphics.DrawString("Fecha", fuenteTitulo, Brushes.Black, 50, a);
+            e.Graphics.DrawString(DateTime.Now.ToString(), fuenteCuerpo, Brushes.Black, 200, a + 5);
+
+            e.Graphics.DrawString("Nombre", fuenteTitulo, Brushes.Black, 50, a += b);
+            e.Graphics.DrawString(clienteAlquiler.Nombre + " " + clienteAlquiler.Apellido, fuenteCuerpo, Brushes.Black, 200, a + 5);
+
+            e.Graphics.DrawString("Ci/Ruc", fuenteTitulo, Brushes.Black, 50, a += b);
+            e.Graphics.DrawString(clienteAlquiler.Cedula, fuenteCuerpo, Brushes.Black, 200, a + 5);
+
+            a += 60;
+
+            e.Graphics.DrawString("Nombre", fuenteTitulo, Brushes.Black, 50, a += b);
+            e.Graphics.DrawString("Cantidad", fuenteTitulo, Brushes.Black, 300, a);
+            e.Graphics.DrawString("Precio / U", fuenteTitulo, Brushes.Black, 450, a);
+      
+
+            foreach (var item in alquiler.listaServicios)
+            {
+                e.Graphics.DrawString(item.Nombre, fuenteCuerpo, Brushes.Black, 50, a += b);
+                e.Graphics.DrawString("1", fuenteCuerpo, Brushes.Black, 300, a);
+                e.Graphics.DrawString(item.Costo.ToString(), fuenteCuerpo, Brushes.Black, 450, a);
+             
+            }
+            a += 60;
+
+            e.Graphics.DrawString("Subtotal", fuenteTitulo, Brushes.Black, 500, a += b);
+            e.Graphics.DrawString(alquiler.subtotal.ToString("C2"), fuenteCuerpo, Brushes.Black, 650, a + 5);
+
+            e.Graphics.DrawString("Iva", fuenteTitulo, Brushes.Black, 500, a += b);
+            e.Graphics.DrawString(alquiler.iva.ToString("C2"), fuenteCuerpo, Brushes.Black, 650, a + 5);
+
+            e.Graphics.DrawString("Total", fuenteTitulo, Brushes.Black, 500, a += b);
+            e.Graphics.DrawString(alquiler.total.ToString("C2"), fuenteCuerpo, Brushes.Black, 650, a + 5);
+
+
+            //Pie de Pagina
+            e.Graphics.DrawString("Copyright(©) r, Todos los derechos reservados. David Constante 0961701208 davidconstante.uta@gmail.com", fuentePieDePagina, Brushes.Black, 15, 1130);
+
 
         }
 
@@ -351,7 +396,7 @@ namespace Rentacar
         private void GestionarContrato()
         {
 
-           // RentacarNegocio.RentacarNegocio.GenerarContrato(alquiler);
+           RentacarNegocio.RentacarNegocio.GenerarContrato(alquiler);
 
 
             try
@@ -381,5 +426,7 @@ namespace Rentacar
 
 
         }
+
+
     }
 }

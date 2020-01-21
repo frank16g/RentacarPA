@@ -28,64 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUser));
             this.buttonAlquilar = new System.Windows.Forms.Button();
             this.buttonDevolucion = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAlquilar
             // 
-            this.buttonAlquilar.Location = new System.Drawing.Point(216, 168);
+            this.buttonAlquilar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAlquilar.BackgroundImage")));
+            this.buttonAlquilar.Image = ((System.Drawing.Image)(resources.GetObject("buttonAlquilar.Image")));
+            this.buttonAlquilar.Location = new System.Drawing.Point(143, 156);
             this.buttonAlquilar.Name = "buttonAlquilar";
             this.buttonAlquilar.Size = new System.Drawing.Size(75, 23);
             this.buttonAlquilar.TabIndex = 0;
-            this.buttonAlquilar.Text = "Iniciar";
+            this.buttonAlquilar.Text = "Alquilar";
             this.buttonAlquilar.UseVisualStyleBackColor = true;
             this.buttonAlquilar.Click += new System.EventHandler(this.buttonAlquilar_Click);
             // 
             // buttonDevolucion
             // 
-            this.buttonDevolucion.Location = new System.Drawing.Point(467, 168);
+            this.buttonDevolucion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDevolucion.BackgroundImage")));
+            this.buttonDevolucion.Image = ((System.Drawing.Image)(resources.GetObject("buttonDevolucion.Image")));
+            this.buttonDevolucion.Location = new System.Drawing.Point(394, 156);
             this.buttonDevolucion.Name = "buttonDevolucion";
             this.buttonDevolucion.Size = new System.Drawing.Size(75, 23);
             this.buttonDevolucion.TabIndex = 1;
-            this.buttonDevolucion.Text = "Iniciar";
+            this.buttonDevolucion.Text = "Inspeccion";
             this.buttonDevolucion.UseVisualStyleBackColor = true;
             this.buttonDevolucion.Click += new System.EventHandler(this.buttonDevolucion_Click);
             // 
-            // label1
+            // pictureBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(189, 131);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Gestion de alquiler de Autos";
+            this.pictureBox1.Image = global::Rentacar.Properties.Resources.car;
+            this.pictureBox1.Location = new System.Drawing.Point(134, 65);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // pictureBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(431, 131);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Gestion devoluciones / Multas";
+            this.pictureBox2.Image = global::Rentacar.Properties.Resources.process__1_;
+            this.pictureBox2.Location = new System.Drawing.Point(385, 65);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(94, 90);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(749, 406);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(610, 253);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonDevolucion);
             this.Controls.Add(this.buttonAlquilar);
             this.Name = "FormUser";
             this.Text = "FormUser";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -93,7 +103,7 @@
 
         private System.Windows.Forms.Button buttonAlquilar;
         private System.Windows.Forms.Button buttonDevolucion;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
