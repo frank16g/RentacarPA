@@ -111,6 +111,7 @@
             this.comboBox_Marca.Name = "comboBox_Marca";
             this.comboBox_Marca.Size = new System.Drawing.Size(339, 32);
             this.comboBox_Marca.TabIndex = 21;
+            this.comboBox_Marca.SelectedIndexChanged += new System.EventHandler(this.comboBox_Marca_SelectedIndexChanged);
             // 
             // textBox_Disponibilidad
             // 
@@ -318,7 +319,7 @@
             this.Controls.Add(this.Guardar);
             this.Controls.Add(this.groupBox2);
             this.Name = "FormAuto";
-            this.Text = "Form1";
+            this.Text = " ";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

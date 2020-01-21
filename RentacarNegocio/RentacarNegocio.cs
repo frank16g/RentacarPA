@@ -72,5 +72,9 @@ namespace RentacarNegocio
         {
             return RentacarDatos.RentacarDatos.asignarAuto(placa);
         }
+        public static List<Chequeos> CargarChequeos()
+        {
+            return RentacarDatos.RentacarDatos.CargarChequeos();
+        }
     }
 }

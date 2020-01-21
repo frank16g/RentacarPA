@@ -11,11 +11,11 @@ namespace RentacarDatos
 {
     public class RentacarDatos
     {
-    
+
         public static List<MarcaEntidad> CargarMarcasSqlServer()
         {
-			try
-			{
+            try
+            {
                 List<MarcaEntidad> listaMarcas = new List<MarcaEntidad>();
 
                 SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
@@ -43,7 +43,7 @@ namespace RentacarDatos
 
                     }
                 }
-                    connection.Close();
+                connection.Close();
 
                 for (int i = 1; i < listaMarcas.Count; i++)
                 {
@@ -94,7 +94,7 @@ namespace RentacarDatos
                                     {
                                         listaMarcas[j].ListaAutos.Add(auto);
                                     }
-                                    
+
                                 }
                             }
 
@@ -108,11 +108,11 @@ namespace RentacarDatos
 
                 return listaMarcas;
             }
-			catch (Exception)
-			{
+            catch (Exception)
+            {
 
-				throw;
-			}
+                throw;
+            }
 
 
         }
@@ -231,7 +231,7 @@ namespace RentacarDatos
                         usuario.Id = Convert.ToInt32(dataReader["id"].ToString());
                         usuario.Nombre = (dataReader["nombre"].ToString());
                         usuario.Apellido = (dataReader["apellido"].ToString());
-                     //   usuario.Nacimiento = Convert.ToDateTime((dataReader["fecha_nac"].ToString()));
+                        //   usuario.Nacimiento = Convert.ToDateTime((dataReader["fecha_nac"].ToString()));
 
                         usuario.Direcccion = (dataReader["direccion"].ToString());
                         usuario.Telefono = (dataReader["telefono"].ToString());
@@ -283,21 +283,21 @@ namespace RentacarDatos
                                 Select Scope_Identity()";
 
 
-            cmd.Parameters.AddWithValue("@fecha_recogida",alquiler.fechaRecogida);
-            cmd.Parameters.AddWithValue("@fecha_devolucion",alquiler.fechaDevolucion);
-            cmd.Parameters.AddWithValue("@id_auto",alquiler.idAuto);
-            cmd.Parameters.AddWithValue("@id_usuario",alquiler.idUsuario);
-            cmd.Parameters.AddWithValue("@id_cliente",alquiler.idCliente);
-            cmd.Parameters.AddWithValue("@subtotal",alquiler.subtotal);
-            cmd.Parameters.AddWithValue("@iva",alquiler.iva);
-            cmd.Parameters.AddWithValue("@total",alquiler.total);
+            cmd.Parameters.AddWithValue("@fecha_recogida", alquiler.fechaRecogida);
+            cmd.Parameters.AddWithValue("@fecha_devolucion", alquiler.fechaDevolucion);
+            cmd.Parameters.AddWithValue("@id_auto", alquiler.idAuto);
+            cmd.Parameters.AddWithValue("@id_usuario", alquiler.idUsuario);
+            cmd.Parameters.AddWithValue("@id_cliente", alquiler.idCliente);
+            cmd.Parameters.AddWithValue("@subtotal", alquiler.subtotal);
+            cmd.Parameters.AddWithValue("@iva", alquiler.iva);
+            cmd.Parameters.AddWithValue("@total", alquiler.total);
 
             alquiler.id = Convert.ToInt32(cmd.ExecuteScalar());
 
             connection.Close();
 
 
-            if (alquiler.listaServicios.Count >0)
+            if (alquiler.listaServicios.Count > 0)
             {
                 for (int i = 0; i < alquiler.listaServicios.Count; i++)
                 {
@@ -568,9 +568,9 @@ namespace RentacarDatos
                 using (var dr = cmd.ExecuteReader())
                 {
                     dr.Read();
-                    auto.Id= dr["id"].ToString();
+                    auto.Id = dr["id"].ToString();
                     auto.Nombre = dr["nombre"].ToString();
-                   
+
                 }
 
                 conexion.Close();
@@ -587,6 +587,45 @@ namespace RentacarDatos
             }
 
 
+        }
+        public static List<Chequeos> CargarChequeos()
+        {
+            try
+            {
+                List<Chequeos> listaChequeos = new List<Chequeos>();
+
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                connection.Open();
+
+                cmd.CommandText = @"SELECT [id]
+                                          ,[nombre]
+                                          ,[descripcion]
+                                      FROM [dbo].[Chequeos]";
+
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        Chequeos chequeos = new Chequeos();
+
+                        chequeos.Id = Convert.ToInt32(dataReader["id"].ToString());
+                        chequeos.Nombre = dataReader["nombre"].ToString();
+                        chequeos.Descripcion = dataReader["descripcion"].ToString();
+                        listaChequeos.Add(chequeos);
+
+                    }
+                }
+                connection.Close();
+                return listaChequeos;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

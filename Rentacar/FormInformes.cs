@@ -23,7 +23,7 @@ namespace Rentacar
             // TODO: esta línea de código carga datos en la tabla 'DataSet1.Mantenimiento' Puede moverla o quitarla según sea necesario.
             this.mantenimientoTableAdapter.Fill(this.DataSet1.Mantenimiento);
             // TODO: esta línea de código carga datos en la tabla 'DataSet1.DataTable1' Puede moverla o quitarla según sea necesario.
-            this.DataTable1TableAdapter.Fill(this.DataSet1.DataTable1);
+           // this.DataTable1TableAdapter.Fill(this.DataSet1.DataTable1);
 
 
             // TODO: esta línea de código carga datos en la tabla 'DataSet1.vTargetMail' Puede moverla o quitarla según sea necesario.
@@ -40,7 +40,7 @@ namespace Rentacar
 
             reportViewer1.LocalReport.ReportEmbeddedResource = "Ejemplo.Report1.rdlc";
             FuenteDeDatos.Name = "DataSet1";
-            this.DataTable1TableAdapter.Fill(this.DataSet1.DataTable1,);
+            this.DataTable1TableAdapter.Fill(this.DataSet1.DataTable1,0);
             FuenteDeDatos.Value = DataTable1BindingSource;
             reportViewer1.LocalReport.DataSources.Add(FuenteDeDatos);
 
@@ -56,7 +56,7 @@ namespace Rentacar
 
             reportViewer1.LocalReport.ReportEmbeddedResource = "Ejemplo.Report2.rdlc";
             FuenteDeDatos.Name = "DataSet1";
-            this.DataTable1TableAdapter.Fill(this.DataSet1.DataTable1);
+          //  this.DataTable1TableAdapter.Fill(this.DataSet1.DataTable1);
             FuenteDeDatos.Value = DataTable1BindingSource;
             reportViewer1.LocalReport.DataSources.Add(FuenteDeDatos);
 
