@@ -36,7 +36,7 @@ namespace Rentacar
 
         private void LlamarFromInfromes()
         {
-            FormInformes formInformes = new FormInformes();
+            FormReporteAutosMarca formInformes = new FormReporteAutosMarca();
 
             formInformes.ShowDialog();
         }

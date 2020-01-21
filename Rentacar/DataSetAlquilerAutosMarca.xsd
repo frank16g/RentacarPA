@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DataSetAlquilerAutosMarca" targetNamespace="http://tempuri.org/DataSetAlquilerAutosMarca.xsd" xmlns:mstns="http://tempuri.org/DataSetAlquilerAutosMarca.xsd" xmlns="http://tempuri.org/DataSetAlquilerAutosMarca.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -9,12 +9,13 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="rentacarConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="rentacarConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Autos.*, Marca.*
+                    <CommandText>SELECT        Autos.id, Autos.id_marca, Autos.id_categoria, Reserva.id AS id_reserva, Reserva.id_auto, Reserva.total, Marca.id AS id_marca, Marca.nombre
 FROM            Autos INNER JOIN
-                         Marca ON Autos.id_marca = Marca.id</CommandText>
+                         Marca ON Autos.id_marca = Marca.id INNER JOIN
+                         Reserva ON Autos.id = Reserva.id_auto</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -24,13 +25,11 @@ FROM            Autos INNER JOIN
               <Mapping SourceColumn="id" DataSetColumn="id" />
               <Mapping SourceColumn="id_marca" DataSetColumn="id_marca" />
               <Mapping SourceColumn="id_categoria" DataSetColumn="id_categoria" />
+              <Mapping SourceColumn="id_auto" DataSetColumn="id_auto" />
+              <Mapping SourceColumn="total" DataSetColumn="total" />
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
-              <Mapping SourceColumn="km" DataSetColumn="km" />
-              <Mapping SourceColumn="anio" DataSetColumn="anio" />
-              <Mapping SourceColumn="color" DataSetColumn="color" />
-              <Mapping SourceColumn="disponibilidad" DataSetColumn="disponibilidad" />
-              <Mapping SourceColumn="id1" DataSetColumn="id1" />
-              <Mapping SourceColumn="nombre1" DataSetColumn="nombre1" />
+              <Mapping SourceColumn="id_reserva" DataSetColumn="id_reserva" />
+              <Mapping SourceColumn="id_marca1" DataSetColumn="id_marca1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -39,7 +38,7 @@ FROM            Autos INNER JOIN
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+  <xs:element name="DataSetAlquilerAutosMarca" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetAlquilerAutosMarca" msprop:Generator_UserDSName="DataSetAlquilerAutosMarca">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
@@ -54,31 +53,23 @@ FROM            Autos INNER JOIN
               </xs:element>
               <xs:element name="id_marca" msprop:Generator_ColumnVarNameInTable="columnid_marca" msprop:Generator_ColumnPropNameInRow="id_marca" msprop:Generator_ColumnPropNameInTable="id_marcaColumn" msprop:Generator_UserColumnName="id_marca" type="xs:int" minOccurs="0" />
               <xs:element name="id_categoria" msprop:Generator_ColumnVarNameInTable="columnid_categoria" msprop:Generator_ColumnPropNameInRow="id_categoria" msprop:Generator_ColumnPropNameInTable="id_categoriaColumn" msprop:Generator_UserColumnName="id_categoria" type="xs:int" minOccurs="0" />
-              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+              <xs:element name="id_auto" msprop:Generator_ColumnVarNameInTable="columnid_auto" msprop:Generator_ColumnPropNameInRow="id_auto" msprop:Generator_ColumnPropNameInTable="id_autoColumn" msprop:Generator_UserColumnName="id_auto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="km" msprop:Generator_ColumnVarNameInTable="columnkm" msprop:Generator_ColumnPropNameInRow="km" msprop:Generator_ColumnPropNameInTable="kmColumn" msprop:Generator_UserColumnName="km" type="xs:int" minOccurs="0" />
-              <xs:element name="anio" msprop:Generator_ColumnVarNameInTable="columnanio" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_UserColumnName="anio" type="xs:int" minOccurs="0" />
-              <xs:element name="color" msprop:Generator_ColumnVarNameInTable="columncolor" msprop:Generator_ColumnPropNameInRow="color" msprop:Generator_ColumnPropNameInTable="colorColumn" msprop:Generator_UserColumnName="color" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="disponibilidad" msprop:Generator_ColumnVarNameInTable="columndisponibilidad" msprop:Generator_ColumnPropNameInRow="disponibilidad" msprop:Generator_ColumnPropNameInTable="disponibilidadColumn" msprop:Generator_UserColumnName="disponibilidad" type="xs:int" minOccurs="0" />
-              <xs:element name="id1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid1" msprop:Generator_ColumnPropNameInRow="id1" msprop:Generator_ColumnPropNameInTable="id1Column" msprop:Generator_UserColumnName="id1" type="xs:int" />
-              <xs:element name="nombre1" msprop:Generator_ColumnVarNameInTable="columnnombre1" msprop:Generator_ColumnPropNameInRow="nombre1" msprop:Generator_ColumnPropNameInTable="nombre1Column" msprop:Generator_UserColumnName="nombre1">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="id_reserva" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_reserva" msprop:Generator_ColumnPropNameInRow="id_reserva" msprop:Generator_ColumnPropNameInTable="id_reservaColumn" msprop:Generator_UserColumnName="id_reserva" type="xs:int" />
+              <xs:element name="id_marca1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_marca1" msprop:Generator_ColumnPropNameInRow="id_marca1" msprop:Generator_ColumnPropNameInTable="id_marca1Column" msprop:Generator_UserColumnName="id_marca1" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -87,7 +78,8 @@ FROM            Autos INNER JOIN
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:DataTable1" />
       <xs:field xpath="mstns:id" />
-      <xs:field xpath="mstns:id1" />
+      <xs:field xpath="mstns:id_reserva" />
+      <xs:field xpath="mstns:id_marca1" />
     </xs:unique>
   </xs:element>
 </xs:schema>
