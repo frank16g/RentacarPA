@@ -375,13 +375,17 @@ namespace RentacarDatos
                     cmd2.Parameters.AddWithValue("@id_reserva", alquiler.id);
                     cmd2.Parameters.AddWithValue("@id_servicio", alquiler.listaServicios[i].Id);
 
-                    cmd2.ExecuteNonQuery();
-                    connection2.Close();
+                    
                 }
             }
 
+         
+
+
             return alquiler;
         }
+
+      
 
         public static int ObtenerNumeroReservas()
         {
@@ -789,7 +793,7 @@ namespace RentacarDatos
             }
         }
 
-        public static void ActualizarEstadoAuto(string id,int disp)
+        public static void ActualizarEstadoAuto(string id,int estado)
         {
 
             try
@@ -799,10 +803,10 @@ namespace RentacarDatos
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = @"UPDATE [dbo].[Autos]
-                                SET [disponibilidad] = @disp
+                                SET [disponibilidad] = @disponibilidad
                                 WHERE id = @id; ";
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@dis", disp);
+                cmd.Parameters.AddWithValue("@disponibilidad", estado);
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteReader();
 

@@ -337,7 +337,14 @@ namespace Rentacar
 
         private void buttonContrato_Click(object sender, EventArgs e)
         {
-            GestionarContrato();
+            if (simulacion)
+            {
+                GestionarContrato();
+            }
+            else
+            {
+                MessageBox.Show("Genere la Simulación");
+            }
 
         }
 
