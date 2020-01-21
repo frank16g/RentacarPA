@@ -375,13 +375,17 @@ namespace RentacarDatos
                     cmd2.Parameters.AddWithValue("@id_reserva", alquiler.id);
                     cmd2.Parameters.AddWithValue("@id_servicio", alquiler.listaServicios[i].Id);
 
-                    cmd2.ExecuteNonQuery();
-                    connection2.Close();
+                    
                 }
             }
 
+         
+
+
             return alquiler;
         }
+
+      
 
         public static int ObtenerNumeroReservas()
         {
@@ -607,6 +611,7 @@ namespace RentacarDatos
 
 
         }
+
         public static AutoEntidad asignarAuto(string placa)
         {
             try
@@ -646,6 +651,7 @@ namespace RentacarDatos
 
 
         }
+
         public static List<Chequeos> CargarChequeos()
         {
             try
@@ -685,6 +691,7 @@ namespace RentacarDatos
                 throw;
             }
         }
+
         public static ReservaEntidad CargarFactura(int id)
         {
             try
@@ -724,6 +731,7 @@ namespace RentacarDatos
 
 
         }
+
 
         public static void insertarMulta(MultaEntidad multa)
         {
@@ -785,7 +793,7 @@ namespace RentacarDatos
             }
         }
 
-        public static void ActualizarEstadoAuto(string id,int disp)
+        public static void ActualizarEstadoAuto(string id,int estado)
         {
 
             try
@@ -795,10 +803,10 @@ namespace RentacarDatos
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = @"UPDATE [dbo].[Autos]
-                                SET [disponibilidad] = @disp
+                                SET [disponibilidad] = @disponibilidad
                                 WHERE id = @id; ";
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@dis", disp);
+                cmd.Parameters.AddWithValue("@disponibilidad", estado);
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteReader();
 
@@ -870,42 +878,7 @@ namespace RentacarDatos
             }
         }
 
-        public static int ObtenerIdInspeccion()
-        {
-            try
-            {
-                int idCliente = 0;
-                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
-                connection.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandText = @"SELECT top (1)[id]
-                                FROM [dbo].[Inspeccion]
-                                order by id desc";
-                cmd.CommandType = CommandType.Text;
-
-                using (var dr = cmd.ExecuteReader())
-                {
-                    while (dr.Read())
-                    {
-                        idCliente = Convert.ToInt32(dr["id"].ToString());
-                    }
-                }
-                int idInspeccion = idCliente + 1;
-                return idCliente;
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                return 1;
-            }
-
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public static void insertarDetalleInspeccion(DetalleInspeccionEntidad detalle)
+        public static ClienteEntidad devolverClientePorIdSqlServer(string id)
         {
             try
             {
@@ -913,26 +886,45 @@ namespace RentacarDatos
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexion;
-                cmd.CommandText = @" INSERT INTO [dbo].[Detalle_Inspeccion]
-                                                       ([id_chequeo]
-                                                       ,[examinacion]
-                                                       ,[id_inspeccion])
-                                                 VALUES
-                               (@chequeo,@examinacion,@inspeccion);
-                               SELECT SCOPE_IDENTITY();";
-                cmd.Parameters.AddWithValue("@chequeo", detalle.id_chequeo);
-                cmd.Parameters.AddWithValue("@examinacion", detalle.examinacion);
-                cmd.Parameters.AddWithValue("@inspeccion", detalle.id_inspeccion);
+                cmd.CommandText = @" SELECT [id]
+                                             ,[nombre]
+                                             ,[apellido]
+                                             ,[direccion]
+                                             ,[telefono]
+                                             ,[cedula]
+                                             ,[email]
+                                             ,[fecha_nac]
+                                         FROM [Cliente]
+                                     WHERE id=@Id;";
+                cmd.Parameters.AddWithValue("@Id", id);
                 cmd.CommandType = CommandType.Text;
-                cmd.ExecuteScalar();
+                ClienteEntidad cliente = new ClienteEntidad();
+                using (var dr = cmd.ExecuteReader())
+                {
+                    dr.Read();
+                    cliente.id = Convert.ToInt32(dr["id"]);
+                    cliente.Nombre = dr["nombre"].ToString();
+                    cliente.Cedula = dr["cedula"].ToString();
+                    cliente.Apellido = dr["apellido"].ToString();
+                    cliente.Telefono = dr["telefono"].ToString();
+                    cliente.Direcccion = dr["direccion"].ToString();
+                    cliente.Gmail = dr["email"].ToString();
+                    cliente.Nacimiento = Convert.ToDateTime(dr["fecha_nac"]);
+                }
+
                 conexion.Close();
+                return cliente;
+            }
+            catch (System.InvalidOperationException)
+            {
+
+                return null;
             }
             catch (Exception)
             {
                 throw;
             }
         }
-
 
     }
 }

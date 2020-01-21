@@ -23,6 +23,7 @@ namespace Rentacar
 
         AlquilerEntidad alquiler = new AlquilerEntidad();
         ClienteEntidad clienteAlquiler = new ClienteEntidad();
+       public UsuarioEntidad usuarioSesion;
         int dias;
 
         public FormReserva()
@@ -49,11 +50,7 @@ namespace Rentacar
             }
 
 
-            //Establecer usuario === Esto se puede borrar
 
-            alquiler.idUsuario = 2;
-            alquiler.idCliente = 1;
-            alquiler.fechaReserva = Convert.ToDateTime("1/1/1777 12:00:00 AM ");
         }
 
 
@@ -173,6 +170,7 @@ namespace Rentacar
         {
             if (simulacion)
             {
+                alquiler.idUsuario = usuarioSesion.Id;
                 alquiler = RentacarNegocio.RentacarNegocio.GuardarAlquiler(alquiler);
                 LimpiarCampos();
             }
@@ -188,7 +186,9 @@ namespace Rentacar
 
         private void LimpiarCampos()
         {
-            textBoxCodAlquiler.Text = RentacarNegocio.RentacarNegocio.DevolverNumeroReservas()+1.ToString();
+            int numeroReservas = RentacarNegocio.RentacarNegocio.DevolverNumeroReservas();
+            numeroReservas++;
+            textBoxCodAlquiler.Text = numeroReservas.ToString();
             textBoxModelo.Text = "";
 
            dateTimePickerRecogida.Value = DateTime.Today.AddDays(-1);
@@ -273,11 +273,9 @@ namespace Rentacar
         private List<object> GenerarCodigos(string texto)
         {
             GeneratedBarcode codigoQr;
-            GeneratedBarcode codigoBarras;
-
+       
             codigoQr = null;
-            codigoBarras = null;
-
+    
             List<Object> listaCodigos = new List<object>();
 
             codigoQr = IronBarCode.BarcodeWriter.CreateBarcode(texto, BarcodeWriterEncoding.QRCode);
@@ -339,7 +337,14 @@ namespace Rentacar
 
         private void buttonContrato_Click(object sender, EventArgs e)
         {
-            GestionarContrato();
+            if (simulacion)
+            {
+                GestionarContrato();
+            }
+            else
+            {
+                MessageBox.Show("Genere la Simulación");
+            }
 
         }
 

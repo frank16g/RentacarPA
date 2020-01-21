@@ -64,6 +64,7 @@ namespace Rentacar
                 else
                 {
                     FormReserva formReserva = new FormReserva();
+                    formReserva.usuarioSesion = usuario;
                     formReserva.ShowDialog();
                     this.Close();
                 }
