@@ -55,30 +55,31 @@
             this.textBoxApellido = new System.Windows.Forms.TextBox();
             this.textBoxRuc = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxClase = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.textBoxClase = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.buttonConfirmarAlquiler = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonSimularAlquiler = new System.Windows.Forms.Button();
             this.buttonFacturar = new System.Windows.Forms.Button();
+            this.buttonContrato = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -166,7 +167,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(407, 29);
+            this.label10.Location = new System.Drawing.Point(407, 40);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 22);
             this.label10.TabIndex = 19;
@@ -174,7 +175,7 @@
             // 
             // textBoxIva
             // 
-            this.textBoxIva.Location = new System.Drawing.Point(266, 29);
+            this.textBoxIva.Location = new System.Drawing.Point(266, 40);
             this.textBoxIva.Name = "textBoxIva";
             this.textBoxIva.ReadOnly = true;
             this.textBoxIva.Size = new System.Drawing.Size(100, 20);
@@ -182,7 +183,7 @@
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(457, 29);
+            this.textBoxTotal.Location = new System.Drawing.Point(457, 40);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(100, 20);
@@ -190,7 +191,7 @@
             // 
             // textBoxSubtotal
             // 
-            this.textBoxSubtotal.Location = new System.Drawing.Point(99, 29);
+            this.textBoxSubtotal.Location = new System.Drawing.Point(99, 40);
             this.textBoxSubtotal.Name = "textBoxSubtotal";
             this.textBoxSubtotal.ReadOnly = true;
             this.textBoxSubtotal.Size = new System.Drawing.Size(100, 20);
@@ -200,7 +201,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(25, 29);
+            this.label9.Location = new System.Drawing.Point(25, 40);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 22);
             this.label9.TabIndex = 15;
@@ -210,7 +211,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(230, 29);
+            this.label8.Location = new System.Drawing.Point(230, 40);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 22);
             this.label8.TabIndex = 14;
@@ -299,6 +300,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.groupBox1.Controls.Add(this.buttonContrato);
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
@@ -317,6 +319,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.buttonServicios);
+            this.groupBox6.Location = new System.Drawing.Point(53, 305);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(403, 76);
+            this.groupBox6.TabIndex = 42;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Servicios Extra";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.pictureBox4);
@@ -332,6 +344,44 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Datos del carro";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(31, 98);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(207, 73);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 43;
+            this.pictureBox4.TabStop = false;
+            // 
+            // textBoxClase
+            // 
+            this.textBoxClase.Location = new System.Drawing.Point(294, 63);
+            this.textBoxClase.Name = "textBoxClase";
+            this.textBoxClase.ReadOnly = true;
+            this.textBoxClase.Size = new System.Drawing.Size(37, 20);
+            this.textBoxClase.TabIndex = 28;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Rentacar.Properties.Resources.grid;
+            this.pictureBox2.Location = new System.Drawing.Point(294, 116);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 42;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(290, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 22);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Clase";
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label5);
@@ -344,6 +394,19 @@
             this.groupBox4.TabIndex = 40;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tiempo de alquiler";
+            // 
+            // buttonConfirmarAlquiler
+            // 
+            this.buttonConfirmarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonConfirmarAlquiler.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.buttonConfirmarAlquiler.Image = global::Rentacar.Properties.Resources.button;
+            this.buttonConfirmarAlquiler.Location = new System.Drawing.Point(810, 397);
+            this.buttonConfirmarAlquiler.Name = "buttonConfirmarAlquiler";
+            this.buttonConfirmarAlquiler.Size = new System.Drawing.Size(100, 23);
+            this.buttonConfirmarAlquiler.TabIndex = 35;
+            this.buttonConfirmarAlquiler.Text = "Confirmar Alquiler";
+            this.buttonConfirmarAlquiler.UseVisualStyleBackColor = true;
+            this.buttonConfirmarAlquiler.Click += new System.EventHandler(this.buttonConfirmarAlquiler_Click);
             // 
             // groupBox2
             // 
@@ -360,84 +423,6 @@
             this.groupBox2.TabIndex = 39;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del cliente";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox3.Controls.Add(this.textBoxSubtotal);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBoxTotal);
-            this.groupBox3.Controls.Add(this.textBoxIva);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.buttonSimularAlquiler);
-            this.groupBox3.Location = new System.Drawing.Point(53, 397);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(727, 70);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Valores Factura";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 22);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Clase";
-            // 
-            // textBoxClase
-            // 
-            this.textBoxClase.Location = new System.Drawing.Point(294, 63);
-            this.textBoxClase.Name = "textBoxClase";
-            this.textBoxClase.ReadOnly = true;
-            this.textBoxClase.Size = new System.Drawing.Size(37, 20);
-            this.textBoxClase.TabIndex = 28;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.buttonServicios);
-            this.groupBox6.Location = new System.Drawing.Point(53, 305);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(403, 76);
-            this.groupBox6.TabIndex = 42;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Servicios Extra";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(31, 98);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(207, 73);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 43;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Rentacar.Properties.Resources.grid;
-            this.pictureBox2.Location = new System.Drawing.Point(294, 116);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 42;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // buttonConfirmarAlquiler
-            // 
-            this.buttonConfirmarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonConfirmarAlquiler.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonConfirmarAlquiler.Image = global::Rentacar.Properties.Resources.button;
-            this.buttonConfirmarAlquiler.Location = new System.Drawing.Point(810, 409);
-            this.buttonConfirmarAlquiler.Name = "buttonConfirmarAlquiler";
-            this.buttonConfirmarAlquiler.Size = new System.Drawing.Size(100, 23);
-            this.buttonConfirmarAlquiler.TabIndex = 35;
-            this.buttonConfirmarAlquiler.Text = "Confirmar Alquiler";
-            this.buttonConfirmarAlquiler.UseVisualStyleBackColor = true;
-            this.buttonConfirmarAlquiler.Click += new System.EventHandler(this.buttonConfirmarAlquiler_Click);
             // 
             // pictureBox3
             // 
@@ -460,6 +445,23 @@
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.GrayText;
+            this.groupBox3.Controls.Add(this.textBoxSubtotal);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.textBoxTotal);
+            this.groupBox3.Controls.Add(this.textBoxIva);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.buttonSimularAlquiler);
+            this.groupBox3.Location = new System.Drawing.Point(53, 397);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(727, 97);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Valores Factura";
+            // 
             // buttonSimularAlquiler
             // 
             this.buttonSimularAlquiler.BackColor = System.Drawing.Color.Transparent;
@@ -467,7 +469,7 @@
             this.buttonSimularAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSimularAlquiler.ForeColor = System.Drawing.SystemColors.MenuText;
             this.buttonSimularAlquiler.Image = global::Rentacar.Properties.Resources.button;
-            this.buttonSimularAlquiler.Location = new System.Drawing.Point(601, 27);
+            this.buttonSimularAlquiler.Location = new System.Drawing.Point(601, 38);
             this.buttonSimularAlquiler.Name = "buttonSimularAlquiler";
             this.buttonSimularAlquiler.Size = new System.Drawing.Size(100, 23);
             this.buttonSimularAlquiler.TabIndex = 21;
@@ -480,13 +482,26 @@
             this.buttonFacturar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonFacturar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.buttonFacturar.Image = global::Rentacar.Properties.Resources.button;
-            this.buttonFacturar.Location = new System.Drawing.Point(810, 444);
+            this.buttonFacturar.Location = new System.Drawing.Point(810, 471);
             this.buttonFacturar.Name = "buttonFacturar";
             this.buttonFacturar.Size = new System.Drawing.Size(100, 23);
             this.buttonFacturar.TabIndex = 22;
             this.buttonFacturar.Text = "Facturar";
             this.buttonFacturar.UseVisualStyleBackColor = true;
             this.buttonFacturar.Click += new System.EventHandler(this.buttonFacturar_Click);
+            // 
+            // buttonContrato
+            // 
+            this.buttonContrato.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonContrato.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.buttonContrato.Image = global::Rentacar.Properties.Resources.button;
+            this.buttonContrato.Location = new System.Drawing.Point(810, 434);
+            this.buttonContrato.Name = "buttonContrato";
+            this.buttonContrato.Size = new System.Drawing.Size(100, 23);
+            this.buttonContrato.TabIndex = 43;
+            this.buttonContrato.Text = "Contrato";
+            this.buttonContrato.UseVisualStyleBackColor = true;
+            this.buttonContrato.Click += new System.EventHandler(this.buttonContrato_Click);
             // 
             // FormReserva
             // 
@@ -501,19 +516,19 @@
             this.TransparencyKey = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,6 +575,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button buttonContrato;
     }
 }
 

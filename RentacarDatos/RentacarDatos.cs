@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using RentacarEntidades;
 
 namespace RentacarDatos
@@ -335,9 +336,10 @@ namespace RentacarDatos
                                ,[id_cliente]
                                ,[subtotal]
                                ,[iva]
-                               ,[total])
+                               ,[total]
+                               ,[contrato_firmado])
                          VALUES
-                                                        (@fecha_recogida,@fecha_devolucion,@id_auto,@id_usuario,@id_cliente,@subtotal,@iva,@total);
+                                                        (@fecha_recogida,@fecha_devolucion,@id_auto,@id_usuario,@id_cliente,@subtotal,@iva,@total,@contrato_firmado);
                                 Select Scope_Identity()";
 
 
@@ -349,6 +351,7 @@ namespace RentacarDatos
             cmd.Parameters.AddWithValue("@subtotal", alquiler.subtotal);
             cmd.Parameters.AddWithValue("@iva", alquiler.iva);
             cmd.Parameters.AddWithValue("@total", alquiler.total);
+            cmd.Parameters.AddWithValue("@contrato_firmado", alquiler.contratoFirmado);
 
             alquiler.id = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -385,25 +388,36 @@ namespace RentacarDatos
 
         public static int ObtenerNumeroReservas()
         {
-            int numeroReserva = 0;
-            SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
-            connection.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = @"SELECT top (1)[id]
+            try
+            {
+
+                int numeroReserva = 0;
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = @"SELECT top (1)[id]
                                 FROM [dbo].[Reserva]
                                 order by id desc";
-            cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.Text;
 
-            using (var dr = cmd.ExecuteReader())
-            {
-                while (dr.Read())
+                using (var dr = cmd.ExecuteReader())
                 {
-                    numeroReserva = Convert.ToInt32(dr["id"].ToString());
+                    while (dr.Read())
+                    {
+                        numeroReserva = Convert.ToInt32(dr["id"].ToString());
+                    }
                 }
-            }
 
-            return numeroReserva;
+                return numeroReserva;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("AVISO: Se produjo un error en la conexión a la base de datos, El sistema es inestable y no se recomienda su uso .Contacte con el administrador.");
+
+                return -1;
+            }
         }
 
         public static ClienteEntidad asignarCliente(string cedula)
@@ -682,6 +696,54 @@ namespace RentacarDatos
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public static ClienteEntidad devolverClientePorIdSqlServer(string id)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" SELECT [id]
+                                             ,[nombre]
+                                             ,[apellido]
+                                             ,[direccion]
+                                             ,[telefono]
+                                             ,[cedula]
+                                             ,[email]
+                                             ,[fecha_nac]
+                                         FROM [Cliente]
+                                     WHERE id=@Id;";
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.CommandType = CommandType.Text;
+                ClienteEntidad cliente = new ClienteEntidad();
+                using (var dr = cmd.ExecuteReader())
+                {
+                    dr.Read();
+                    cliente.id = Convert.ToInt32(dr["id"]);
+                    cliente.Nombre = dr["nombre"].ToString();
+                    cliente.Cedula = dr["cedula"].ToString();
+                    cliente.Apellido = dr["apellido"].ToString();
+                    cliente.Telefono = dr["telefono"].ToString();
+                    cliente.Direcccion = dr["direccion"].ToString();
+                    cliente.Gmail = dr["email"].ToString();
+                    cliente.Nacimiento = Convert.ToDateTime(dr["fecha_nac"]);
+                }
+
+                conexion.Close();
+                return cliente;
+            }
+            catch (System.InvalidOperationException)
+            {
+
+                return null;
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }

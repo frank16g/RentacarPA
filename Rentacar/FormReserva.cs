@@ -38,8 +38,15 @@ namespace Rentacar
             dateTimePickerDevolucion.Format = DateTimePickerFormat.Time;
 
             alquiler.listaServicios = new List<ServicioEntidad>();
-            alquiler.id = RentacarNegocio.RentacarNegocio.DevolverNumeroReservas()+1;
+            int numeroAlquiler = RentacarNegocio.RentacarNegocio.DevolverNumeroReservas();
+            numeroAlquiler += 1;
+            alquiler.id = numeroAlquiler;
             textBoxCodAlquiler.Text = alquiler.id.ToString();
+
+            if (numeroAlquiler < 0)
+            {
+                Application.Exit();
+            }
 
 
             //Establecer usuario === Esto se puede borrar
@@ -132,8 +139,8 @@ namespace Rentacar
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             LlamarFormularioSeleccionarAutos();
-            string path = "C:\\Proyectos\\Programacion Avanzada\\Proyecto Final 2\\Rentacar\\Resources\\delete.png";
-            pictureBox4.Image = Image.FromFile(path);
+            //string path = "C:\\Proyectos\\Programacion Avanzada\\Proyecto Final 2\\Rentacar\\Resources\\delete.png";
+            //pictureBox4.Image = Image.FromFile(path);
         }
 
         private void LlamarFormularioSeleccionarAutos()
@@ -143,8 +150,8 @@ namespace Rentacar
                 FormSeleccionarAuto formSeleccionarAuto = new FormSeleccionarAuto();
                 formSeleccionarAuto.ShowDialog();
                 textBoxClase.Text = formSeleccionarAuto.Clase.ToString();
-                textBoxModelo.Text = formSeleccionarAuto.autoSeleccionado.Nombre +" MARCA: "+ formSeleccionarAuto.Marca
-                    + " PLACA: "+formSeleccionarAuto.autoSeleccionado.Id +" CLASE: "+ formSeleccionarAuto.Clase.ToString();
+                textBoxModelo.Text = formSeleccionarAuto.autoSeleccionado.Nombre + " MARCA: " + formSeleccionarAuto.Marca
+                    + " PLACA: ";
 
                 alquiler.idAuto = formSeleccionarAuto.autoSeleccionado.Id;
             }
@@ -158,7 +165,7 @@ namespace Rentacar
         private void buttonConfirmarAlquiler_Click(object sender, EventArgs e)
         {
             GuardarAlquiler();
-           
+                   
 
         }
 
@@ -171,7 +178,7 @@ namespace Rentacar
             }
             else
             {
-                MessageBox.Show("Simule el alquiler");
+                MessageBox.Show("Simule el alquiler y cargue los documentos");
             }
                 
                 
@@ -320,13 +327,54 @@ namespace Rentacar
             formCliente.ShowDialog();
 
             clienteAlquiler = formCliente.clienteSeleccionados;
-
+            alquiler.idCliente = clienteAlquiler.id;
+            
             textBoxApellido.Text = clienteAlquiler.Apellido;
             textBoxRuc.Text = clienteAlquiler.Cedula;
             textBoxNombre.Text = clienteAlquiler.Nombre;
 
 
             //alquiler.idCliente =  formCliente.clienteSeleccionados
+        }
+
+        private void buttonContrato_Click(object sender, EventArgs e)
+        {
+            GestionarContrato();
+
+        }
+
+        private void GestionarContrato()
+        {
+
+            RentacarNegocio.RentacarNegocio.GenerarContrato(alquiler);
+
+
+            try
+            {
+                using (OpenFileDialog dlg = new OpenFileDialog())
+                {
+                    dlg.Title = "Open Image";
+
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+
+                    
+                        byte[] contrato = File.ReadAllBytes(dlg.FileName);
+                        alquiler.contratoFirmado = contrato;
+                        simulacion = true;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Selecione un archivo válido.");
+            }
+
+           
+           
+
+
         }
     }
 }
