@@ -31,6 +31,11 @@ namespace Rentacar
 
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            AccederSistema();
+        }
+
         private void AccederSistema()
         {
             List<UsuarioEntidad> listaUsuarios = RentacarNegocio.RentacarNegocio.DevolverListadoUsuarios();
@@ -72,5 +77,6 @@ namespace Rentacar
             }
             
         }
+
     }
 }

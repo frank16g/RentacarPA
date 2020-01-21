@@ -12,6 +12,7 @@ using IronBarCode;
 
 using RentacarNegocio;
 using RentacarEntidades;
+using System.IO;
 
 namespace Rentacar
 {
@@ -127,17 +128,23 @@ namespace Rentacar
             LlamarFormularioSeleccionarAutos();
         }
 
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            LlamarFormularioSeleccionarAutos();
+            string path = "C:\\Proyectos\\Programacion Avanzada\\Proyecto Final 2\\Rentacar\\Resources\\delete.png";
+            pictureBox4.Image = Image.FromFile(path);
+        }
+
         private void LlamarFormularioSeleccionarAutos()
         {
             try
             {
                 FormSeleccionarAuto formSeleccionarAuto = new FormSeleccionarAuto();
                 formSeleccionarAuto.ShowDialog();
-
                 textBoxClase.Text = formSeleccionarAuto.Clase.ToString();
-                textBoxPlaca.Text = formSeleccionarAuto.autoSeleccionado.Id;
-                textBoxMarca.Text = formSeleccionarAuto.Marca;
-                textBoxModelo.Text = formSeleccionarAuto.autoSeleccionado.Nombre;
+                textBoxModelo.Text = formSeleccionarAuto.autoSeleccionado.Nombre +" MARCA: "+ formSeleccionarAuto.Marca
+                    + " PLACA: "+formSeleccionarAuto.autoSeleccionado.Id +" CLASE: "+ formSeleccionarAuto.Clase.ToString();
 
                 alquiler.idAuto = formSeleccionarAuto.autoSeleccionado.Id;
             }
@@ -175,9 +182,6 @@ namespace Rentacar
         private void LimpiarCampos()
         {
             textBoxCodAlquiler.Text = RentacarNegocio.RentacarNegocio.DevolverNumeroReservas()+1.ToString();
-            textBoxClase.Text = "";
-            textBoxPlaca.Text = "";
-            textBoxMarca.Text = "";
             textBoxModelo.Text = "";
 
            dateTimePickerRecogida.Value = DateTime.Today.AddDays(-1);
@@ -308,6 +312,21 @@ namespace Rentacar
             //alquiler.idCliente =  formCliente.clienteSeleccionados
 
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            FormCliente formCliente = new FormCliente();
+            formCliente.ShowDialog();
+
+            clienteAlquiler = formCliente.clienteSeleccionados;
+
+            textBoxApellido.Text = clienteAlquiler.Apellido;
+            textBoxRuc.Text = clienteAlquiler.Cedula;
+            textBoxNombre.Text = clienteAlquiler.Nombre;
+
+
+            //alquiler.idCliente =  formCliente.clienteSeleccionados
         }
     }
 }

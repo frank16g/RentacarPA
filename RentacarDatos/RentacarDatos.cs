@@ -117,7 +117,38 @@ namespace RentacarDatos
 
         }
 
-        public static void insertarMantenimiento(MantenimientoEntidad mantenimiento)
+        public static List<TiposMantenimientosEntidad> BuscarTiposMantenimientos(string text)
+        {
+            List<TiposMantenimientosEntidad> tipos = new List<TiposMantenimientosEntidad>();
+            SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = @"SELECT [id],[nombre]
+                                FROM [dbo].[TipoMantenimiento]
+                                WHERE tipo = @tipo
+                                Select Scope_Identity()";
+
+
+            cmd.Parameters.AddWithValue("@tipo", text);
+            cmd.CommandType = CommandType.Text;
+
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    TiposMantenimientosEntidad t = new TiposMantenimientosEntidad();
+                    t.Nombre = (dr["nombre"].ToString());
+                    t.Id = Convert.ToInt32(dr["id"].ToString());
+                    tipos.Add(t);
+                }
+            }
+
+            connection.Close();
+            return tipos;
+        }
+
+        public static void insertarMantenimiento(MantenimientoEntidad mantenimiento, List<MantenimientoDetalleEntidad> detalle)
         {
             try
             {
@@ -144,6 +175,33 @@ namespace RentacarDatos
             catch (Exception)
             {
                 throw;
+            }
+            foreach (var item in detalle)
+            {
+                try
+                {
+                    SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conexion;
+                    cmd.CommandText = @" INSERT INTO [dbo].[Mantenimiento_Detalle]
+                                                           ([id_tipo]
+                                                           ,[costo]
+                                                           ,[id_mantenimiento])
+                                                     VALUES
+                               (@id_tipo,@costo,@id_man);
+                               SELECT SCOPE_IDENTITY();";
+                    cmd.Parameters.AddWithValue("@id_tipo", item.Id_Tipo);
+                    cmd.Parameters.AddWithValue("@costo", item.Costo);
+                    cmd.Parameters.AddWithValue("@id_man", item.Id_Mantenimiento);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteScalar();
+                    conexion.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
 

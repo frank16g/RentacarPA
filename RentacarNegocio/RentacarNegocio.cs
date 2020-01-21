@@ -48,6 +48,11 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.asignarCliente(cedula);
         }
 
+        public static List<TiposMantenimientosEntidad> CargarTiposMantenimientos(string text)
+        {
+            return RentacarDatos.RentacarDatos.BuscarTiposMantenimientos(text);
+        }
+
         public static int ObtenerIdCliente()
         {
             return   RentacarDatos.RentacarDatos.ObtenerIdCliente();
@@ -63,9 +68,9 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.CargarMantenimientosId(auto);
         }
 
-        public static void insertarMantenimiento(MantenimientoEntidad mantenimiento)
+        public static void insertarMantenimiento(MantenimientoEntidad mantenimiento, List<MantenimientoDetalleEntidad> detalle)
         {
-            RentacarDatos.RentacarDatos.insertarMantenimiento(mantenimiento);
+            RentacarDatos.RentacarDatos.insertarMantenimiento(mantenimiento, detalle);
         }
 
         public static AutoEntidad asignarAuto(string placa)
