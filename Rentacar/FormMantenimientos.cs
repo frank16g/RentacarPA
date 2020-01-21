@@ -12,16 +12,15 @@ using RentacarEntidades;
 
 namespace Rentacar
 {
-    public partial class FormMantenimiento : Form
+    public partial class FormMantenimientos : Form
     {
         public AutoEntidad auto = new AutoEntidad();
-        FormAgregarMantenimiento formagregar = new FormAgregarMantenimiento();
+        
         List<MantenimientoEntidad> m = new List<MantenimientoEntidad>();
         List<MarcaEntidad> listaMarcas = RentacarNegocio.RentacarNegocio.DevolverListadoMarcas();
         public string Marca { get; set; }
         public int Clase { get; set; }
-
-        public FormMantenimiento()
+        public FormMantenimientos()
         {
             InitializeComponent();
         }
@@ -188,6 +187,8 @@ namespace Rentacar
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
+            FormAgregarMantenimiento formagregar = new FormAgregarMantenimiento();
+            
             formagregar.ShowDialog();
         }
     }

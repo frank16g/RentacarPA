@@ -24,7 +24,7 @@ namespace Rentacar
 
         private void LlamarFromMantenimientos()
         {
-            FormMantenimiento formMantenimiento = new FormMantenimiento();
+            FormMantenimientos formMantenimiento = new FormMantenimientos();
 
             formMantenimiento.ShowDialog();
         }
