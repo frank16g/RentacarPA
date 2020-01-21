@@ -1,6 +1,6 @@
 ﻿namespace Rentacar
 {
-    partial class Inspeccion
+    partial class FormInspeccion
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tbid = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtfecha = new System.Windows.Forms.DateTimePicker();
-            this.btnagregar = new System.Windows.Forms.Button();
             this.mantenimientos = new System.Windows.Forms.DataGridView();
-            this.btnbuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.buttonConfirmarAlquiler = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -45,20 +47,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(181, 32);
+            this.label1.Location = new System.Drawing.Point(104, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 17);
+            this.label1.Size = new System.Drawing.Size(19, 17);
             this.label1.TabIndex = 29;
-            this.label1.Text = "ID";
-            // 
-            // tbid
-            // 
-            this.tbid.Location = new System.Drawing.Point(257, 28);
-            this.tbid.Margin = new System.Windows.Forms.Padding(4);
-            this.tbid.Name = "tbid";
-            this.tbid.Size = new System.Drawing.Size(132, 22);
-            this.tbid.TabIndex = 28;
+            this.label1.Text = "Id";
             // 
             // label4
             // 
@@ -78,16 +72,6 @@
             this.dtfecha.Size = new System.Drawing.Size(265, 22);
             this.dtfecha.TabIndex = 23;
             // 
-            // btnagregar
-            // 
-            this.btnagregar.Location = new System.Drawing.Point(600, 28);
-            this.btnagregar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(100, 28);
-            this.btnagregar.TabIndex = 21;
-            this.btnagregar.Text = "Agregar";
-            this.btnagregar.UseVisualStyleBackColor = true;
-            // 
             // mantenimientos
             // 
             this.mantenimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -98,18 +82,11 @@
             this.mantenimientos.Size = new System.Drawing.Size(841, 272);
             this.mantenimientos.TabIndex = 20;
             // 
-            // btnbuscar
-            // 
-            this.btnbuscar.Location = new System.Drawing.Point(456, 28);
-            this.btnbuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(100, 28);
-            this.btnbuscar.TabIndex = 19;
-            this.btnbuscar.Text = "Buscar";
-            this.btnbuscar.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.buttonConfirmarAlquiler);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(69, 63);
@@ -118,15 +95,6 @@
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Checkeos";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tipo";
             // 
             // comboBox1
             // 
@@ -137,20 +105,81 @@
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // Inspeccion
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(54, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tipo";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(153, 15);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(225, 24);
+            this.comboBox2.TabIndex = 31;
+            // 
+            // buttonConfirmarAlquiler
+            // 
+            this.buttonConfirmarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonConfirmarAlquiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfirmarAlquiler.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.buttonConfirmarAlquiler.Image = global::Rentacar.Properties.Resources.button;
+            this.buttonConfirmarAlquiler.Location = new System.Drawing.Point(601, 46);
+            this.buttonConfirmarAlquiler.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonConfirmarAlquiler.Name = "buttonConfirmarAlquiler";
+            this.buttonConfirmarAlquiler.Size = new System.Drawing.Size(133, 28);
+            this.buttonConfirmarAlquiler.TabIndex = 36;
+            this.buttonConfirmarAlquiler.Text = "+";
+            this.buttonConfirmarAlquiler.UseVisualStyleBackColor = true;
+            this.buttonConfirmarAlquiler.Click += new System.EventHandler(this.buttonConfirmarAlquiler_Click);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Todo  Correcto",
+            "Necesita Mantenimiento"});
+            this.comboBox3.Location = new System.Drawing.Point(317, 50);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(220, 24);
+            this.comboBox3.TabIndex = 38;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(314, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 17);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Examinacion";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(459, 14);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Nombre";
+            // 
+            // FormInspeccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 528);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbid);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtfecha);
-            this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.mantenimientos);
-            this.Controls.Add(this.btnbuscar);
-            this.Name = "Inspeccion";
+            this.Name = "FormInspeccion";
             this.Text = "Inspeccion";
             this.Load += new System.EventHandler(this.Inspeccion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mantenimientos)).EndInit();
@@ -164,14 +193,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbid;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtfecha;
-        private System.Windows.Forms.Button btnagregar;
         private System.Windows.Forms.DataGridView mantenimientos;
-        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonConfirmarAlquiler;
+        private System.Windows.Forms.Label label5;
     }
 }

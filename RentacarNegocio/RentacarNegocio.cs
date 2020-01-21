@@ -81,5 +81,27 @@ namespace RentacarNegocio
         {
             return RentacarDatos.RentacarDatos.CargarChequeos();
         }
+
+        public static ReservaEntidad CargarFactura(int id)
+        {
+            return RentacarDatos.RentacarDatos.CargarFactura(id);
+        }
+        public static void insertarMulta(MultaEntidad multa)
+        {
+           RentacarDatos.RentacarDatos.insertarMulta(multa);
+        }
+        public static string ObtenerCedCliente(int id)
+        {
+           return  RentacarDatos.RentacarDatos.ObtenerCedCliente(id);
+        }
+        public static void ActualizarEstadoAuto(string id,int disp)
+        {
+            RentacarDatos.RentacarDatos.ActualizarEstadoAuto(id,disp);
+        }
+
+        public static List<AutoEntidad> CargarAutos(int disp)
+        {
+           return  RentacarDatos.RentacarDatos.CargarAutos(disp);
+        }
     }
 }

@@ -97,6 +97,12 @@
     <Compile Include="FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEntrega.Designer.cs">
+      <DependentUpon>FormEntrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +151,11 @@
     <Compile Include="FormTiposMantenimientos.Designer.cs">
       <DependentUpon>FormTiposMantenimientos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inspeccion.cs">
+    <Compile Include="FormInspeccion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inspeccion.Designer.cs">
-      <DependentUpon>Inspeccion.cs</DependentUpon>
+    <Compile Include="FormInspeccion.Designer.cs">
+      <DependentUpon>FormInspeccion.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEntrega.resx">
+      <DependentUpon>FormEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -190,8 +199,8 @@
     <EmbeddedResource Include="FormTiposMantenimientos.resx">
       <DependentUpon>FormTiposMantenimientos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inspeccion.resx">
-      <DependentUpon>Inspeccion.cs</DependentUpon>
+    <EmbeddedResource Include="FormInspeccion.resx">
+      <DependentUpon>FormInspeccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

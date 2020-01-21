@@ -685,5 +685,190 @@ namespace RentacarDatos
                 throw;
             }
         }
+        public static ReservaEntidad CargarFactura(int id)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @"SELECT [fecha_devolucion]
+                                      ,[id_auto]
+                                      ,[id_cliente]
+                                  FROM [dbo].[Reserva]
+                                    WHERE id = @id; ";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandType = CommandType.Text;
+                ReservaEntidad reserva = new ReservaEntidad();
+                using (var dr = cmd.ExecuteReader())
+                {
+                    dr.Read();
+                    reserva.Auto = dr["id_auto"].ToString();
+                    reserva.Cliente = Convert.ToInt32(dr["id_cliente"]);
+                    reserva.Fec_Devolucion = Convert.ToDateTime(dr["fecha_devolucion"]);
+                }
+
+                conexion.Close();
+                return reserva;
+            }
+            catch (System.InvalidOperationException)
+            {
+
+                return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+
+        }
+
+        public static void insertarMulta(MultaEntidad multa)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" INSERT INTO [dbo].[Multas]
+                                                          ([num_reserva]
+                                                          ,[monto]
+                                                          ,[dias])
+                                                    VALUES
+                               (@reserva,@monto,@dias);
+                               SELECT SCOPE_IDENTITY();";
+                cmd.Parameters.AddWithValue("@reserva", multa.Reserva);
+                cmd.Parameters.AddWithValue("@monto", multa.Monto);
+                cmd.Parameters.AddWithValue("@dias", multa.Dias);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteScalar();
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static string ObtenerCedCliente(int id)
+        {
+
+            try
+            {
+                string cedula = "";
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = @"SELECT [cedula]
+                                FROM [dbo].[Cliente]
+                                WHERE id = @id; ";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandType = CommandType.Text;
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        cedula = dr["cedula"].ToString();
+                    }
+                }
+                connection.Close();
+                return cedula;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static void ActualizarEstadoAuto(string id,int disp)
+        {
+
+            try
+            {
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = @"UPDATE [dbo].[Autos]
+                                SET [disponibilidad] = @disp
+                                WHERE id = @id; ";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@dis", disp);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteReader();
+
+
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static List<AutoEntidad> CargarAutos(int disp)
+        {
+            try
+            {
+
+                List<AutoEntidad> m = new List<AutoEntidad>();
+
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+
+                connection.Open();
+
+                cmd.CommandText = @"SELECT [id]
+                                          ,[id_marca]
+                                          ,[id_categoria]
+                                          ,[nombre]
+                                          ,[km]
+                                          ,[anio]
+                                          ,[color]
+                                          ,[disponibilidad]
+                                      FROM [dbo].[Autos]
+                              WHERE disponibilidad=@disp";
+                cmd.Parameters.AddWithValue("@disp",disp);
+
+                using (var dataReader = cmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        AutoEntidad auto = new AutoEntidad();
+
+                        auto.Id = dataReader["id"].ToString();
+                        auto.Id_Marca = Convert.ToInt32(dataReader["id_marca"].ToString());
+                        auto.Id_Categoria = Convert.ToInt32(dataReader["id_categoria"].ToString());
+                        auto.Nombre = dataReader["nombre"].ToString();
+                        auto.Km = Convert.ToInt32(dataReader["km"].ToString());
+                        auto.Anio = Convert.ToInt32(dataReader["anio"].ToString());
+                        auto.Color = dataReader["color"].ToString();
+                        auto.Disponibilidad = Convert.ToInt32(dataReader["disponibilidad"].ToString());
+
+
+                        m.Add(auto);
+
+                    }
+
+                }
+
+                connection.Close();
+                return m;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

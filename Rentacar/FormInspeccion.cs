@@ -11,15 +11,21 @@ using RentacarEntidades;
 using RentacarNegocio;
 namespace Rentacar
 {
-    public partial class Inspeccion : Form
+    public partial class FormInspeccion : Form
     {
         List<Chequeos> listaChequeos;
-        public Inspeccion()
+        List<AutoEntidad> listaAutos;
+        int k = 2;
+        public FormInspeccion()
         {
+            
             InitializeComponent();
             listaChequeos = RentacarNegocio.RentacarNegocio.CargarChequeos();
+            listaAutos = RentacarNegocio.RentacarNegocio.CargarAutos(k);
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             asignarChequeos();
+            asignarAutos();
         }
 
         private void Inspeccion_Load(object sender, EventArgs e)
@@ -38,9 +44,19 @@ namespace Rentacar
                 for (int i = 0; i < listaChequeos.Count; i++)
                 {
                     comboBox1.Items.Add(listaChequeos[i].Nombre);
-                }
+                } 
+        }
+        private void asignarAutos()
+        {
 
-            
+            for (int i = 0; i < listaAutos.Count; i++)
+            {
+                comboBox2.Items.Add(listaAutos[i].Id);
+            }
+        }
+
+        private void buttonConfirmarAlquiler_Click(object sender, EventArgs e)
+        {
 
         }
     }
