@@ -20,9 +20,9 @@ namespace Rentacar {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSetAlquilerAutosMarca")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSet1 : global::System.Data.DataSet {
+    public partial class DataSetAlquilerAutosMarca : global::System.Data.DataSet {
         
         private DataTable1DataTable tableDataTable1;
         
@@ -30,7 +30,7 @@ namespace Rentacar {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DataSet1() {
+        public DataSetAlquilerAutosMarca() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Rentacar {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSetAlquilerAutosMarca(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace Rentacar {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSet1 cln = ((DataSet1)(base.Clone()));
+            DataSetAlquilerAutosMarca cln = ((DataSetAlquilerAutosMarca)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace Rentacar {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSet1";
+            this.DataSetName = "DataSetAlquilerAutosMarca";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSet1.xsd";
+            this.Namespace = "http://tempuri.org/DataSetAlquilerAutosMarca.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableDataTable1 = new DataTable1DataTable();
@@ -225,7 +225,7 @@ namespace Rentacar {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSet1 ds = new DataSet1();
+            DataSetAlquilerAutosMarca ds = new DataSetAlquilerAutosMarca();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -285,19 +285,15 @@ namespace Rentacar {
             
             private global::System.Data.DataColumn columnid_categoria;
             
+            private global::System.Data.DataColumn columnid_auto;
+            
+            private global::System.Data.DataColumn columntotal;
+            
             private global::System.Data.DataColumn columnnombre;
             
-            private global::System.Data.DataColumn columnkm;
+            private global::System.Data.DataColumn columnid_reserva;
             
-            private global::System.Data.DataColumn columnanio;
-            
-            private global::System.Data.DataColumn columncolor;
-            
-            private global::System.Data.DataColumn columndisponibilidad;
-            
-            private global::System.Data.DataColumn columnid1;
-            
-            private global::System.Data.DataColumn columnnombre1;
+            private global::System.Data.DataColumn columnid_marca1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -358,6 +354,22 @@ namespace Rentacar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn id_autoColumn {
+                get {
+                    return this.columnid_auto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn totalColumn {
+                get {
+                    return this.columntotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn nombreColumn {
                 get {
                     return this.columnnombre;
@@ -366,49 +378,17 @@ namespace Rentacar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn kmColumn {
+            public global::System.Data.DataColumn id_reservaColumn {
                 get {
-                    return this.columnkm;
+                    return this.columnid_reserva;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn anioColumn {
+            public global::System.Data.DataColumn id_marca1Column {
                 get {
-                    return this.columnanio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn colorColumn {
-                get {
-                    return this.columncolor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn disponibilidadColumn {
-                get {
-                    return this.columndisponibilidad;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn id1Column {
-                get {
-                    return this.columnid1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn nombre1Column {
-                get {
-                    return this.columnnombre1;
+                    return this.columnid_marca1;
                 }
             }
             
@@ -449,19 +429,17 @@ namespace Rentacar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string id, int id_marca, int id_categoria, string nombre, int km, int anio, string color, int disponibilidad, string nombre1) {
+            public DataTable1Row AddDataTable1Row(string id, int id_marca, int id_categoria, string id_auto, double total, string nombre) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         id_marca,
                         id_categoria,
+                        id_auto,
+                        total,
                         nombre,
-                        km,
-                        anio,
-                        color,
-                        disponibilidad,
                         null,
-                        nombre1};
+                        null};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -469,10 +447,11 @@ namespace Rentacar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row FindByidid1(string id, int id1) {
+            public DataTable1Row FindByidid_reservaid_marca1(string id, int id_reserva, int id_marca1) {
                 return ((DataTable1Row)(this.Rows.Find(new object[] {
                             id,
-                            id1})));
+                            id_reserva,
+                            id_marca1})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -495,13 +474,11 @@ namespace Rentacar {
                 this.columnid = base.Columns["id"];
                 this.columnid_marca = base.Columns["id_marca"];
                 this.columnid_categoria = base.Columns["id_categoria"];
+                this.columnid_auto = base.Columns["id_auto"];
+                this.columntotal = base.Columns["total"];
                 this.columnnombre = base.Columns["nombre"];
-                this.columnkm = base.Columns["km"];
-                this.columnanio = base.Columns["anio"];
-                this.columncolor = base.Columns["color"];
-                this.columndisponibilidad = base.Columns["disponibilidad"];
-                this.columnid1 = base.Columns["id1"];
-                this.columnnombre1 = base.Columns["nombre1"];
+                this.columnid_reserva = base.Columns["id_reserva"];
+                this.columnid_marca1 = base.Columns["id_marca1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -513,34 +490,35 @@ namespace Rentacar {
                 base.Columns.Add(this.columnid_marca);
                 this.columnid_categoria = new global::System.Data.DataColumn("id_categoria", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_categoria);
+                this.columnid_auto = new global::System.Data.DataColumn("id_auto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_auto);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
-                this.columnkm = new global::System.Data.DataColumn("km", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnkm);
-                this.columnanio = new global::System.Data.DataColumn("anio", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnanio);
-                this.columncolor = new global::System.Data.DataColumn("color", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncolor);
-                this.columndisponibilidad = new global::System.Data.DataColumn("disponibilidad", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndisponibilidad);
-                this.columnid1 = new global::System.Data.DataColumn("id1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid1);
-                this.columnnombre1 = new global::System.Data.DataColumn("nombre1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnombre1);
+                this.columnid_reserva = new global::System.Data.DataColumn("id_reserva", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_reserva);
+                this.columnid_marca1 = new global::System.Data.DataColumn("id_marca1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_marca1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid,
-                                this.columnid1}, true));
+                                this.columnid_reserva,
+                                this.columnid_marca1}, true));
                 this.columnid.AllowDBNull = false;
                 this.columnid.MaxLength = 7;
+                this.columnid_auto.MaxLength = 7;
+                this.columnnombre.AllowDBNull = false;
                 this.columnnombre.MaxLength = 50;
-                this.columncolor.MaxLength = 50;
-                this.columnid1.AutoIncrement = true;
-                this.columnid1.AutoIncrementSeed = -1;
-                this.columnid1.AutoIncrementStep = -1;
-                this.columnid1.AllowDBNull = false;
-                this.columnid1.ReadOnly = true;
-                this.columnnombre1.AllowDBNull = false;
-                this.columnnombre1.MaxLength = 50;
+                this.columnid_reserva.AutoIncrement = true;
+                this.columnid_reserva.AutoIncrementSeed = -1;
+                this.columnid_reserva.AutoIncrementStep = -1;
+                this.columnid_reserva.AllowDBNull = false;
+                this.columnid_reserva.ReadOnly = true;
+                this.columnid_marca1.AutoIncrement = true;
+                this.columnid_marca1.AutoIncrementSeed = -1;
+                this.columnid_marca1.AutoIncrementStep = -1;
+                this.columnid_marca1.AllowDBNull = false;
+                this.columnid_marca1.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -608,7 +586,7 @@ namespace Rentacar {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet1 ds = new DataSet1();
+                DataSetAlquilerAutosMarca ds = new DataSetAlquilerAutosMarca();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -726,14 +704,41 @@ namespace Rentacar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string nombre {
+            public string id_auto {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.nombreColumn]));
+                        return ((string)(this[this.tableDataTable1.id_autoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombre\' de la tabla \'DataTable1\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_auto\' de la tabla \'DataTable1\' es DBNull.", e);
                     }
+                }
+                set {
+                    this[this.tableDataTable1.id_autoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double total {
+                get {
+                    try {
+                        return ((double)(this[this.tableDataTable1.totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'total\' de la tabla \'DataTable1\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string nombre {
+                get {
+                    return ((string)(this[this.tableDataTable1.nombreColumn]));
                 }
                 set {
                     this[this.tableDataTable1.nombreColumn] = value;
@@ -742,87 +747,23 @@ namespace Rentacar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int km {
+            public int id_reserva {
                 get {
-                    try {
-                        return ((int)(this[this.tableDataTable1.kmColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'km\' de la tabla \'DataTable1\' es DBNull.", e);
-                    }
+                    return ((int)(this[this.tableDataTable1.id_reservaColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.kmColumn] = value;
+                    this[this.tableDataTable1.id_reservaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int anio {
+            public int id_marca1 {
                 get {
-                    try {
-                        return ((int)(this[this.tableDataTable1.anioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'anio\' de la tabla \'DataTable1\' es DBNull.", e);
-                    }
+                    return ((int)(this[this.tableDataTable1.id_marca1Column]));
                 }
                 set {
-                    this[this.tableDataTable1.anioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string color {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.colorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'color\' de la tabla \'DataTable1\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.colorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int disponibilidad {
-                get {
-                    try {
-                        return ((int)(this[this.tableDataTable1.disponibilidadColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'disponibilidad\' de la tabla \'DataTable1\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.disponibilidadColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int id1 {
-                get {
-                    return ((int)(this[this.tableDataTable1.id1Column]));
-                }
-                set {
-                    this[this.tableDataTable1.id1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string nombre1 {
-                get {
-                    return ((string)(this[this.tableDataTable1.nombre1Column]));
-                }
-                set {
-                    this[this.tableDataTable1.nombre1Column] = value;
+                    this[this.tableDataTable1.id_marca1Column] = value;
                 }
             }
             
@@ -852,62 +793,26 @@ namespace Rentacar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsnombreNull() {
-                return this.IsNull(this.tableDataTable1.nombreColumn);
+            public bool Isid_autoNull() {
+                return this.IsNull(this.tableDataTable1.id_autoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetnombreNull() {
-                this[this.tableDataTable1.nombreColumn] = global::System.Convert.DBNull;
+            public void Setid_autoNull() {
+                this[this.tableDataTable1.id_autoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IskmNull() {
-                return this.IsNull(this.tableDataTable1.kmColumn);
+            public bool IstotalNull() {
+                return this.IsNull(this.tableDataTable1.totalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetkmNull() {
-                this[this.tableDataTable1.kmColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsanioNull() {
-                return this.IsNull(this.tableDataTable1.anioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetanioNull() {
-                this[this.tableDataTable1.anioColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscolorNull() {
-                return this.IsNull(this.tableDataTable1.colorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcolorNull() {
-                this[this.tableDataTable1.colorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsdisponibilidadNull() {
-                return this.IsNull(this.tableDataTable1.disponibilidadColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetdisponibilidadNull() {
-                this[this.tableDataTable1.disponibilidadColumn] = global::System.Convert.DBNull;
+            public void SettotalNull() {
+                this[this.tableDataTable1.totalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -946,7 +851,7 @@ namespace Rentacar {
         }
     }
 }
-namespace Rentacar.DataSet1TableAdapters {
+namespace Rentacar.DataSetAlquilerAutosMarcaTableAdapters {
     
     
     /// <summary>
@@ -1073,13 +978,11 @@ namespace Rentacar.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("id_marca", "id_marca");
             tableMapping.ColumnMappings.Add("id_categoria", "id_categoria");
+            tableMapping.ColumnMappings.Add("id_auto", "id_auto");
+            tableMapping.ColumnMappings.Add("total", "total");
             tableMapping.ColumnMappings.Add("nombre", "nombre");
-            tableMapping.ColumnMappings.Add("km", "km");
-            tableMapping.ColumnMappings.Add("anio", "anio");
-            tableMapping.ColumnMappings.Add("color", "color");
-            tableMapping.ColumnMappings.Add("disponibilidad", "disponibilidad");
-            tableMapping.ColumnMappings.Add("id1", "id1");
-            tableMapping.ColumnMappings.Add("nombre1", "nombre1");
+            tableMapping.ColumnMappings.Add("id_reserva", "id_reserva");
+            tableMapping.ColumnMappings.Add("id_marca1", "id_marca1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1096,8 +999,10 @@ namespace Rentacar.DataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Autos.*, Marca.*\r\nFROM            Autos INNER JOIN\r\n               " +
-                "          Marca ON Autos.id_marca = Marca.id";
+            this._commandCollection[0].CommandText = @"SELECT        Autos.id, Autos.id_marca, Autos.id_categoria, Reserva.id AS id_reserva, Reserva.id_auto, Reserva.total, Marca.id AS id_marca, Marca.nombre
+FROM            Autos INNER JOIN
+                         Marca ON Autos.id_marca = Marca.id INNER JOIN
+                         Reserva ON Autos.id = Reserva.id_auto";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1105,7 +1010,7 @@ namespace Rentacar.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.DataTable1DataTable dataTable) {
+        public virtual int Fill(DataSetAlquilerAutosMarca.DataTable1DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1118,9 +1023,9 @@ namespace Rentacar.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.DataTable1DataTable GetData() {
+        public virtual DataSetAlquilerAutosMarca.DataTable1DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet1.DataTable1DataTable dataTable = new DataSet1.DataTable1DataTable();
+            DataSetAlquilerAutosMarca.DataTable1DataTable dataTable = new DataSetAlquilerAutosMarca.DataTable1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1194,7 +1099,7 @@ namespace Rentacar.DataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSetAlquilerAutosMarca dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1204,7 +1109,7 @@ namespace Rentacar.DataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSetAlquilerAutosMarca dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1214,7 +1119,7 @@ namespace Rentacar.DataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSetAlquilerAutosMarca dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1248,7 +1153,7 @@ namespace Rentacar.DataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DataSet1 dataSet) {
+        public virtual int UpdateAll(DataSetAlquilerAutosMarca dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
