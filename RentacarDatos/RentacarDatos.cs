@@ -926,5 +926,95 @@ namespace RentacarDatos
             }
         }
 
+        public static int ObtenerIdInspeccion()
+        {
+            try  
+            {
+                int idCliente = 0;
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = @" SELECT top (1) [id]
+                                FROM[dbo]. [Inspección]
+                                  order by id desc";
+                cmd.CommandType = CommandType.Text;
+
+                    using (var  dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        idCliente = Convert.ToInt32(dr[" id "].ToString());
+                    }
+                }
+                int idInspeccion = idCliente + 1;
+                connection.Close();
+                return idCliente;
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                return  1;
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static void insertarDetalleInspeccion(DetalleInspeccionEntidad detalle)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @"INSERT INTO [dbo].[Detalle_Inspeccion]
+                                                   ([id_chequeo]
+                                                   ,[examinacion]
+                                                   ,[id_inspeccion])
+                                                 VALUES
+                               (@chequeo, @examinacion, @ inspección);
+                                 SELECT SCOPE_IDENTITY();";
+                cmd.Parameters.AddWithValue( "@chequeo" , detalle.id_chequeo );
+                 cmd.Parameters.AddWithValue( "@examinación" , detalle.examinacion );
+                cmd.Parameters.AddWithValue( "@inspeccion" , detalle.id_inspeccion);
+                cmd.CommandType  =  CommandType.Text ;
+                cmd.ExecuteScalar();
+                conexion.Close();
+            }
+     catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static void insertarInspeccion(InspeccionEntidad inspeccion)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @"INSERT INTO [dbo].[Inspecciones]
+                                                          ([auto]
+                                                          ,[fecha])
+                                                    VALUES
+                               (@auto,@fecha);
+                                         SELECT SCOPE_IDENTITY();";
+                cmd.Parameters.AddWithValue("@auto",inspeccion.Id_Auto);
+                cmd.Parameters.AddWithValue("@fecha", inspeccion.Fecha);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteScalar();
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -75,7 +75,7 @@ namespace Rentacar
                     existe = true;
             }
             if (existe == true)
-                MessageBox.Show("EL cheuqeo ya se realizo");
+                MessageBox.Show("EL chequeo ya se realizo");
             else
             {
                 di.Add(d);
@@ -101,6 +101,29 @@ namespace Rentacar
             {
                 if (item.Id == comboBox_autos.Text)
                     textBox_Nombre.Text = item.Nombre;
+            }
+        }
+
+        private void button_Continuar_Click(object sender, EventArgs e)
+        {
+            InspeccionEntidad i = new InspeccionEntidad();
+            i.Id_Auto = comboBox_autos.Text;
+            i.Fecha = dateTimePicker.Value;
+            RentacarNegocio.RentacarNegocio.insertarInspeccion(i);
+            bool mantenimiento = false;
+            foreach (var item in di)
+            {
+                if (item.examinacion == "Necesita Mantenimiento")
+                    mantenimiento = true;
+
+            }
+            if (mantenimiento== true)
+            {
+                MessageBox.Show("Necesita Un Mantenimiento");
+            }
+            else
+            {
+                MessageBox.Show("El vehivulo esta disponible");
             }
         }
     }

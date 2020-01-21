@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInspeccion));
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dtfecha = new System.Windows.Forms.DateTimePicker();
             this.Inspecciones = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox_Examinacion = new System.Windows.Forms.ComboBox();
@@ -42,6 +42,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.button_Continuar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Inspecciones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -60,20 +62,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(688, 484);
+            this.label4.Location = new System.Drawing.Point(65, 497);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 25;
             this.label4.Text = "Fecha";
-            // 
-            // dtfecha
-            // 
-            this.dtfecha.Location = new System.Drawing.Point(775, 484);
-            this.dtfecha.Margin = new System.Windows.Forms.Padding(4);
-            this.dtfecha.Name = "dtfecha";
-            this.dtfecha.Size = new System.Drawing.Size(265, 22);
-            this.dtfecha.TabIndex = 23;
             // 
             // Inspecciones
             // 
@@ -191,15 +185,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto";
             // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Enabled = false;
+            this.dateTimePicker.Location = new System.Drawing.Point(144, 492);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(399, 22);
+            this.dateTimePicker.TabIndex = 35;
+            // 
+            // button_Continuar
+            // 
+            this.button_Continuar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_Continuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Continuar.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.button_Continuar.Image = ((System.Drawing.Image)(resources.GetObject("button_Continuar.Image")));
+            this.button_Continuar.Location = new System.Drawing.Point(720, 497);
+            this.button_Continuar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_Continuar.Name = "button_Continuar";
+            this.button_Continuar.Size = new System.Drawing.Size(133, 27);
+            this.button_Continuar.TabIndex = 36;
+            this.button_Continuar.Text = "Continuar";
+            this.button_Continuar.UseVisualStyleBackColor = true;
+            this.button_Continuar.Visible = false;
+            this.button_Continuar.Click += new System.EventHandler(this.button_Continuar_Click);
+            // 
             // FormInspeccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 528);
+            this.Controls.Add(this.button_Continuar);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dtfecha);
             this.Controls.Add(this.Inspecciones);
             this.Name = "FormInspeccion";
             this.Text = "Inspeccion";
@@ -218,7 +238,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtfecha;
         private System.Windows.Forms.DataGridView Inspecciones;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox_tipo;
@@ -230,5 +249,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_Nombre;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button button_Continuar;
     }
 }
