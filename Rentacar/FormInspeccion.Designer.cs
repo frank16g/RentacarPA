@@ -200,20 +200,20 @@
             this.button_Continuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Continuar.ForeColor = System.Drawing.SystemColors.Desktop;
             this.button_Continuar.Image = ((System.Drawing.Image)(resources.GetObject("button_Continuar.Image")));
-            this.button_Continuar.Location = new System.Drawing.Point(720, 497);
+            this.button_Continuar.Location = new System.Drawing.Point(685, 490);
             this.button_Continuar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_Continuar.Name = "button_Continuar";
             this.button_Continuar.Size = new System.Drawing.Size(133, 27);
             this.button_Continuar.TabIndex = 36;
             this.button_Continuar.Text = "Continuar";
             this.button_Continuar.UseVisualStyleBackColor = true;
-            this.button_Continuar.Visible = false;
             this.button_Continuar.Click += new System.EventHandler(this.button_Continuar_Click);
             // 
             // FormInspeccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(1088, 528);
             this.Controls.Add(this.button_Continuar);
             this.Controls.Add(this.dateTimePicker);
@@ -221,6 +221,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Inspecciones);
+            this.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.Name = "FormInspeccion";
             this.Text = "Inspeccion";
             this.Load += new System.EventHandler(this.Inspeccion_Load);

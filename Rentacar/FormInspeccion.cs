@@ -120,10 +120,12 @@ namespace Rentacar
             if (mantenimiento== true)
             {
                 MessageBox.Show("Necesita Un Mantenimiento");
+                RentacarNegocio.RentacarNegocio.ActualizarEstadoAuto(i.Id_Auto, 3);
             }
             else
             {
                 MessageBox.Show("El vehivulo esta disponible");
+                RentacarNegocio.RentacarNegocio.ActualizarEstadoAuto(i.Id_Auto, 1);
             }
         }
     }
