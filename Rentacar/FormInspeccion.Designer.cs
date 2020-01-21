@@ -223,6 +223,7 @@
             this.Controls.Add(this.Inspecciones);
             this.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.Name = "FormInspeccion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inspeccion";
             this.Load += new System.EventHandler(this.Inspeccion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Inspecciones)).EndInit();

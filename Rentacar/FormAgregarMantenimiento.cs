@@ -14,7 +14,7 @@ namespace Rentacar
     public partial class FormAgregarMantenimiento : Form
     {
         FormTiposMantenimientos tipos = new FormTiposMantenimientos();
-        FormMantenimiento formmantenimiento = new FormMantenimiento();
+        
         List<MantenimientoDetalleEntidad> detalle = new List<MantenimientoDetalleEntidad>();
         public FormAgregarMantenimiento()
         {
@@ -80,10 +80,12 @@ namespace Rentacar
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
+            FormMantenimientos formmantenimiento = new FormMantenimientos();
             MantenimientoEntidad mantenimiento = new MantenimientoEntidad();
-            mantenimiento.Fecha = DateTime.Parse(dtfecha.Text);
+            mantenimiento.Fecha = dtfecha.Value;
             mantenimiento.Costo = float.Parse(tbtotal.Text);
-            mantenimiento.Id_Auto = formmantenimiento.auto.Id;
+            mantenimiento.Id_Auto = formmantenimiento.Id_Auto;
+            mantenimiento.Descripcion = textBox_Descripcion.Text;
             RentacarNegocio.RentacarNegocio.insertarMantenimiento(mantenimiento, detalle);
         }
     }
