@@ -133,6 +133,12 @@
     <Compile Include="FormReporteAlquilerMarca.Designer.cs">
       <DependentUpon>FormReporteAlquilerMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportes.Designer.cs">
+      <DependentUpon>FormReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReporteAutosMarca.resx">
       <DependentUpon>FormReporteAutosMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportes.resx">
+      <DependentUpon>FormReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReserva.resx">
       <DependentUpon>FormReserva.cs</DependentUpon>
