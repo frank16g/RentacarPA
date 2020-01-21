@@ -22,10 +22,7 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+       
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -103,8 +100,8 @@
             this.Text = "FormTiposMantenimientos";
             this.Load += new System.EventHandler(this.FormTiposMantenimientos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            //this.ResumeLayout(false);
+            //this.PerformLayout();
 
         }
 
