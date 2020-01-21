@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using RentacarEntidades;
 
 namespace RentacarDatos
@@ -311,7 +312,8 @@ namespace RentacarDatos
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("AVISO: Error de conexión con la base de datos, el sistema es inestable y no se recomienda su uso. Contacte con el administrador.");
+                return null;
             }
         }
 
@@ -389,25 +391,35 @@ namespace RentacarDatos
 
         public static int ObtenerNumeroReservas()
         {
-            int numeroReserva = 0;
-            SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
-            connection.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = @"SELECT top (1)[id]
+            try
+            {
+                int numeroReserva = 0;
+                SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = @"SELECT top (1)[id]
                                 FROM [dbo].[Reserva]
                                 order by id desc";
-            cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.Text;
 
-            using (var dr = cmd.ExecuteReader())
-            {
-                while (dr.Read())
+                using (var dr = cmd.ExecuteReader())
                 {
-                    numeroReserva = Convert.ToInt32(dr["id"].ToString());
+                    while (dr.Read())
+                    {
+                        numeroReserva = Convert.ToInt32(dr["id"].ToString());
+                    }
                 }
-            }
 
-            return numeroReserva;
+                return numeroReserva;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("AVISO: Error de conexión con la base de datos, el sistema es inestable y no se recomienda su uso. Contacte con el administrador.");
+                return -1;
+            }
+          
         }
 
         public static ClienteEntidad asignarCliente(string cedula)

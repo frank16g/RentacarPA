@@ -38,44 +38,55 @@ namespace Rentacar
 
         private void AccederSistema()
         {
-            List<UsuarioEntidad> listaUsuarios = RentacarNegocio.RentacarNegocio.DevolverListadoUsuarios();
-
-
-            foreach (var usr in listaUsuarios)
+            try
             {
-                if (textBoxUsuario.Text == usr.Usuario && textBoxContraseña.Text == usr.Contraseña)
+                List<UsuarioEntidad> listaUsuarios = RentacarNegocio.RentacarNegocio.DevolverListadoUsuarios();
+
+
+                foreach (var usr in listaUsuarios)
                 {
-                    log = true;
-                    usuario = usr;
+                    if (textBoxUsuario.Text == usr.Usuario && textBoxContraseña.Text == usr.Contraseña)
+                    {
+                        log = true;
+                        usuario = usr;
+                    }
+
                 }
 
-            }
-
-            if (log)
-            {
-
-                if (usuario.Usuario == "root")
+                if (log)
                 {
-                    FormAdmin formAdmin = new FormAdmin();
-                    formAdmin.ShowDialog();
-                    this.Close();
+
+                    if (usuario.Usuario == "root")
+                    {
+                        FormAdmin formAdmin = new FormAdmin();
+                        formAdmin.ShowDialog();
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        FormUser formUser = new FormUser();
+                        formUser.usuarioUser = usuario;
+                        formUser.ShowDialog();
+                        this.Close();
+                    }
 
                 }
                 else
                 {
-                    FormUser formUser = new FormUser();
-                    formUser.usuarioUser = usuario;
-                    formUser.ShowDialog();
-                    this.Close();
+                    MessageBox.Show("Credenciales incorrectas");
+
+                    textBoxContraseña.Text = "";
                 }
 
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Credenciales incorrectas");
 
-                textBoxContraseña.Text = "";
+                Application.Exit();
             }
+            
+            
             
         }
 
