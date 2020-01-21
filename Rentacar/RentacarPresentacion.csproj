@@ -139,6 +139,12 @@
     <Compile Include="FormServicios.Designer.cs">
       <DependentUpon>FormServicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTiposMantenimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTiposMantenimientos.Designer.cs">
+      <DependentUpon>FormTiposMantenimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inspeccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormServicios.resx">
       <DependentUpon>FormServicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTiposMantenimientos.resx">
+      <DependentUpon>FormTiposMantenimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inspeccion.resx">
       <DependentUpon>Inspeccion.cs</DependentUpon>
