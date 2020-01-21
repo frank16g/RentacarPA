@@ -24,7 +24,7 @@ namespace Rentacar
 
         private void LlamarFromMantenimientos()
         {
-            FormMantenimiento formMantenimiento = new FormMantenimiento();
+            FormMantenimientos formMantenimiento = new FormMantenimientos();
 
             formMantenimiento.ShowDialog();
         }
@@ -36,9 +36,9 @@ namespace Rentacar
 
         private void LlamarFromInfromes()
         {
-            FormReporteAutosMarca formInformes = new FormReporteAutosMarca();
+            FormReportes formReportes = new FormReportes();
 
-            formInformes.ShowDialog();
+            formReportes.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)

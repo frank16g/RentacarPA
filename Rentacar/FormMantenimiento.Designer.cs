@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnnuevo = new System.Windows.Forms.Button();
@@ -65,11 +64,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.label1.Location = new System.Drawing.Point(86, 105);
+            this.label1.Location = new System.Drawing.Point(61, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 22);
+            this.label1.Size = new System.Drawing.Size(47, 22);
             this.label1.TabIndex = 18;
-            this.label1.Text = "ID";
+            this.label1.Text = "Placa";
             // 
             // comboBoxClase
             // 
@@ -124,15 +123,6 @@
             this.splitter1.TabIndex = 24;
             this.splitter1.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel1.Location = new System.Drawing.Point(58, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 10);
-            this.panel1.TabIndex = 25;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -175,7 +165,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnnuevo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.comboBoxClase);
             this.Controls.Add(this.comboBoxMarca);
@@ -204,7 +193,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnnuevo;
     }
