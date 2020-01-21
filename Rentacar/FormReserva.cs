@@ -23,6 +23,7 @@ namespace Rentacar
 
         AlquilerEntidad alquiler = new AlquilerEntidad();
         ClienteEntidad clienteAlquiler = new ClienteEntidad();
+       public UsuarioEntidad usuarioSesion;
         int dias;
 
         public FormReserva()
@@ -48,10 +49,11 @@ namespace Rentacar
                 Application.Exit();
             }
 
+            MessageBox.Show("Se ha registrado como " + usuarioSesion.Usuario); ;
 
             //Establecer usuario === Esto se puede borrar
 
-            alquiler.idUsuario = 2;
+           
             alquiler.idCliente = 1;
             alquiler.fechaReserva = Convert.ToDateTime("1/1/1777 12:00:00 AM ");
         }

@@ -607,6 +607,7 @@ namespace RentacarDatos
 
 
         }
+
         public static AutoEntidad asignarAuto(string placa)
         {
             try
@@ -646,6 +647,7 @@ namespace RentacarDatos
 
 
         }
+
         public static List<Chequeos> CargarChequeos()
         {
             try
@@ -685,6 +687,7 @@ namespace RentacarDatos
                 throw;
             }
         }
+
         public static ReservaEntidad CargarFactura(int id)
         {
             try
@@ -724,6 +727,7 @@ namespace RentacarDatos
 
 
         }
+
 
         public static void insertarMulta(MultaEntidad multa)
         {
@@ -866,6 +870,54 @@ namespace RentacarDatos
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public static ClienteEntidad devolverClientePorIdSqlServer(string id)
+        {
+            try
+            {
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" SELECT [id]
+                                             ,[nombre]
+                                             ,[apellido]
+                                             ,[direccion]
+                                             ,[telefono]
+                                             ,[cedula]
+                                             ,[email]
+                                             ,[fecha_nac]
+                                         FROM [Cliente]
+                                     WHERE id=@Id;";
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.CommandType = CommandType.Text;
+                ClienteEntidad cliente = new ClienteEntidad();
+                using (var dr = cmd.ExecuteReader())
+                {
+                    dr.Read();
+                    cliente.id = Convert.ToInt32(dr["id"]);
+                    cliente.Nombre = dr["nombre"].ToString();
+                    cliente.Cedula = dr["cedula"].ToString();
+                    cliente.Apellido = dr["apellido"].ToString();
+                    cliente.Telefono = dr["telefono"].ToString();
+                    cliente.Direcccion = dr["direccion"].ToString();
+                    cliente.Gmail = dr["email"].ToString();
+                    cliente.Nacimiento = Convert.ToDateTime(dr["fecha_nac"]);
+                }
+
+                conexion.Close();
+                return cliente;
+            }
+            catch (System.InvalidOperationException)
+            {
+
+                return null;
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }
