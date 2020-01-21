@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoEntidad.cs" />
+    <Compile Include="Chequeos.cs" />
     <Compile Include="ClienteEntidad.cs" />
     <Compile Include="MantenimientoDetalleEntidad.cs" />
     <Compile Include="MantenimientoEntidad.cs" />

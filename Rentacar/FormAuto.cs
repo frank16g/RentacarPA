@@ -143,6 +143,11 @@ namespace Rentacar
             textBox_Año.ReadOnly = true;
             textBox_Color.ReadOnly = true;
         }
+
+        private void comboBox_Marca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
