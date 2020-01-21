@@ -59,7 +59,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox2.BackColor = System.Drawing.SystemColors.GrayText;
             this.groupBox2.Controls.Add(this.comboBox_Categoria);
             this.groupBox2.Controls.Add(this.comboBox_Marca);
             this.groupBox2.Controls.Add(this.textBox_Disponibilidad);
@@ -80,7 +80,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.groupBox2.Location = new System.Drawing.Point(13, 13);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -88,7 +88,7 @@
             this.groupBox2.Size = new System.Drawing.Size(967, 469);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "`";
+            this.groupBox2.Text = "Autos";
             // 
             // comboBox_Categoria
             // 
@@ -125,7 +125,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.label1.Location = new System.Drawing.Point(73, 426);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -145,10 +145,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(795, 269);
+            this.pictureBox2.Location = new System.Drawing.Point(769, 260);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.Size = new System.Drawing.Size(117, 106);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 17;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -159,7 +159,7 @@
             this.pictureBoxAgregar.Location = new System.Drawing.Point(762, 146);
             this.pictureBoxAgregar.Name = "pictureBoxAgregar";
             this.pictureBoxAgregar.Size = new System.Drawing.Size(124, 108);
-            this.pictureBoxAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAgregar.TabIndex = 16;
             this.pictureBoxAgregar.TabStop = false;
             this.pictureBoxAgregar.Click += new System.EventHandler(this.pictureBoxAgregar_Click);
@@ -175,7 +175,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.label7.Location = new System.Drawing.Point(73, 321);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -195,7 +195,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.label8.Location = new System.Drawing.Point(73, 378);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
@@ -205,7 +205,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::Rentacar.Properties.Resources.search1;
             this.pictureBox1.Location = new System.Drawing.Point(762, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
@@ -227,7 +227,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.label6.Location = new System.Drawing.Point(73, 257);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -247,7 +247,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.label5.Location = new System.Drawing.Point(73, 199);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -258,7 +258,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.label4.Location = new System.Drawing.Point(73, 146);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -269,7 +269,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.label3.Location = new System.Drawing.Point(73, 93);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -280,7 +280,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.label2.Location = new System.Drawing.Point(73, 36);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -290,6 +290,8 @@
             // 
             // button_Continuar
             // 
+            this.button_Continuar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Continuar.Image = global::Rentacar.Properties.Resources.button;
             this.button_Continuar.Location = new System.Drawing.Point(732, 498);
             this.button_Continuar.Name = "button_Continuar";
             this.button_Continuar.Size = new System.Drawing.Size(101, 35);
@@ -300,6 +302,7 @@
             // 
             // Guardar
             // 
+            this.Guardar.Image = global::Rentacar.Properties.Resources.button;
             this.Guardar.Location = new System.Drawing.Point(555, 498);
             this.Guardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Guardar.Name = "Guardar";
@@ -314,6 +317,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(976, 546);
             this.Controls.Add(this.button_Continuar);
             this.Controls.Add(this.Guardar);

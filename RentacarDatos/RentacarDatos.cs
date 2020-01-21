@@ -975,10 +975,10 @@ namespace RentacarDatos
                                                    ,[examinacion]
                                                    ,[id_inspeccion])
                                                  VALUES
-                               (@chequeo, @examinacion, @ inspección);
+                               (@chequeo, @examinacion, @inspeccion);
                                  SELECT SCOPE_IDENTITY();";
                 cmd.Parameters.AddWithValue( "@chequeo" , detalle.id_chequeo );
-                 cmd.Parameters.AddWithValue( "@examinación" , detalle.examinacion );
+                 cmd.Parameters.AddWithValue( "@examinacion" , detalle.examinacion );
                 cmd.Parameters.AddWithValue( "@inspeccion" , detalle.id_inspeccion);
                 cmd.CommandType  =  CommandType.Text ;
                 cmd.ExecuteScalar();
