@@ -42,6 +42,11 @@ namespace Rentacar
 
         private void CargarMantenimientos()
         {
+            
+        }
+
+        private void cbtipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
             dataGridView1.DataSource = RentacarNegocio.RentacarNegocio.CargarTiposMantenimientos(cbtipo.Text);
         }
 

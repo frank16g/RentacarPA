@@ -65,7 +65,7 @@ namespace RentacarNegocio
             return RentacarDatos.RentacarDatos.insertarAuto(auto);
             
         }
-        public static List<MantenimientoEntidad> BuscarCarroNegocio(AutoEntidad auto)
+        public static List<MantenimientoEntidad> BuscarCarroNegocio(string auto)
                
         {
             return RentacarDatos.RentacarDatos.CargarMantenimientosId(auto);

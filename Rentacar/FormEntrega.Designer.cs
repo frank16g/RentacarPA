@@ -251,6 +251,7 @@
             this.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormEntrega";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEntrega";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
