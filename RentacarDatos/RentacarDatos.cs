@@ -377,17 +377,17 @@ namespace RentacarDatos
                     cmd2.Parameters.AddWithValue("@id_reserva", alquiler.id);
                     cmd2.Parameters.AddWithValue("@id_servicio", alquiler.listaServicios[i].Id);
 
-                    
+
                 }
             }
 
-         
+
 
 
             return alquiler;
         }
 
-      
+
 
         public static int ObtenerNumeroReservas()
         {
@@ -419,7 +419,7 @@ namespace RentacarDatos
                 MessageBox.Show("AVISO: Error de conexión con la base de datos, el sistema es inestable y no se recomienda su uso. Contacte con el administrador.");
                 return -1;
             }
-          
+
         }
 
         public static ClienteEntidad asignarCliente(string cedula)
@@ -502,11 +502,12 @@ namespace RentacarDatos
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("AVISO: Error de conexión con la base de datos, el sistema es inestable y no se recomienda su uso. Contacte con el administrador.");
+               
             }
         }
 
-        public static List<MantenimientoEntidad> CargarMantenimientosId(AutoEntidad auto)
+        public static List<MantenimientoEntidad> CargarMantenimientosId(string placa)
         {
             try
             {
@@ -527,7 +528,7 @@ namespace RentacarDatos
                                   ,[descripcion]
                               FROM [dbo].[Mantenimiento]
                               WHERE id_auto=@id";
-                cmd.Parameters.AddWithValue("@id", auto.Id);
+                cmd.Parameters.AddWithValue("@id", placa);
 
                 using (var dataReader = cmd.ExecuteReader())
                 {
@@ -549,6 +550,11 @@ namespace RentacarDatos
                 connection.Close();
                 return m;
 
+            }
+            catch (System.InvalidOperationException)
+            {
+
+                return null;
             }
             catch (Exception)
             {
@@ -805,7 +811,7 @@ namespace RentacarDatos
             }
         }
 
-        public static void ActualizarEstadoAuto(string id,int estado)
+        public static void ActualizarEstadoAuto(string id, int estado)
         {
 
             try
@@ -855,7 +861,7 @@ namespace RentacarDatos
                                           ,[disponibilidad]
                                       FROM [dbo].[Autos]
                               WHERE disponibilidad=@disp";
-                cmd.Parameters.AddWithValue("@disp",disp);
+                cmd.Parameters.AddWithValue("@disp", disp);
 
                 using (var dataReader = cmd.ExecuteReader())
                 {
@@ -940,19 +946,19 @@ namespace RentacarDatos
 
         public static int ObtenerIdInspeccion()
         {
-            try  
+            try
             {
                 int idCliente = 0;
                 SqlConnection connection = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
                 connection.Open();
                 SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = connection;
-                    cmd.CommandText = @" SELECT top (1) [id]
+                cmd.Connection = connection;
+                cmd.CommandText = @" SELECT top (1) [id]
                                 FROM[dbo]. [Inspección]
                                   order by id desc";
                 cmd.CommandType = CommandType.Text;
 
-                    using (var  dr = cmd.ExecuteReader())
+                using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
@@ -965,7 +971,7 @@ namespace RentacarDatos
             }
             catch (System.Data.SqlClient.SqlException)
             {
-                return  1;
+                return 1;
             }
 
             catch (Exception)
@@ -989,14 +995,14 @@ namespace RentacarDatos
                                                  VALUES
                                (@chequeo, @examinacion, @inspeccion);
                                  SELECT SCOPE_IDENTITY();";
-                cmd.Parameters.AddWithValue( "@chequeo" , detalle.id_chequeo );
-                 cmd.Parameters.AddWithValue( "@examinacion" , detalle.examinacion );
-                cmd.Parameters.AddWithValue( "@inspeccion" , detalle.id_inspeccion);
-                cmd.CommandType  =  CommandType.Text ;
+                cmd.Parameters.AddWithValue("@chequeo", detalle.id_chequeo);
+                cmd.Parameters.AddWithValue("@examinacion", detalle.examinacion);
+                cmd.Parameters.AddWithValue("@inspeccion", detalle.id_inspeccion);
+                cmd.CommandType = CommandType.Text;
                 cmd.ExecuteScalar();
                 conexion.Close();
             }
-     catch (Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -1016,7 +1022,7 @@ namespace RentacarDatos
                                                     VALUES
                                (@auto,@fecha);
                                          SELECT SCOPE_IDENTITY();";
-                cmd.Parameters.AddWithValue("@auto",inspeccion.Id_Auto);
+                cmd.Parameters.AddWithValue("@auto", inspeccion.Id_Auto);
                 cmd.Parameters.AddWithValue("@fecha", inspeccion.Fecha);
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteScalar();
@@ -1028,5 +1034,47 @@ namespace RentacarDatos
             }
         }
 
+        public static List<AutoEntidad> SacarAutos(string placa)
+        {
+            try
+            { 
+
+
+                List<AutoEntidad> au = new List<AutoEntidad>();
+                SqlConnection conexion = new SqlConnection(Settings1.Default.CadenaConexionSqlServer);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexion;
+                cmd.CommandText = @" SELECT [id]
+                                             ,[nombre]
+                                            
+                                         FROM [Autos]
+                                     WHERE id=@placa;";
+                cmd.Parameters.AddWithValue("@placa", placa);
+                cmd.CommandType = CommandType.Text;
+                AutoEntidad auto = new AutoEntidad();
+                using (var dr = cmd.ExecuteReader())
+                {
+                    dr.Read();
+                    auto.Id = dr["id"].ToString();
+                    auto.Nombre = dr["nombre"].ToString();
+                au.Add(auto);
+                }
+
+                conexion.Close();
+                return au;
+            }
+            catch (System.InvalidOperationException)
+            {
+
+                return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+
+        }
     }
 }

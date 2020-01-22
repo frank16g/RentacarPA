@@ -14,10 +14,10 @@ namespace Rentacar
 {
     public partial class FormMantenimientos : Form
     {
-        public AutoEntidad auto = new AutoEntidad();
         
         List<MantenimientoEntidad> m = new List<MantenimientoEntidad>();
         List<MarcaEntidad> listaMarcas = RentacarNegocio.RentacarNegocio.DevolverListadoMarcas();
+        public string Id_Auto;
         public string Marca { get; set; }
         public int Clase { get; set; }
         public FormMantenimientos()
@@ -25,38 +25,11 @@ namespace Rentacar
             InitializeComponent();
         }
 
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            BuscarCarro();
-        }
+       
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            BuscarCarro();
-            btnnuevo.Visible = false;
-        }
+ 
 
-        private void BuscarCarro()
-        {
-            auto.Id = tbid.Text;
-            if (tbid.Text != "")
-            {
-                bool flag = ComprobarExistenciaAuto(auto);
-
-                if (flag)
-                {
-                    m = RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(auto);
-                    ListarMantenimientos();
-                    btnnuevo.Visible = true;
-                }
-                else
-                {
-                    MessageBox.Show("Carro no existe");
-                }
-            }
-
-
-        }
+       
 
         private void ListarMantenimientos()
         {
@@ -176,7 +149,7 @@ namespace Rentacar
 
                 for (int j = 0; j < listaAutos.Count; j++)
                 {
-                    m = m.Union(RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(listaAutos[j])).ToList();
+                   // m = m.Union(RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(listaAutos[j])).ToList();
                 }
 
 
@@ -190,6 +163,36 @@ namespace Rentacar
             FormAgregarMantenimiento formagregar = new FormAgregarMantenimiento();
             
             formagregar.ShowDialog();
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+            m = RentacarNegocio.RentacarNegocio.BuscarCarroNegocio(tbid.Text);
+            if (m != null)
+            {
+                mantenimientos.DataSource = m;
+                btnnuevo.Visible = true;
+                Id_Auto = tbid.Text;
+            }
+            else
+                MessageBox.Show("El auto no tiene mantenimiento");
+
+        }
+
+        private void comboBoxClase_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormMantenimientos_Load(object sender, EventArgs e)
+        {
+            btnnuevo.Visible = false;
+        }
+
+        private void tbid_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

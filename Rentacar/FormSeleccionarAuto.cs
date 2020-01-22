@@ -68,8 +68,12 @@ namespace Rentacar
                                 {
                                     if (comboBoxClase.SelectedIndex + 1 == listaMarcas[i].ListaAutos[j].Id_Categoria && listaMarcas[i].ListaAutos[j].Disponibilidad == 1)
                                     {
-                                        listaAutos.Add(listaMarcas[i].ListaAutos[j]);
-                                        Marca = listaMarcas[i].Nombre;
+                                        if (listaMarcas[i].ListaAutos[j].Disponibilidad == 1)
+                                        {
+                                            listaAutos.Add(listaMarcas[i].ListaAutos[j]);
+                                            Marca = listaMarcas[i].Nombre;
+                                        }
+                                        
 
                                     }
                                 }
@@ -107,21 +111,20 @@ namespace Rentacar
             {
                  Id = dataGridViewAutos.Rows[e.RowIndex].Cells["Id"].Value.ToString();
 
-                for (int i = 0; i < listaMarcas.Count; i++)
+                foreach (var marca in listaMarcas)
                 {
-
-                    for (int j = 0; j < listaMarcas[i].ListaAutos.Count; j++)
+                    foreach (var auto in marca.ListaAutos)
                     {
-                        if (listaMarcas[j].ListaAutos[i].Id == Id)
+                        if (Id == auto.Id)
                         {
-                            autoSeleccionado = listaMarcas[j].ListaAutos[i];
+                            autoSeleccionado = auto;
                             //MessageBox.Show("Placa " + autoSeleccionado.Id + " Marca " + Marca + " Modelo " + autoSeleccionado.Nombre);
                             this.Close();
                         }
                     }
-
-                  
                 }
+
+              
             }
             catch (Exception)
             {

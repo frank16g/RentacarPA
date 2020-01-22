@@ -24,7 +24,15 @@ namespace Rentacar
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        
+
+        private void button_Continuar_Click(object sender, EventArgs e)
+        {
+            FormInspeccion formInspeccion = new FormInspeccion();
+            formInspeccion.ShowDialog();
+        }
+
+        private void buscar_Click(object sender, EventArgs e)
         {
             ReservaEntidad reserva = new ReservaEntidad();
             int k = 2;
@@ -35,16 +43,17 @@ namespace Rentacar
                 textBox_Cliente.Text = RentacarNegocio.RentacarNegocio.ObtenerCedCliente(reserva.Cliente);
                 dateTimePicker.Value = reserva.Fec_Devolucion;
                 RentacarNegocio.RentacarNegocio.ActualizarEstadoAuto(reserva.Auto, k);
-                var resul = ( dateTimePicker1.Value - dateTimePicker.Value ).TotalDays;
+                var resul = (dateTimePicker1.Value - dateTimePicker.Value).TotalDays;
                 var dias = Math.Round(resul);
-                if (dias > 1) {
+                if (dias > 1)
+                {
                     label5.Text = (dias * 20).ToString();
                     MultaEntidad multa = new MultaEntidad();
                     multa.Dias = Convert.ToInt32(dias);
                     multa.Reserva = Convert.ToInt32(textBox_Id.Text);
                     multa.Monto = Convert.ToInt32(label5.Text);
                     RentacarNegocio.RentacarNegocio.insertarMulta(multa);
-                   
+
                 }
                 else
                     label5.Text = "0";

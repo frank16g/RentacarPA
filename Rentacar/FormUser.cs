@@ -42,8 +42,10 @@ namespace Rentacar
 
         private void LlamarFormInspecion()
         {
-            FormInspeccion formInspeccion = new FormInspeccion();
-            formInspeccion.ShowDialog();
+            FormEntrega formEntrega = new FormEntrega();
+            formEntrega.ShowDialog();
+
+            
         }
     }
 }

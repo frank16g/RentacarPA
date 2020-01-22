@@ -55,9 +55,9 @@
             this.textBoxApellido = new System.Windows.Forms.TextBox();
             this.textBoxRuc = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonContrato = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.textBoxClase = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,11 +69,10 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonSimularAlquiler = new System.Windows.Forms.Button();
             this.buttonFacturar = new System.Windows.Forms.Button();
-            this.buttonContrato = new System.Windows.Forms.Button();
+            this.textBoxSeguro = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,7 +95,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(210, 27);
+            this.label5.Location = new System.Drawing.Point(25, 105);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(159, 22);
             this.label5.TabIndex = 7;
@@ -109,7 +108,7 @@
             this.buttonServicios.Name = "buttonServicios";
             this.buttonServicios.Size = new System.Drawing.Size(100, 23);
             this.buttonServicios.TabIndex = 36;
-            this.buttonServicios.Text = "ServiciosExtra";
+            this.buttonServicios.Text = "Seguros";
             this.buttonServicios.UseVisualStyleBackColor = true;
             this.buttonServicios.Click += new System.EventHandler(this.buttonServicios_Click);
             // 
@@ -135,7 +134,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(27, 27);
+            this.label11.Location = new System.Drawing.Point(15, 30);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 22);
             this.label11.TabIndex = 32;
@@ -143,10 +142,10 @@
             // 
             // textBoxModelo
             // 
-            this.textBoxModelo.Location = new System.Drawing.Point(31, 63);
+            this.textBoxModelo.Location = new System.Drawing.Point(19, 66);
             this.textBoxModelo.Name = "textBoxModelo";
             this.textBoxModelo.ReadOnly = true;
-            this.textBoxModelo.Size = new System.Drawing.Size(244, 20);
+            this.textBoxModelo.Size = new System.Drawing.Size(302, 20);
             this.textBoxModelo.TabIndex = 26;
             // 
             // dateTimePickerRecogida
@@ -158,7 +157,7 @@
             // 
             // dateTimePickerDevolucion
             // 
-            this.dateTimePickerDevolucion.Location = new System.Drawing.Point(214, 63);
+            this.dateTimePickerDevolucion.Location = new System.Drawing.Point(29, 141);
             this.dateTimePickerDevolucion.Name = "dateTimePickerDevolucion";
             this.dateTimePickerDevolucion.Size = new System.Drawing.Size(170, 20);
             this.dateTimePickerDevolucion.TabIndex = 24;
@@ -319,43 +318,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
             // 
+            // buttonContrato
+            // 
+            this.buttonContrato.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonContrato.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.buttonContrato.Image = global::Rentacar.Properties.Resources.button;
+            this.buttonContrato.Location = new System.Drawing.Point(822, 360);
+            this.buttonContrato.Name = "buttonContrato";
+            this.buttonContrato.Size = new System.Drawing.Size(100, 23);
+            this.buttonContrato.TabIndex = 43;
+            this.buttonContrato.Text = "Contrato";
+            this.buttonContrato.UseVisualStyleBackColor = true;
+            this.buttonContrato.Click += new System.EventHandler(this.buttonContrato_Click);
+            // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.textBoxSeguro);
             this.groupBox6.Controls.Add(this.buttonServicios);
-            this.groupBox6.Location = new System.Drawing.Point(53, 305);
+            this.groupBox6.Location = new System.Drawing.Point(341, 295);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(403, 76);
+            this.groupBox6.Size = new System.Drawing.Size(453, 76);
             this.groupBox6.TabIndex = 42;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Servicios Extra";
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.pictureBox4);
             this.groupBox5.Controls.Add(this.textBoxClase);
             this.groupBox5.Controls.Add(this.pictureBox2);
             this.groupBox5.Controls.Add(this.textBoxModelo);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Location = new System.Drawing.Point(479, 189);
+            this.groupBox5.Location = new System.Drawing.Point(341, 172);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(431, 192);
+            this.groupBox5.Size = new System.Drawing.Size(453, 111);
             this.groupBox5.TabIndex = 41;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Datos del carro";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(31, 98);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(207, 73);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 43;
-            this.pictureBox4.TabStop = false;
-            // 
             // textBoxClase
             // 
-            this.textBoxClase.Location = new System.Drawing.Point(294, 63);
+            this.textBoxClase.Location = new System.Drawing.Point(331, 66);
             this.textBoxClase.Name = "textBoxClase";
             this.textBoxClase.ReadOnly = true;
             this.textBoxClase.Size = new System.Drawing.Size(37, 20);
@@ -364,7 +367,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Rentacar.Properties.Resources.grid;
-            this.pictureBox2.Location = new System.Drawing.Point(294, 116);
+            this.pictureBox2.Location = new System.Drawing.Point(393, 51);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -376,7 +379,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 27);
+            this.label2.Location = new System.Drawing.Point(327, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 22);
             this.label2.TabIndex = 29;
@@ -390,7 +393,7 @@
             this.groupBox4.Controls.Add(this.dateTimePickerRecogida);
             this.groupBox4.Location = new System.Drawing.Point(53, 189);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(403, 100);
+            this.groupBox4.Size = new System.Drawing.Size(249, 182);
             this.groupBox4.TabIndex = 40;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tiempo de alquiler";
@@ -400,7 +403,7 @@
             this.buttonConfirmarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonConfirmarAlquiler.ForeColor = System.Drawing.SystemColors.MenuText;
             this.buttonConfirmarAlquiler.Image = global::Rentacar.Properties.Resources.button;
-            this.buttonConfirmarAlquiler.Location = new System.Drawing.Point(810, 397);
+            this.buttonConfirmarAlquiler.Location = new System.Drawing.Point(822, 462);
             this.buttonConfirmarAlquiler.Name = "buttonConfirmarAlquiler";
             this.buttonConfirmarAlquiler.Size = new System.Drawing.Size(100, 23);
             this.buttonConfirmarAlquiler.TabIndex = 35;
@@ -455,9 +458,9 @@
             this.groupBox3.Controls.Add(this.textBoxIva);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.buttonSimularAlquiler);
-            this.groupBox3.Location = new System.Drawing.Point(53, 397);
+            this.groupBox3.Location = new System.Drawing.Point(53, 388);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(727, 97);
+            this.groupBox3.Size = new System.Drawing.Size(741, 97);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Valores Factura";
@@ -482,7 +485,7 @@
             this.buttonFacturar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonFacturar.ForeColor = System.Drawing.SystemColors.MenuText;
             this.buttonFacturar.Image = global::Rentacar.Properties.Resources.button;
-            this.buttonFacturar.Location = new System.Drawing.Point(810, 471);
+            this.buttonFacturar.Location = new System.Drawing.Point(822, 414);
             this.buttonFacturar.Name = "buttonFacturar";
             this.buttonFacturar.Size = new System.Drawing.Size(100, 23);
             this.buttonFacturar.TabIndex = 22;
@@ -490,18 +493,13 @@
             this.buttonFacturar.UseVisualStyleBackColor = true;
             this.buttonFacturar.Click += new System.EventHandler(this.buttonFacturar_Click);
             // 
-            // buttonContrato
+            // textBoxSeguro
             // 
-            this.buttonContrato.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonContrato.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonContrato.Image = global::Rentacar.Properties.Resources.button;
-            this.buttonContrato.Location = new System.Drawing.Point(810, 434);
-            this.buttonContrato.Name = "buttonContrato";
-            this.buttonContrato.Size = new System.Drawing.Size(100, 23);
-            this.buttonContrato.TabIndex = 43;
-            this.buttonContrato.Text = "Contrato";
-            this.buttonContrato.UseVisualStyleBackColor = true;
-            this.buttonContrato.Click += new System.EventHandler(this.buttonContrato_Click);
+            this.textBoxSeguro.Location = new System.Drawing.Point(62, 32);
+            this.textBoxSeguro.Name = "textBoxSeguro";
+            this.textBoxSeguro.ReadOnly = true;
+            this.textBoxSeguro.Size = new System.Drawing.Size(137, 20);
+            this.textBoxSeguro.TabIndex = 43;
             // 
             // FormReserva
             // 
@@ -517,9 +515,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -574,8 +572,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button buttonContrato;
+        private System.Windows.Forms.TextBox textBoxSeguro;
     }
 }
 
