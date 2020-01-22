@@ -98,7 +98,7 @@
                 this.Controls.Add(this.cbtipo);
                 this.Controls.Add(this.dataGridView1);
                 this.Controls.Add(this.panel1);
-                this.Controls.Add(this.label1);
+                //this.Controls.Add(this.label1);
                 this.Name = "FormTiposMantenimientos";
                 this.Text = "FormTiposMantenimientos";
                 this.Load += new System.EventHandler(this.FormTiposMantenimientos_Load);
