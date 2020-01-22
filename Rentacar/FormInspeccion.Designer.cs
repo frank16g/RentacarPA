@@ -52,31 +52,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(176, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(132, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 17);
+            this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 29;
             this.label1.Text = "Id";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 490);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(49, 398);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 25;
             this.label4.Text = "Fecha";
             // 
             // Inspecciones
             // 
             this.Inspecciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Inspecciones.Location = new System.Drawing.Point(68, 204);
-            this.Inspecciones.Margin = new System.Windows.Forms.Padding(4);
+            this.Inspecciones.Location = new System.Drawing.Point(51, 166);
             this.Inspecciones.Name = "Inspecciones";
             this.Inspecciones.RowHeadersWidth = 51;
-            this.Inspecciones.Size = new System.Drawing.Size(796, 272);
+            this.Inspecciones.Size = new System.Drawing.Size(597, 221);
             this.Inspecciones.TabIndex = 20;
             // 
             // groupBox1
@@ -86,9 +83,11 @@
             this.groupBox1.Controls.Add(this.buttonConfirmarAlquiler);
             this.groupBox1.Controls.Add(this.comboBox_tipo);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(68, 99);
+            this.groupBox1.Location = new System.Drawing.Point(51, 80);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(785, 98);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(589, 80);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Checkeos";
@@ -99,17 +98,19 @@
             this.comboBox_Examinacion.Items.AddRange(new object[] {
             "Todo  Correcto",
             "Necesita Mantenimiento"});
-            this.comboBox_Examinacion.Location = new System.Drawing.Point(317, 50);
+            this.comboBox_Examinacion.Location = new System.Drawing.Point(238, 41);
+            this.comboBox_Examinacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox_Examinacion.Name = "comboBox_Examinacion";
-            this.comboBox_Examinacion.Size = new System.Drawing.Size(220, 24);
+            this.comboBox_Examinacion.Size = new System.Drawing.Size(166, 21);
             this.comboBox_Examinacion.TabIndex = 38;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(314, 18);
+            this.label3.Location = new System.Drawing.Point(236, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 17);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 37;
             this.label3.Text = "Examinacion";
             // 
@@ -119,10 +120,9 @@
             this.buttonConfirmarAlquiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirmarAlquiler.ForeColor = System.Drawing.SystemColors.MenuText;
             this.buttonConfirmarAlquiler.Image = global::Rentacar.Properties.Resources.button;
-            this.buttonConfirmarAlquiler.Location = new System.Drawing.Point(601, 46);
-            this.buttonConfirmarAlquiler.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonConfirmarAlquiler.Location = new System.Drawing.Point(451, 37);
             this.buttonConfirmarAlquiler.Name = "buttonConfirmarAlquiler";
-            this.buttonConfirmarAlquiler.Size = new System.Drawing.Size(133, 28);
+            this.buttonConfirmarAlquiler.Size = new System.Drawing.Size(43, 25);
             this.buttonConfirmarAlquiler.TabIndex = 36;
             this.buttonConfirmarAlquiler.Text = "+";
             this.buttonConfirmarAlquiler.UseVisualStyleBackColor = true;
@@ -131,45 +131,48 @@
             // comboBox_tipo
             // 
             this.comboBox_tipo.FormattingEnabled = true;
-            this.comboBox_tipo.Location = new System.Drawing.Point(57, 50);
+            this.comboBox_tipo.Location = new System.Drawing.Point(43, 41);
+            this.comboBox_tipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox_tipo.Name = "comboBox_tipo";
-            this.comboBox_tipo.Size = new System.Drawing.Size(220, 24);
+            this.comboBox_tipo.Size = new System.Drawing.Size(166, 21);
             this.comboBox_tipo.TabIndex = 1;
             this.comboBox_tipo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 18);
+            this.label2.Location = new System.Drawing.Point(40, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 17);
+            this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tipo";
             // 
             // comboBox_autos
             // 
             this.comboBox_autos.FormattingEnabled = true;
-            this.comboBox_autos.Location = new System.Drawing.Point(162, 42);
+            this.comboBox_autos.Location = new System.Drawing.Point(122, 34);
+            this.comboBox_autos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox_autos.Name = "comboBox_autos";
-            this.comboBox_autos.Size = new System.Drawing.Size(225, 24);
+            this.comboBox_autos.Size = new System.Drawing.Size(170, 21);
             this.comboBox_autos.TabIndex = 31;
             this.comboBox_autos.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(457, 18);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(343, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 32;
             this.label5.Text = "Nombre";
             // 
             // textBox_Nombre
             // 
-            this.textBox_Nombre.Location = new System.Drawing.Point(422, 42);
+            this.textBox_Nombre.Location = new System.Drawing.Point(316, 34);
+            this.textBox_Nombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_Nombre.Name = "textBox_Nombre";
-            this.textBox_Nombre.Size = new System.Drawing.Size(166, 22);
+            this.textBox_Nombre.Size = new System.Drawing.Size(126, 20);
             this.textBox_Nombre.TabIndex = 33;
             // 
             // groupBox2
@@ -178,9 +181,11 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.comboBox_autos);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(68, 8);
+            this.groupBox2.Location = new System.Drawing.Point(51, 6);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(785, 85);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(589, 69);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Auto";
@@ -188,10 +193,10 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Enabled = false;
-            this.dateTimePicker.Location = new System.Drawing.Point(144, 492);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker.Location = new System.Drawing.Point(108, 400);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(399, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(300, 20);
             this.dateTimePicker.TabIndex = 35;
             // 
             // button_Continuar
@@ -200,10 +205,10 @@
             this.button_Continuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Continuar.ForeColor = System.Drawing.SystemColors.Desktop;
             this.button_Continuar.Image = ((System.Drawing.Image)(resources.GetObject("button_Continuar.Image")));
-            this.button_Continuar.Location = new System.Drawing.Point(685, 490);
-            this.button_Continuar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_Continuar.Location = new System.Drawing.Point(514, 398);
+            this.button_Continuar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_Continuar.Name = "button_Continuar";
-            this.button_Continuar.Size = new System.Drawing.Size(133, 27);
+            this.button_Continuar.Size = new System.Drawing.Size(100, 22);
             this.button_Continuar.TabIndex = 36;
             this.button_Continuar.Text = "Continuar";
             this.button_Continuar.UseVisualStyleBackColor = true;
@@ -211,10 +216,10 @@
             // 
             // FormInspeccion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(920, 528);
+            this.ClientSize = new System.Drawing.Size(690, 429);
             this.Controls.Add(this.button_Continuar);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.groupBox2);
@@ -222,6 +227,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Inspecciones);
             this.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormInspeccion";
             this.Text = "Inspeccion";
             this.Load += new System.EventHandler(this.Inspeccion_Load);

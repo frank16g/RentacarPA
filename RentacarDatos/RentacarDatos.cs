@@ -502,7 +502,8 @@ namespace RentacarDatos
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("AVISO: Error de conexión con la base de datos, el sistema es inestable y no se recomienda su uso. Contacte con el administrador.");
+               
             }
         }
 

@@ -79,10 +79,7 @@ namespace Rentacar
             else
             {
                 di.Add(d);
-
-
                 RentacarNegocio.RentacarNegocio.insertarDetalleInspeccion(d);
-
                 Inspecciones.DataSource = null;
                 Inspecciones.DataSource = di;
                 limpiarProducto();

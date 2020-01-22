@@ -43,19 +43,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buscar = new System.Windows.Forms.PictureBox();
             this.button_Continuar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buscar)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker
             // 
             this.dateTimePicker.Enabled = false;
             this.dateTimePicker.Location = new System.Drawing.Point(238, 162);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(300, 20);
             this.dateTimePicker.TabIndex = 29;
@@ -63,7 +63,7 @@
             // textBox_Id
             // 
             this.textBox_Id.Location = new System.Drawing.Point(238, 42);
-            this.textBox_Id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Id.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_Id.Name = "textBox_Id";
             this.textBox_Id.Size = new System.Drawing.Size(122, 20);
             this.textBox_Id.TabIndex = 16;
@@ -142,9 +142,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.groupBox1.Location = new System.Drawing.Point(19, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(582, 225);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
@@ -157,9 +157,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.groupBox2.Location = new System.Drawing.Point(18, 268);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(474, 111);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
@@ -169,7 +169,7 @@
             // 
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Location = new System.Drawing.Point(152, 47);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(300, 20);
             this.dateTimePicker1.TabIndex = 31;
@@ -191,9 +191,9 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.groupBox3.Location = new System.Drawing.Point(521, 266);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(195, 113);
             this.groupBox3.TabIndex = 32;
             this.groupBox3.TabStop = false;
@@ -209,17 +209,17 @@
             this.label5.Size = new System.Drawing.Size(0, 24);
             this.label5.TabIndex = 0;
             // 
-            // pictureBox1
+            // buscar
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.pictureBox1.Image = global::Rentacar.Properties.Resources.search1;
-            this.pictureBox1.Location = new System.Drawing.Point(642, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(74, 77);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.buscar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buscar.Image = global::Rentacar.Properties.Resources.search1;
+            this.buscar.Location = new System.Drawing.Point(642, 11);
+            this.buscar.Name = "buscar";
+            this.buscar.Size = new System.Drawing.Size(74, 77);
+            this.buscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.buscar.TabIndex = 33;
+            this.buscar.TabStop = false;
+            this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 
             // button_Continuar
             // 
@@ -228,7 +228,7 @@
             this.button_Continuar.ForeColor = System.Drawing.SystemColors.Desktop;
             this.button_Continuar.Image = ((System.Drawing.Image)(resources.GetObject("button_Continuar.Image")));
             this.button_Continuar.Location = new System.Drawing.Point(482, 398);
-            this.button_Continuar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Continuar.Margin = new System.Windows.Forms.Padding(2);
             this.button_Continuar.Name = "button_Continuar";
             this.button_Continuar.Size = new System.Drawing.Size(100, 22);
             this.button_Continuar.TabIndex = 34;
@@ -244,12 +244,12 @@
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(752, 429);
             this.Controls.Add(this.button_Continuar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.buscar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormEntrega";
             this.Text = "FormEntrega";
             this.groupBox1.ResumeLayout(false);
@@ -258,7 +258,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buscar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,7 +279,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox buscar;
         private System.Windows.Forms.Button button_Continuar;
     }
 }
